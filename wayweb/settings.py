@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     #apps
     'users',
+    'produto',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,5 @@ LOGIN_REDIRECT_URL = 'index'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_COOKIE_SECURE = False
