@@ -4,8 +4,7 @@ from rest_framework.viewsets import views, ViewSet
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-from produto.models import Produto, Categoria, Peca
-from produto.serialize import CategoriaSerializer, PecaSerializer, ProdutoSerializer
+from produto.serialize import CategoriaSerializer, ProdutoSerializer
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -21,13 +20,6 @@ class CadastroProd(ViewSet):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    @action(methods=['POST'], detail=False)
-    def cadPeca(self, request):
-        serializer = PecaSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
     
     @action(methods=['POST'], detail=False)
     def cadProd(self, request):
