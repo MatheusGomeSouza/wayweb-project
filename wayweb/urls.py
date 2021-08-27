@@ -13,22 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from produto.api.viewsets import CategoriaViewSet
+# from produto.api.viewsets import CategoriaViewSet
 from warnings import simplefilter
 from django.contrib import admin
 from django.urls import path, include
 from users import views as user_views
 # from produto.views import CadastroProd
 from django.contrib.auth import views as auth_views
-from rest_framework import routers
-from rest_framework.routers import SimpleRouter
+# from rest_framework import routers
 from rest_framework.urlpatterns import format_suffix_patterns
 from produto.api import *
+from produto.views import *
 
 #router = SimpleRouter()
-route = routers.DefaultRouter()
+# route = routers.DefaultRouter()
 
-route.register('cad', CategoriaViewSet, basename="categoria")
+# route.register('cad', CategoriaViewSet, basename="categoria")
 
 # router.register('cad', CadastroProd, 'cadastro_produto')
 
@@ -39,6 +39,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user_views.index, name="index"),
     path('register/', user_views.register, name='register'),
-    path('prod/', include(route.urls))
+    path('cad/', categoria_list),
+    path('cad/<int:pk>', categoria_detail),
 ]
 
+urlpatterns = format_suffix_patterns(urlpatterns)
