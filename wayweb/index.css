@@ -63,7 +63,13 @@
     font-size: 20px;
     font-family: Roboto;
     font-weight: bold;
-    
+    color: black;
+}
+.button:hover{
+    color: #4B4B4B;
+}
+.button:visited{
+    color: black;
 }
 #informacao{
     background: #F6F6F6;
