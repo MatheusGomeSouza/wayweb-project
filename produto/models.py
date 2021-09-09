@@ -6,7 +6,7 @@ class Categoria(models.Model):
     nome = models.CharField(max_length=255)
 
 class Modelo(models.Model):
-    foto = models.ImageField()
+    nome = models.CharField(max_length=255, default="")
 
 class Produto(models.Model):
     SKU = models.CharField(max_length=255)

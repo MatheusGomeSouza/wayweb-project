@@ -13,34 +13,33 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# from produto.api.viewsets import CategoriaViewSet
+from django.views.generic.edit import DeleteView
+from produto.api.viewsets import CategoriaViewSet, EntregaViewSet, ItemPedidoViewSet, ModeloViewSet, PedidoViewSet, ProdutoViewSet, TipoPagViewSet
 from warnings import simplefilter
 from django.contrib import admin
 from django.urls import path, include
 from users import views as user_views
-# from produto.views import CadastroProd
 from django.contrib.auth import views as auth_views
-# from rest_framework import routers
-from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework import routers
 from produto.api import *
 from produto.views import *
 
-#router = SimpleRouter()
-# route = routers.DefaultRouter()
+route = routers.DefaultRouter()
 
-# route.register('cad', CategoriaViewSet, basename="categoria")
-
-# router.register('cad', CadastroProd, 'cadastro_produto')
-
+route.register('categoria', CategoriaViewSet, basename="categoria")
+route.register('modelo', ModeloViewSet, basename="categoria")
+route.register('prod', ProdutoViewSet, basename="categoria")
+route.register('tipopag', TipoPagViewSet, basename="categoria")
+route.register('pedido', PedidoViewSet, basename="categoria")
+route.register('entrega', EntregaViewSet, basename="categoria")
+route.register('itempedido', ItemPedidoViewSet, basename="categoria")
 
 urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('admin/', admin.site.urls),
     path('', user_views.index, name="index"),
+    path('reg/', user_views.gerenciamento, name="gerenciamento"),
     path('register/', user_views.register, name='register'),
-    path('cad/', categoria_list),
-    path('cad/<int:pk>', categoria_detail),
+    path('prod/', include(route.urls)),
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
