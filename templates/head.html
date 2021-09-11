@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" media="screen" />
+    <title>WAY</title>
+    
+    <!--Template based on URL below-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Place your stylesheet here-->
+    <link href="static/css/stylesheet.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="header" >
+        <a href="templates/index.html"><img src="media/logo.png" id="img-logo" alt=""/></a>
+        <form class="form-inline col-md-3 mb-3" id="barra-busca">
+            <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+            <img src="media/lupa.png" id="img-lupa" alt="Buscar"/>
+        </form>
+
+        <img src="media/user.png" id="img-perfil" alt=""/>
+        <div style="justify-content: center">
+            <button id="cadastre">ENTRE OU CADASTRE-SE</button>
+
+            <button src="{% url 'sacola:detail' %}" id="button-sacola"><img src="media/sacola.png"></button>
+            <a href="{% url 'sacola:detail' %}"><li>sacola</li></a>
+
+            
+        </div>
+        
+    </div>
+
+    <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
+        <div class="collapse navbar-collapse" style="justify-content: space-around" id="navbarsExampleDefault">
+            <a href="masculino.html" class="button">Masculino</a>
+            <a href="" class="button">Feminino</a>
+            <a href="" class="button">Sales</a>
+        </div>
+    </nav>
+
+

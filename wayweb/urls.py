@@ -23,6 +23,9 @@ from django.contrib.auth import views as auth_views
 from rest_framework import routers
 from produto.api import *
 from produto.views import *
+from sacola.views import *
+from django.conf.urls.static import static
+from django.conf import settings
 
 route = routers.DefaultRouter()
 
@@ -38,8 +41,10 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('admin/', admin.site.urls),
-    path('', user_views.index, name="index"),
+    path('', user_views.index, name="templates/index"),
     path('reg/', user_views.gerenciamento, name="gerenciamento"),
     path('register/', user_views.register, name='register'),
     path('prod/', include(route.urls)),
-]
+    path("sacola/", include("sacola.urls")),
+    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
