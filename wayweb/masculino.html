@@ -30,21 +30,37 @@
         </form>
         <img src="user.png" id="img-perfil" alt=""/>
         <div style="justify-content: center">
-            <button id="cadastre">ENTRE OU CADASTRE-SE</button>
+            <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
             <button id="button-favorito"><img src="coracao.png"></button>
             <button id="button-sacola"><img src="sacola.png"></button>
         </div>
-        
     </div>
-
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Senha">
+                    </div>
+                    <button class="btn btn-dark btn-block"id="texto">Entra</button>
+                    <div class="text-center mt-1 mb-1">
+                        <a href="" class="texto1">Esqueceu seu e-mail?</a> | <a href="" class="texto1">Esqueceu sua senha?</a>
+                    </div>
+                    <button class="btn btn-light btn-block" id="texto1">Quero me cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
         <div class="collapse navbar-collapse" style="justify-content: space-around" id="navbarsExampleDefault">
             <a href="masculino.html" class="button">Masculino</a>
-            <a href="" class="button">Feminino</a>
+            <a href="" class="button">Feminina</a>
             <a href="" class="button">Sales</a>
         </div>
     </nav>
-
 
     <div id="localizacao">
         <label >Você está em: </label>
@@ -53,8 +69,87 @@
         <label class="espaco">Masculino</label>
     </div>
     
+    <div class="roupas1">
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Rosa</label>
+            <label class="valor">R$50,00</label>
+        </div>   
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Azul</label>
+            <label class="valor">R$50,00</label>
+        </div>
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Amarelo</label>
+            <label class="valor">R$50,00</label>
+        </div>
+    </div>
     
+    <div class="roupas1">
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Rosa</label>
+            <label class="valor">R$50,00</label>
+        </div>   
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Azul</label>
+            <label class="valor">R$50,00</label>
+        </div>
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Amarelo</label>
+            <label class="valor">R$50,00</label>
+        </div>
+    </div>
     
+    <div class="roupas1">
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Rosa</label>
+            <label class="valor">R$50,00</label>
+        </div>   
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Azul</label>
+            <label class="valor">R$50,00</label>
+        </div>
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Amarelo</label>
+            <label class="valor">R$50,00</label>
+        </div>
+    </div>
+    
+    <div class="roupas1">
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Rosa</label>
+            <label class="valor">R$50,00</label>
+        </div>   
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Azul</label>
+            <label class="valor">R$50,00</label>
+        </div>
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Amarelo</label>
+            <label class="valor">R$50,00</label>
+        </div>
+    </div>
+    
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" style="color:black;" href="#">Voltar</a></li>
+          <li class="page-item"><a class="page-link" style="color:black;" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" style="color:black;" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" style="color:black;" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" style="color:black;" href="#">Próximo</a></li>
+      </ul>
+    </nav>
     
     <!-- Bootstrap core JavaScript
     ================================================== -->

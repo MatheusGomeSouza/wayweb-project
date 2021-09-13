@@ -57,6 +57,36 @@
     border: 0;
     margin: 40px 25px 40px 5px;
 }
+#texto{
+    color: white;
+    font-size: 19px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+#email{
+    font-size: 17px;
+    border-color: #4B4B4B;
+}
+#password{
+    font-size: 17px;
+    border-color: #4B4B4B;
+}
+.texto1{
+    color: black;
+    font-size: 13px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.texto1:hover{
+    color: #4B4B4B;
+}
+#texto1{
+    color: black;
+    font-size: 19px;
+    font-family: Roboto;
+    font-weight: bold;
+    background: #EAEAEA;
+}
 .button{
     background: white;
     border: 0;
@@ -77,7 +107,49 @@
     font-weight: bold;
     padding-top: 40px;
     padding-left: 144px;
+    padding-bottom: 50px;
 }
 .espaco{
     padding-left: 8px;
+}
+.roupas1{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+.camiseta{
+    border: 0;
+    background: white;
+    padding-left: 67px;
+    padding-right: 67px;
+}
+.camiseta1{
+    border: 0;
+    background: #F6F6F6;
+    padding-left: 67px;
+    padding-right: 67px;
+    
+}
+.div-roupa{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.desc-camiseta{
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: bold;        
+}
+.valor{
+    font-size: 24px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+.page-link{
+    color: black;
 }
