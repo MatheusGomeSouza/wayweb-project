@@ -2,7 +2,6 @@
     width: 100%;
     display: flex; 
     flex-direction: row;
-    background-color: white;
 }
 
 #img-logo{
@@ -37,7 +36,7 @@
 #cadastre{
     background: white;
     border: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-family: Roboto;
     font-weight: bold;
 }
@@ -232,9 +231,6 @@
 }
 
 
-
-
-
 *, *::after, *::before {
   box-sizing: border-box;
 }
@@ -257,12 +253,14 @@ body {
   background-size: cover;
 }
 
-h1 {
-  display: table-cell;
+#favorito {
   vertical-align: middle;
   text-align: center;
-  font-size: 45px;
-  color: white;
+  font-size: 22px;
+  color: black;
+  background-color: #8DABE9;
+  font-weight: bold;    
+  
 }
 
 .nav-trigger {
@@ -272,7 +270,6 @@ h1 {
   right: 40px;
   height: 44px;
   width: 44px;
-
   overflow: hidden;
   color: transparent;
   white-space: nowrap;
@@ -297,7 +294,7 @@ h1 {
   visibility: visible;
 }
 
-.nav-container {
+.nav-container-favorito {
   position: fixed;
   z-index: 3;
   top: 0;
@@ -306,17 +303,18 @@ h1 {
   width: 90%;
   max-width: 460px;
   padding: 2em 3.5em;
-  background: #F3F3F3;
+  background: white;
   overflow: auto;
   transform: translateZ(0);
   transform: translateX(100%);
   transition: transform .5s cubic-bezier(.07,.23,.34,1);
 }
 
-.nav-open .nav-container {
-  transform: translateX(0);
-}
 
+.nav-open .nav-container-favorito {
+  transform: translateX(0);
+
+}
 .nav-container h2 {
   font-size: 15px;
   font-weight: bold;

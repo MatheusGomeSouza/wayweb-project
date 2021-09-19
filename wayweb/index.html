@@ -323,22 +323,24 @@
     
     <body>
 
-<nav class="nav-container" id="navigation">
-  <header>
-    <h2>Navegação</h2>
-  </header>
+    <nav class="nav-container-favorito" id="favoritos">
+      <header>
+        <a id="favorito">LISTA DE FAVORITOS ESTÁ VAZIA</a>
+      </header>
+    </nav>
+    <div class="overlay"></div> <!-- improve main element 3d movement -->
+    </body>  
+    
+    <body>
+    <nav class="nav-container-sacola" id="sacola">
+      <header>
+        <a id="sacola">SACOLA ESTÁ VAZIA</a>
+      </header>
+        <a href="">IR PARA A SACOLA</a>
+    </nav>
+    
+    </body>
 
-  <ul class="nav">
-    <li><a href="#0">About</a></li>
-    <li><a href="#0">Services</a></li>
-    <li><a href="#0">Portfolio</a></li>
-    <li><a href="#0">Clients</a></li>
-    <li><a href="#0">Contact</a></li>
-  </ul>
-</nav>
-
-<div class="overlay"></div> <!-- improve main element 3d movement -->
-</body>  
     
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -365,17 +367,41 @@
         
         console.log(overlayTrigger)
         
-        navTrigger.addEventListener('click', toggleNavigation);
+        navTrigger.addEventListener('click', toggleFavoritos);
         
-        overlayTrigger.addEventListener('click', toggleNavigationClose);
+        overlayTrigger.addEventListener('click', toggleFavoritosClose);
 
-        function toggleNavigationClose(event) {
+        function toggleFavoritosClose(event) {
           event.preventDefault();
           console.log(body)
           body.classList.remove("nav-open")
         }
 
-        function toggleNavigation(event) {
+        function toggleFavoritos(event) {
+          event.preventDefault();
+          body.classList.toggle('nav-open');
+        }
+    </script>
+    
+    <script>
+        var navTrigger = document.getElementById('button-sacola'),
+        body = document.getElementsByTagName('body')[0];
+        
+        var overlayTrigger = document.getElementsByClassName('overlay')[0];
+        
+        console.log(overlayTrigger)
+        
+        navTrigger.addEventListener('click', toggleSacola);
+        
+        overlayTrigger.addEventListener('click', toggleSacolaClose);
+
+        function toggleSacolaClose(event) {
+          event.preventDefault();
+          console.log(body)
+          body.classList.remove("nav-open")
+        }
+
+        function toggleSacola(event) {
           event.preventDefault();
           body.classList.toggle('nav-open');
         }
