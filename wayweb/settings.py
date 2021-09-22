@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+
+import socket
 from pathlib import Path
 import os
 
@@ -38,13 +40,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #libs
+    # DJDT DEBUG
+    'debug_toolbar',
+
+    # libs
     'rest_framework',
     'crispy_forms',
-    #apps
+    # apps
     'users',
     'produto',
     'sacola.apps.SacolaConfig',
+]
+
+INTERNAL_IPS = [
+    '127.0.0.1:8000/',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +64,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # DEBUG
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 ]
 
 ROOT_URLCONF = 'wayweb.urls'
@@ -82,7 +94,7 @@ WSGI_APPLICATION = 'wayweb.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'operacao',
         'USER': 'postgres',
@@ -134,7 +146,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL =  'media/'
+MEDIA_URL = 'media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -146,3 +158,16 @@ LOGIN_REDIRECT_URL = 'index'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_COOKIE_SECURE = False
+
+
+# django-debug
+# =====================================================================
+
+def show_toolbar(request):
+    return True
+
+
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+}
+# =====================================================================

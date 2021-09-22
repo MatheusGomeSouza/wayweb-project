@@ -13,6 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+import debug_toolbar
+from django.conf import settings
 from django.views.generic.edit import DeleteView
 from produto.api.viewsets import CategoriaViewSet, EntregaViewSet, ItemPedidoViewSet, ModeloViewSet, PedidoViewSet, ProdutoViewSet, TipoPagViewSet
 from warnings import simplefilter
@@ -25,7 +28,9 @@ from produto.api import *
 from produto.views import *
 from sacola.views import *
 from django.conf.urls.static import static
-from django.conf import settings
+from django.contrib.staticfiles import *
+from django.urls import path, include
+
 
 route = routers.DefaultRouter()
 
@@ -46,5 +51,13 @@ urlpatterns = [
     path('register/', user_views.register, name='register'),
     path('prod/', include(route.urls)),
     path("sacola/", include("sacola.urls")),
-    
+
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# DEBUG TOOLBAR
+if settings.DEBUG:
+    urlpatterns += [path("__debug__/", include(debug_toolbar.urls)),
+                    ]
