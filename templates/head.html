@@ -11,16 +11,12 @@
     <link rel="icon" href="static/favicon.ico">
     <link rel="stylesheet" type="text/css" href="static/css/index.css" media="screen" />
     <title>WAY</title>
-    
-    <!--Template based on URL below-->
+
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
-
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Place your stylesheet here-->
-    <link href="static/css/stylesheet.css" rel="stylesheet" type="text/css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -34,12 +30,12 @@
 
         <img src="media/user.png" id="img-perfil" alt=""/>
         <div style="justify-content: center">
-            <form method ="post" action="sacola/">
-            {% csrf_token %}
+<!--            <form method ="post" action="sacola/">-->
+<!--            {% csrf_token %}-->
             <button type="submit" id="cadastre">ENTRE OU CADASTRE-SE</button>
-            <button id="button-favorito" class="button-favorito"><img src="media/coracao.png"></button>
-            <button type="submit" value="sacola" id="button-sacola"><img src="media/sacola.png"></button>
-            </form>
+            <button id="favoritos" class="button-favorito"><img src="media/coracao.png"></button>
+            <button id="sacola" class="button-sacola"><img src="media/sacola.png"></button>
+<!--            </form>-->
         </div>
     </div>
 
