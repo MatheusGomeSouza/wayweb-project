@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # DJDT DEBUG
     'debug_toolbar',
-
+    
     # libs
     'rest_framework',
     'crispy_forms',

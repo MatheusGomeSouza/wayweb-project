@@ -34,11 +34,15 @@
 
         <img src="media/user.png" id="img-perfil" alt=""/>
         <div style="justify-content: center">
-            <button id="cadastre">ENTRE OU CADASTRE-SE</button>
 
-            <button src="{% url 'sacola:detail' %}" id="button-sacola"><img src="media/sacola.png"></button>
-            <a href="{% url 'sacola:detail' %}"><li>sacola</li></a>
+            
+            <form method ="post" action="sacola/">
+            {% csrf_token %}
+            <button type="submit" id="cadastre">ENTRE OU CADASTRE-SE</button>
 
+            <button type="submit" value="sacola" id="button-sacola"><img src="media/sacola.png"></button>
+            
+            </form>
             
         </div>
         

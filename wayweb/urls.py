@@ -27,6 +27,7 @@ from rest_framework import routers
 from produto.api import *
 from produto.views import *
 from sacola.views import *
+from produto.views import *
 from django.conf.urls.static import static
 from django.contrib.staticfiles import *
 from django.urls import path, include
@@ -51,7 +52,7 @@ urlpatterns = [
     path('register/', user_views.register, name='register'),
     path('prod/', include(route.urls)),
     path("sacola/", include("sacola.urls")),
-
+    
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -13,3 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 from rest_framework.decorators import action
+
+
+def detalhe_produto(request):
+    return render(request, "templates/detalhe_produto.html")
