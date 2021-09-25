@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,87 +16,19 @@
 </head>
 
 <body>
-    <div id="header" >
-        <a href="index.html"><img src="logo.png" id="img-logo" alt=""/></a>
-        <form class="form-inline col-md-3 mb-3" id="barra-busca">
-            <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
-            <img src="lupa.png" id="img-lupa" alt="Buscar"/>
-        </form>
-        <img src="user.png" id="img-perfil" alt=""/>
-        <div style="justify-content: center">
-            <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
-            <button id="button-favorito" class="button-favorito"><img src="coracao.png"></button>
-            <button id="button-sacola" class="button-sacola"><img src="sacola.png"></button>
-        </div>    
-    </div>
-    
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Senha">
-                    </div>
-                    <button class="btn btn-dark btn-block"id="texto">Entra</button>
-                    <div class="text-center mt-1 mb-1">
-                        <a href="" class="texto1">Esqueceu seu e-mail?</a> | <a href="" class="texto1">Esqueceu sua senha?</a>
-                    </div>
-                    <button class="btn btn-light btn-block" id="texto1">Quero me cadastrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
-        <div class="collapse navbar-collapse" style="justify-content: space-around" id="navbarsExampleDefault">
-            <a href="masculino.html" class="button">Masculino</a>
-            <a href="" class="button">Feminina</a>
-            <a href="" class="button">Sales</a>
-        </div>
-    </nav>
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="banner.png" class="d-block w-100" src="..." alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img  src="banner2.png" class="d-block w-100" src="..." alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img  src="banner3.png" class="d-block w-100" src="..." alt="Third slide">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-    
+{%include 'head.html'%}
+{%include 'carroussel.html'%}
    <div id="informacao">
         <div>
-            <img src="entrega.png" class="img-informacao" alt=""/>
+            <img src="media/entrega.png" class="img-informacao" alt=""/>
             <label class="text-informacao">ENVIO PARA TODO BRASIL</label>
         </div>
         <div>
-            <img src="Sale.png" class="img-informacao" alt=""/>
+            <img src="media/Sale.png" class="img-informacao" alt=""/>
             <label class="text-informacao">MELHORES PREÇOS</label>
         </div>
         <div>
-            <img src="parcela.png" class="img-informacao" alt=""/>
+            <img src="media/parcela.png" class="img-informacao" alt=""/>
             <label class="text-informacao">PARCELE SUAS COMPRAS</label>
         </div>
     </div>
@@ -108,22 +39,23 @@
     
     <div class="roupas">
         <div class="div-roupa">
-            <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+            <a href="" class="camiseta"><img src="media/camiseta1.png" alt=""/></a>
             <label class="desc-camiseta">Camiseta Rosa</label>
             <label class="valor">R$50,00</label>
         </div>   
         <div class="div-roupa">
-            <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+            <a href="" class="camiseta"><img src="media/camiseta2.png" alt=""/></a>
             <label class="desc-camiseta">Camiseta Azul</label>
             <label class="valor">R$50,00</label>
         </div>
         <div class="div-roupa">
-            <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+            <a href="" class="camiseta"><img src="media/camiseta3.png" alt=""/></a>
             <label class="desc-camiseta">Camiseta Amarelo</label>
             <label class="valor">R$50,00</label>
         </div>
     </div>
-      
+
+
     <div id="retorno">   
         <div class="topico">
             <hr class="linha1"><label class="titulo">RETORNO DA COLEÇÃO</label><hr class="linha2">
@@ -133,17 +65,17 @@
     <div id="retorno1">
         <div class="roupas">
             <div class="div-roupa">
-                <a href="" class="camiseta1"><img src="camiseta1.png" alt=""/></a>
+                <a href="" class="camiseta1"><img src="media/camiseta1.png" alt=""/></a>
                 <label class="desc-camiseta">Camiseta Rosa</label>
                 <label class="valor">R$50,00</label>
             </div>   
             <div class="div-roupa">
-                <a class="camiseta1"><img src="camiseta2.png" alt=""/></a>
+                <a class="camiseta1"><img src="media/camiseta2.png" alt=""/></a>
                 <label class="desc-camiseta">Camiseta Azul</label>
                 <label class="valor">R$50,00</label>
             </div>
             <div class="div-roupa">
-                <a class="camiseta1"><img src="camiseta3.png" alt=""/></a>
+                <a class="camiseta1"><img src="media/camiseta3.png" alt=""/></a>
                 <label class="desc-camiseta">Camiseta Amarelo</label>
                 <label class="valor">R$50,00</label>
             </div>
@@ -172,7 +104,7 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta2.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Azul</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -183,7 +115,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta1.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Rosa</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -193,7 +125,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta3.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Amarelo</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -209,7 +141,7 @@
     
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta3.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Amarela</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -220,7 +152,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta2.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Azul</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -229,7 +161,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta1.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta"> Camiseta Rosa </label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -245,7 +177,7 @@
     
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta1.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Rosa</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -256,7 +188,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta3.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Amarela</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -266,7 +198,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="camiseta2.png">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Azul</label>
                                                 <p class="card-text valor">R$50,00.</p>
@@ -287,48 +219,20 @@
         </div>
     </section>
     
-    <div class="rodape">
-        <div id="rodape-info">
-            <div class="rodape1">
-                <label class="rodape-titulo-coluna">INSTITUCIONAL</label>
-                <a class="rodape3" href="">Empresa</a>
-                <a class="rodape3" href="">Privacidade e segurança</a>
-                <a class="rodape3" href="">Política de troca e devolução</a>
-            </div>
-            <div class="rodape1">
-                <label class="rodape-titulo-coluna">ATENDIMENTO</label>
-                <div>
-                    <img src="mail.png" alt="">
-                    <label class="rodape4"l>suporte@way.com.br</label>
-                </div>
-                <div>
-                    <img src="clock.png" alt="">
-                    <label class="rodape4">Horário de funcionamento</label>
-                </div>
-                <label>Segunda à Sexta-feita</label>
-                <label>8:00 às 19:00</label>
-            </div>
-        </div>
-        <div id="rodape-social">
-            <a href="https://www.instagram.com/"><img src="Instagram Circle.png" alt=""></a> 
-            <a href="https://www.facebook.com/"><img src="Facebook Circled.png" alt=""></a>
-        </div>
-    </div>
-    
-   
+    {%include 'rodape.html'%}
+
     <nav class="nav-container-favorito" id="favoritos">
         <header>
             <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
         </header>
     </nav>
-        
+
     <nav id="sacola">
         <header>
             <a>SACOLA ESTÁ VAZIA</a>
         </header>
         <a href="">IR PARA A SACOLA</a>
     </nav>
-
     
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -366,9 +270,9 @@
 
             $sacola.offcanvas("toggle");
         });
-        
+
         $(".button-favorito").on("click", function() {
-            $sacola.offcanvas("destroy");     
+            $sacola.offcanvas("destroy");
 
             var $favorito = $("#favoritos").offcanvas({
                 origin: "right",
@@ -379,9 +283,10 @@
             });
 
             $favorito.offcanvas("toggle");
-        }); 
+        });
     </script>
 </body>
 </html>
+
 
 

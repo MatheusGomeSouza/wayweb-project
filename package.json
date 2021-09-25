@@ -19,6 +19,6 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "jquery-offcanvas": "^3.4.7",
-    "velocity-animate": "^1.5.2",
+    "velocity-animate": "^1.5.2"
   }
 }

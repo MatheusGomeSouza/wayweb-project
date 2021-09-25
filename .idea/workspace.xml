@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="25ad440c-c655-489c-92a5-041b1a53a35e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/produto/migrations/0002_auto_20210909_2232.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/produto/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/cart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sacola/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/css.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/js.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/carroussel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/detalhe_produto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/head.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/masculino.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rodape.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/sacola/sacola_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/static/js/metotod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produto/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/produto/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produto/api/serialize.py" beforeDir="false" afterPath="$PROJECT_DIR$/produto/api/serialize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produto/api/viewsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/produto/api/viewsets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produto/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/produto/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produto/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/produto/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produto/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/produto/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produto/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/produto/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produto/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/produto/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/masculino.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/masculino.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/logout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/Facebook Circled.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Facebook Circled.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/Instagram Circle.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Instagram Circle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/Sale.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Sale.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/banner2.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/banner2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/banner3.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/banner3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/camiseta1.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/camiseta1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/camiseta2.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/camiseta2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/camiseta3.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/camiseta3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/clock.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/clock.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/coracao.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/coracao.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/entrega.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/entrega.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/lupa.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/lupa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/mail.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/mail.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/masculino.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/masculino.html" beforeDir="false" afterPath="$PROJECT_DIR$/wayweb/masculino.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/parcela.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/parcela.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/sacola.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/sacola.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/wayweb/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/wayweb/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/user.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/user.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wayweb/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wayweb/wsgi.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1yc1R2NK9gDvYCReqZ3feqwsBtr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="25ad440c-c655-489c-92a5-041b1a53a35e" name="Changes" comment="" />
+      <created>1632536051544</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632536051544</updated>
+      <workItem from="1632536053485" duration="523000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

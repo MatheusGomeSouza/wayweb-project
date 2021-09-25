@@ -23,3 +23,6 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'register.html', {'form' : form})
+
+def gerenciamento(request):
+    return render(request, "produto.html")
