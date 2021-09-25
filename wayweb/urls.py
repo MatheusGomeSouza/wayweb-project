@@ -13,6 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+import debug_toolbar
+from django.conf import settings
 from django.views.generic.edit import DeleteView
 from produto.api.viewsets import CategoriaViewSet, EntregaViewSet, ItemPedidoViewSet, ModeloViewSet, PedidoViewSet, ProdutoViewSet, TipoPagViewSet
 from warnings import simplefilter
@@ -23,6 +26,12 @@ from django.contrib.auth import views as auth_views
 from rest_framework import routers
 from produto.api import *
 from produto.views import *
+from sacola.views import *
+from produto.views import *
+from django.conf.urls.static import static
+from django.contrib.staticfiles import *
+from django.urls import path, include
+
 
 route = routers.DefaultRouter()
 
@@ -38,8 +47,18 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('admin/', admin.site.urls),
-    path('', user_views.index, name="index"),
+    path('', user_views.index, name="templates/index"),
     path('reg/', user_views.gerenciamento, name="gerenciamento"),
     path('register/', user_views.register, name='register'),
     path('prod/', include(route.urls)),
-]
+    path("sacola/", include("sacola.urls")),
+    
+
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# DEBUG TOOLBAR
+if settings.DEBUG:
+    urlpatterns += [path("__debug__/", include(debug_toolbar.urls)),
+                    ]
