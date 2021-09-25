@@ -36,7 +36,7 @@
 #cadastre{
     background: white;
     border: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-family: Roboto;
     font-weight: bold;
 }
@@ -56,6 +56,36 @@
     background: white;
     border: 0;
     margin: 40px 25px 40px 5px;
+}
+#texto{
+    color: white;
+    font-size: 19px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+#email{
+    font-size: 17px;
+    border-color: #4B4B4B;
+}
+#password{
+    font-size: 17px;
+    border-color: #4B4B4B;
+}
+.texto1{
+    color: black;
+    font-size: 13px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.texto1:hover{
+    color: #4B4B4B;
+}
+#texto1{
+    color: black;
+    font-size: 19px;
+    font-family: Roboto;
+    font-weight: bold;
+    background: #EAEAEA;
 }
 .button{
     background: white;
@@ -77,7 +107,94 @@
     font-weight: bold;
     padding-top: 40px;
     padding-left: 144px;
+    padding-bottom: 50px;
 }
 .espaco{
     padding-left: 8px;
+}
+#div-container{
+    display: flex;
+    width: 100%;
+}
+#div-filtro{
+    width: 300px;
+}
+.roupas1{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 40px;
+    width: 100%;
+}
+.camiseta{
+    border: 0;
+    background: white;
+}
+.div-container-roupa{
+    width: 100%;
+}
+.div-roupa{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.desc-camiseta{
+    font-size: 18px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.valor{
+    font-size: 22px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+.page-link{
+    color: black;
+}
+.rodape{
+    background: #F6F6F6;
+}
+#rodape-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.rodape1{
+    font-size: 20px;
+    padding-top: 42px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto;
+    font-weight: bold;
+    margin: 0 30px
+}
+.rodape-titulo-coluna{
+    padding-bottom: 30px;
+}
+.rodape2{
+    font-size: 14px;
+    color: black;
+}
+.rodape3{
+    color:black;
+}
+.rodape4{
+    padding-left: 8px;
+}
+#rodape-social{
+    display:flex;
+    justify-content: center;
+    padding: 10px
+}
+
+.nav-container-favorito {
+    height: 100%;
+    width: 100%;
+    padding: 2em 3.5em;
+    background: white;
 }

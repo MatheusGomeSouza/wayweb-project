@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="masculino.css" media="screen" />
+    <title>WAY Masculino</title>
+    <!--Template based on URL below-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../node_modules/jquery-offcanvas/dist/jquery.offcanvas.min.css">
+</head>
+
+<body>
+
+<div id="header" >
+        <a href="index.html"><img src="logo.png" id="img-logo" alt=""/></a>
+        <form class="form-inline col-md-3 mb-3" id="barra-busca">
+            <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+            <img src="lupa.png" id="img-lupa" alt="Buscar"/>
+        </form>
+        <img src="user.png" id="img-perfil" alt=""/>
+        <div style="justify-content: center">
+            <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
+            <button id="button-favorito" class="button-favorito"><img src="coracao.png"></button>
+            <button id="button-sacola" class="button-sacola"><img src="sacola.png"></button>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Senha">
+                    </div>
+                    <button class="btn btn-dark btn-block"id="texto">Entra</button>
+                    <div class="text-center mt-1 mb-1">
+                        <a href="" class="texto1">Esqueceu seu e-mail?</a> | <a href="" class="texto1">Esqueceu sua senha?</a>
+                    </div>
+                    <button class="btn btn-light btn-block" id="texto1">Quero me cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
+        <div class="collapse navbar-collapse" style="justify-content: space-around" id="navbarsExampleDefault">
+            <a href="masculino.html" class="button">Masculino</a>
+            <a href="" class="button">Feminina</a>
+            <a href="" class="button">Sales</a>
+        </div>
+    </nav>
+
+    <div id="localizacao">
+        <label >Você está em: </label>
+        <a class="espaco" href="index.html">Início</a>
+        <label class="espaco">></label>
+        <label class="espaco">Masculino</label>
+    </div>
+    
+    <div id="div-container">
+        <div id="div-filtro" class="d-flex justify-content-center">
+            
+        </div>
+        <div class= "div-container-roupa">
+            <div class="roupas1">
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Rosa</label>
+                    <label class="valor">R$50,00</label>
+                </div>   
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Azul</label>
+                    <label class="valor">R$50,00</label>
+                </div>
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Amarelo</label>
+                    <label class="valor">R$50,00</label>
+                </div>
+            </div>
+            <div class="roupas1">
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Rosa</label>
+                    <label class="valor">R$50,00</label>
+                </div>   
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Azul</label>
+                    <label class="valor">R$50,00</label>
+                </div>
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Amarelo</label>
+                    <label class="valor">R$50,00</label>
+                </div>
+            </div>
+            <div class="roupas1">
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Rosa</label>
+                    <label class="valor">R$50,00</label>
+                </div>   
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Azul</label>
+                    <label class="valor">R$50,00</label>
+                </div>
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Amarelo</label>
+                    <label class="valor">R$50,00</label>
+                </div>
+            </div>
+            <div class="roupas1">
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta1.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Rosa</label>
+                    <label class="valor">R$50,00</label>
+                </div>   
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta2.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Azul</label>
+                    <label class="valor">R$50,00</label>
+                </div>
+                <div class="div-roupa">
+                    <a href="" class="camiseta"><img src="camiseta3.png" alt=""/></a>
+                    <label class="desc-camiseta">Camiseta Amarelo</label>
+                    <label class="valor">R$50,00</label>
+                </div>
+            </div>
+        </div>
+    </div>        
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" style="color:black;" href="#">Voltar</a></li>
+          <li class="page-item"><a class="page-link" style="color:black;" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" style="color:black;" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" style="color:black;" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" style="color:black;" href="#">Próximo</a></li>
+      </ul>
+    </nav>
+    
+    <div class="rodape">
+        <div id="rodape-info">
+            <div class="rodape1">
+                <label class="rodape-titulo-coluna">INSTITUCIONAL</label>
+                <a class="rodape3" href="">Empresa</a>
+                <a class="rodape3" href="">Privacidade e segurança</a>
+                <a class="rodape3" href="">Política de troca e devolução</a>
+            </div>
+            <div class="rodape1">
+                <label class="rodape-titulo-coluna">ATENDIMENTO</label>
+                <div>
+                    <img src="mail.png" alt="">
+                    <label class="rodape4"l>suporte@way.com.br</label>
+                </div>
+                <div>
+                    <img src="clock.png" alt="">
+                    <label class="rodape4">Horário de funcionamento</label>
+                </div>
+                <label>Segunda à Sexta-feita</label>
+                <label>8:00 às 19:00</label>
+            </div>
+        </div>
+        <div id="rodape-social">
+            <a href="https://www.instagram.com/"><img src="Instagram Circle.png" alt=""></a> 
+            <a href="https://www.facebook.com/"><img src="Facebook Circled.png" alt=""></a>
+        </div>
+    </div>
+
+    <nav class="nav-container-favorito" id="favoritos">
+        <header>
+            <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
+        </header>
+    </nav>
+
+    <nav id="sacola">
+        <header>
+            <a>SACOLA ESTÁ VAZIA</a>
+        </header>
+        <a href="">IR PARA A SACOLA</a>
+    </nav>
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/velocity-animate/velocity.min.js"></script>
+    <script src="../node_modules/jquery-offcanvas/dist/jquery.offcanvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+    <script>  
+        var myModal = document.getElementById('loginModal')
+        var myInput = document.getElementById('email')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+          myInput.focus()
+        })
+    </script>
+
+    <script>
+        var $sacola = $("#sacola");
+        var $favorito = $("#favoritos");
+
+        $(".button-sacola").on("click", function() {
+            $favorito.offcanvas("destroy");
+
+            var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+            $sacola.offcanvas("toggle");
+        });
+        
+        $(".button-favorito").on("click", function() {
+            $sacola.offcanvas("destroy");     
+
+            var $favorito = $("#favoritos").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+            $favorito.offcanvas("toggle");
+        }); 
+    </script>    
+</body>
+</html>
