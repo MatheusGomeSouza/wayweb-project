@@ -11,32 +11,32 @@
 from django.shortcuts import render
 
 
-def sacola_detail(request):
-    if request.session.get("teste") is None:
-        request.session["teste"]  = randint(1, 1000)
-    return render(request, "sacola/sacola_detail.html")
-
-
 # def sacola_detail(request):
-#         request.session["SESSÂO ABERTA"] = {
-#             "produto_1" : {
-#                 "Nome": "Camiseta Polo",
-#                 "Preço": 29.9,
-#                 "quantidade": 3,
-#             },
-#              "produto_2" : {
-#                 "Nome": "Calça Harmane",
-#                 "Preço": 500.000,
-#                 "quantidade": 1,
-#             },
-#             "produto3": {
-#                 "Nome": "Guilherme gay",
-#                 "preco": 100.00,
-#                 "quantidade": 2 
+#     if request.session.get("teste") is None:
+#         request.session["teste"]  = randint(1, 1000)
+#     return render(request, "sacola/sacola_detail.html")
 
-#             },
-#         }
-#         return render(request, "sacola/sacola_detail.html")
+
+def sacola_detail(request):
+        request.session["SESSÂO ABERTA"] = {
+            "produto_1" : {
+                "Nome": "Camiseta Polo",
+                "Preço": 29.9,
+                "quantidade": 3,
+            },
+             "produto_2" : {
+                "Nome": "Calça Harmane",
+                "Preço": 500.000,
+                "quantidade": 1,
+            },
+            "produto3": {
+                "Nome": "Guilherme gay",
+                "preco": 100.00,
+                "quantidade": 2 
+
+            },
+        }
+        return render(request, "sacola/sacola_detail.html")
 
 
 
