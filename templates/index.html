@@ -216,6 +216,23 @@
         </header>
         <a href="">IR PARA A SACOLA</a>
     </nav>
+    <nav id="sacola">
+        <header>
+            <a>COMPRA</a>
+        </header>
+        <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
+    </nav>
+
+    <div>
+        <ul>
+            <li class="nav-item">
+                <a href="{% url 'produto:list' %}" class="nav-link lead mr-4 font-weight-bold">Produtos</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'sacola:detail' %}" class="nav-link lead mr-4 font-weight-bold">Sacola</a>
+            </li>
+        </ul>
+    </div>
     
     <!-- Bootstrap core JavaScript
     ================================================== -->

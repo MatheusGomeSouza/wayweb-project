@@ -16,32 +16,16 @@ Including another URLconf
 
 import debug_toolbar
 from django.conf import settings
-from django.views.generic.edit import DeleteView
-from produto.api.viewsets import CategoriaViewSet, EntregaViewSet, ItemPedidoViewSet, ModeloViewSet, PedidoViewSet, ProdutoViewSet, TipoPagViewSet
-from warnings import simplefilter
 from django.contrib import admin
 from django.urls import path, include
+import produto
 from users import views as user_views
 from django.contrib.auth import views as auth_views
-from rest_framework import routers
-from produto.api import *
-from produto.views import *
 from sacola.views import *
-from produto.views import *
 from django.conf.urls.static import static
 from django.contrib.staticfiles import *
 from django.urls import path, include
 
-
-route = routers.DefaultRouter()
-
-route.register('categoria', CategoriaViewSet, basename="categoria")
-route.register('modelo', ModeloViewSet, basename="categoria")
-route.register('prod', ProdutoViewSet, basename="categoria")
-route.register('tipopag', TipoPagViewSet, basename="categoria")
-route.register('pedido', PedidoViewSet, basename="categoria")
-route.register('entrega', EntregaViewSet, basename="categoria")
-route.register('itempedido', ItemPedidoViewSet, basename="categoria")
 
 urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
@@ -50,15 +34,11 @@ urlpatterns = [
     path('', user_views.index, name="templates/index"),
     path('reg/', user_views.gerenciamento, name="gerenciamento"),
     path('register/', user_views.register, name='register'),
-    path('prod/', include(route.urls)),
     path("sacola/", include("sacola.urls")),
-    
-
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('product/', include('produto.urls')),
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # DEBUG TOOLBAR
 if settings.DEBUG:
-    urlpatterns += [path("__debug__/", include(debug_toolbar.urls)),
-                    ]
+    urlpatterns += [path("__debug__/", include(debug_toolbar.urls)),]
