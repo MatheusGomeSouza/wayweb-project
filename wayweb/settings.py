@@ -40,12 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # DJDT DEBUG
-    'debug_toolbar',
-    
     # libs
     'rest_framework',
     'crispy_forms',
+    'widget_tweaks',
+    'debug_toolbar',
     # apps
     'users',
     'produto',
@@ -127,9 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'pt-br'
-
-TIME_ZONE = 'America/Sao_Paulo'
+LANGUAGE_CODE = 'en-us'
 
 USE_I18N = True
 
@@ -146,7 +143,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -170,4 +167,11 @@ def show_toolbar(request):
 DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK": show_toolbar,
 }
+
+import socket  # noqa
+
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
 # =====================================================================
+
+CART_SESSION_ID = "cart"

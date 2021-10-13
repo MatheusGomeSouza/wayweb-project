@@ -1,19 +1,31 @@
-from django.http import request
-from django.shortcuts import render
-import json
-from rest_framework.decorators import api_view
-from rest_framework.viewsets import ViewSet
-from rest_framework.response import Response
-from rest_framework.parsers import JSONParser
-from rest_framework import status
-from produto.api.serialize import *
-from django.views.decorators.csrf import csrf_exempt
-#from cart.forms import CartAddProductForm
+from django.shortcuts import get_object_or_404
+from django.views.generic import DetailView, ListView
+from sacola.forms import CartAddProductForm
+
+from .models import Category, Product
 
 
-# Create your views here.
-from rest_framework.decorators import action
+class ProductDetailView(DetailView):
+    queryset = Product.available.all()
+    extra_context = {'form': CartAddProductForm}
 
 
-def detalhe_produto(request):
-    return render(request, "templates/detalhe_produto.html")
+class ProductListView(ListView):
+    category = None
+    paginate_by = 6
+
+    def get_queryset(self):
+        queryset = Product.available.all()
+
+        category_slug = self.kwargs.get("slug")
+        if category_slug:
+            self.category = get_object_or_404(Category, slug=category_slug)
+            queryset = queryset.filter(category=self.category)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["category"] = self.category
+        context["categories"] = Category.objects.all()
+        return context
