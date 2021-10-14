@@ -63,7 +63,8 @@
                     <label >Você está em: </label>
                     <a class="espaco" href="{% url 'guest/index' %}">Início</a>
                     <label class="espaco">></label>
-                    <label class="espaco">Masculino</label>
+                    <label class="espaco"></label>
+                    <a class="espaco" href="{% url 'guest/masculino' %}">Masculino</a>
                     <label class="espaco">></label>
                     <label class="espaco">Blusa Rosa</label>
                 </div>
@@ -118,7 +119,7 @@
                 <div class="col-2"></div> 
                 <div class="col-8">
                     <div>
-                        <a href="media/compra.html" class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar">COMPRAR</a>
+                        <a href="{% url 'guest/compra' %}" class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar">COMPRAR</a>
                     </div>
                 </div> 
                 <div class="col-2"></div>
@@ -126,7 +127,7 @@
             <div class="row" id="adicionarfav">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <div class="btn btn-light text-center text-break btn-block border border-dark sem-borda">
+                    <div class="btn btn-light text-center text-break btn-block border border-dark sem-borda" style="cursor:  pointer;">
                         <img src="media/Header39x31.png" class="mr-3" alt=""><span id="txtadd">Adicionar aos favoritos</span>
                     </div>
                 </div>

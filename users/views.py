@@ -12,11 +12,17 @@ from .models import *
 def index(request):
     return render(request,'guest/index.html')
 
+def masculino(request):
+    return render(request, 'guest/masculino.html')
+
 def produto(request):
     return render(request, 'guest/descricao.html')
 
-def masculino(request):
-    return render(request, 'guest/masculino.html')
+def compra(request):
+    return render(request, 'guest/compra.html')
+
+def pagamento(request):
+    return render(request, 'guest/pagamento.html')
 
 def register(request):
     if request.method == 'POST':

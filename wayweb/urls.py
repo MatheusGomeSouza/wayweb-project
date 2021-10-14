@@ -34,6 +34,8 @@ urlpatterns = [
     path('', user_views.index, name="guest/index"),
     path('masculino', user_views.masculino, name="guest/masculino"),
     path('produto', user_views.produto, name="guest/descricao"),
+    path('compra', user_views.compra, name="guest/compra"),
+    path('pagamento', user_views.pagamento, name="guest/pagamento"),
     path('reg/', user_views.gerenciamento, name="gerenciamento"),
     path('register/', user_views.register, name='register'),
     path("sacola/", include("sacola.urls")),
