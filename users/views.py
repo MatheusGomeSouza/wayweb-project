@@ -10,7 +10,7 @@ from .models import *
 
 @csrf_protect
 def index(request):
-    return render(request,'index.html')
+    return render(request,'guest/index.html')
 
 def register(request):
     if request.method == 'POST':
