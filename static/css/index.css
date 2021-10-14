@@ -259,8 +259,8 @@ body {
   font-size: 22px;
   color: black;
   background-color: #8DABE9;
-  font-weight: bold;
-
+  font-weight: bold;    
+  
 }
 
 .nav-trigger {
@@ -295,10 +295,19 @@ body {
 }
 
 .nav-container-favorito {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
   height: 100%;
-  width: 100%;
+  width: 90%;
+  max-width: 460px;
   padding: 2em 3.5em;
   background: white;
+  overflow: auto;
+  transform: translateZ(0);
+  transform: translateX(100%);
+  transition: transform .5s cubic-bezier(.07,.23,.34,1);
 }
 
 

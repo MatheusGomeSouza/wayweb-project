@@ -101,61 +101,109 @@
 .button:visited{
     color: black;
 }
-#localizacao{
-    font-size: 18px;
-    font-family: Roboto;
-    font-weight: bold;
-    padding-top: 40px;
-    padding-bottom: 50px;
-}
-.espaco{
-    padding-left: 8px;
-}
-#div-container{
-    display: flex;
-    width: 100%;
-}
-#div-filtro{
-    width: 300px;
-}
-.roupas1{
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 40px;
-    width: 100%;
-}
-.camiseta{
-    border: 0;
-    background: white;
-}
-.div-container-roupa{
-    width: 100%;
-}
-.div-roupa{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-}
-.desc-camiseta{
-    font-size: 18px;
+.dados{
+    font-size: 23px;
     font-family: Roboto;
     font-weight: bold;
 }
-.valor{
-    font-size: 22px;
+#estado{
+    font-family: Roboto;
+    font-size: 20px;
+}
+.estados{
+    border-color: #E2E2E2;
+    padding-left: 22px;
+    padding-right: 11px;
+    background-color:#F6F6F6;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: Roboto;
+}
+.form{
+    border-color: #E2E2E2;
+    font-size: 1.4rem;
+    width: 100%;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+    padding-left: 18px;
+    font-family: Roboto;
+}
+.forms{
+    font-family: Roboto;
+    font-size: 20px;
+}
+#vencimento{
+    font-family: Roboto;
+    font-size: 20px;
+}
+.vencimento{
+    border-color: #E2E2E2;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color:#F6F6F6;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    padding-top: 2px;
+    padding-bottom: 2px
+}
+.parcela{
+    border-color: #E2E2E2;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color:#F6F6F6;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: Roboto;
+    width: 100%;
+}
+.descricao{
+   font-size:20px;
+   font-weight: bold;
+   font-family: Roboto;
+}
+#preco{
+   font-size:28px;
+   font-weight: bold;
+   font-family: Roboto; 
+}
+#quadro{
+    background-color: #F6F6F6
+}
+#total{
+    font-size:24px;
     font-family: Roboto;
     font-weight: bold;
 }
-.pagination{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 25px;
+#parcela{
+    font-size:16px;
+    font-family: Roboto;
+    font-weight: bold;
 }
-.page-link{
-    color: black;
+.sem-borda{
+    border-radius: 0 !important;
+}
+#voltar{
+    font-family: Roboto;
+    font-size: 30px;
+    color: red;
+    
+}
+#voltar:hover{
+    color: #4B4B4B;
+}
+#voltar:visited{
+    color: red;
+}
+#finalizar{
+    font-family: Roboto;
+    font-size: 28px;
 }
 .rodape{
-    background: #F6F6F6;
+    background: #F6F6F6;   
 }
 #rodape-info{
     display: flex;
@@ -189,11 +237,4 @@
     display:flex;
     justify-content: center;
     padding: 10px
-}
-
-.nav-container-favorito {
-    height: 100%;
-    width: 100%;
-    padding: 2em 3.5em;
-    background: white;
 }

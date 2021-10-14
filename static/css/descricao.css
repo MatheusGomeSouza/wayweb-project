@@ -85,7 +85,7 @@
     font-size: 19px;
     font-family: Roboto;
     font-weight: bold;
-    background: #EAEAEA;
+    background: #EAEAEA;        
 }
 .button{
     background: white;
@@ -111,25 +111,91 @@
 .espaco{
     padding-left: 8px;
 }
-#div-container{
-    display: flex;
-    width: 100%;
+#descricao{
+    flex-direction: column;
+    padding-top:   
 }
-#div-filtro{
-    width: 300px;
+.tituloroupa{
+    font-family: Roboto;
+    font-size: 33px;
+    font-weight: bold;
 }
-.roupas1{
+#valor{
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 30px;
+}
+#parcela{
+    font-family: Roboto;
+    font-size: 18px;
+}
+#tamanho{
+    font-family: Roboto;
+    font-size: 23px;
+    font-weight: bold;
+    padding-bottom: 21px;
+    padding-top: 46px;
+}
+
+#comprar{
+    padding-top: 32px;
+}
+#txtcomprar{
+    font-family: Roboto;
+    font-size: 23px;
+}
+#adicionarfav{
+    padding-top: 18px;
+    padding-bottom: 30px;
+}
+#txtadd{
+    font-family: Roboto;
+    font-size: 18px;
+}
+.topico{
     display: flex;
-    justify-content: space-around;
-    padding-bottom: 40px;
-    width: 100%;
+    align-items: center;
+    padding: 50px 0px;
+}
+.linha1{
+    flex: 1px;
+    background: black;
+    margin-left:auto;
+    height: 1px;
+    border: none;
+    margin-right: 10px;
+}
+.linha2{
+    flex: 1px;
+    background: black;
+    margin-left:auto;
+    height: 1px;
+    border: none;
+    margin-left: 10px;
+}
+.titulo{
+    text-align: center;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.roupas{
+    display: flex;
+    justify-content: center;
 }
 .camiseta{
     border: 0;
     background: white;
+    padding-left: 67px;
+    padding-right: 67px;
 }
-.div-container-roupa{
-    width: 100%;
+.camiseta1{
+    border: 0;
+    background: #F6F6F6;
+    padding-left: 67px;
+    padding-right: 67px;
+    
 }
 .div-roupa{
     display: flex;
@@ -137,23 +203,22 @@
     align-items:center;
 }
 .desc-camiseta{
-    font-size: 18px;
+    font-size: 20px;
     font-family: Roboto;
-    font-weight: bold;
+    font-weight: bold;        
 }
 .valor{
-    font-size: 22px;
+    font-size: 24px;
     font-family: Roboto;
     font-weight: bold;
 }
-.pagination{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 25px;
+#retorno{
+    background: #F6F6F6;
 }
-.page-link{
-    color: black;
+#retorno1{
+    background: #F6F6F6;
 }
+
 .rodape{
     background: #F6F6F6;
 }
@@ -188,12 +253,8 @@
 #rodape-social{
     display:flex;
     justify-content: center;
-    padding: 10px
+    padding: 10px;
 }
-
-.nav-container-favorito {
-    height: 100%;
-    width: 100%;
-    padding: 2em 3.5em;
-    background: white;
+.sem-borda{
+    border-radius: 0 !important;
 }

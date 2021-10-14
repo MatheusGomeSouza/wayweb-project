@@ -102,60 +102,143 @@
     color: black;
 }
 #localizacao{
-    font-size: 18px;
+    font-size: 23px;
     font-family: Roboto;
     font-weight: bold;
     padding-top: 40px;
-    padding-bottom: 50px;
+    padding-bottom: 5px;
 }
-.espaco{
-    padding-left: 8px;
+.produto{
+    font-size: 25px;
+    font-family: Roboto;
+    font-weight: bold;
 }
-#div-container{
-    display: flex;
-    width: 100%;
+.preco{
+    font-size: 26px;
+    font-family: Roboto;
+    font-weight: bold;
 }
-#div-filtro{
-    width: 300px;
-}
-.roupas1{
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 40px;
-    width: 100%;
-}
-.camiseta{
-    border: 0;
-    background: white;
-}
-.div-container-roupa{
-    width: 100%;
-}
-.div-roupa{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-}
-.desc-camiseta{
+#itens{
     font-size: 18px;
     font-family: Roboto;
-    font-weight: bold;
+    padding-bottom: 50px;
 }
-.valor{
-    font-size: 22px;
+.linha{
+    flex: 1px;
+    background: black;
+    margin-left:auto;
+    height: 1px;
+    border: none;
+    margin-right: auto;
+}
+.linha1{
+    flex: 1px;
+    background: black;
+    margin-left:auto;
+    height: 1px;
+    border: none;
+    margin-right: auto;
+}
+.linha4{
+    flex: 1px;
+    background: black;
+    margin-left:auto;
+    height: 1px;
+    border: none;
+    margin-right: auto;
+    margin-top: 36px;
+}
+.titulo{
     font-family: Roboto;
     font-weight: bold;
+    font-size: 22px;
 }
-.pagination{
-    display: flex;
-    justify-content: center;
+#frete{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 34px;
     padding-bottom: 25px;
 }
-.page-link{
-    color: black;
+.cep{
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #000000;
+  font-size: 1.4rem;
+  color: black;
+  width: 150px
+}
+.sem-borda{
+  border-radius: 0 !important;
+}
+#txtok{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 20px;
+}
+#btn-finaliza{
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+#finalizar{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 20px;
+}
+#btn-escolher{
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+#escolher{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 20px;
+}
+#quadro{
+    margin-bottom: 9px;
+    margin-top: 100px;
+    background-color: #C4C4C4;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+#total{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 25px;
+}
+#valor{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 24px;
+}
+#parcela{
+    font-family: Roboto;
+    font-size: 13px;
+}
+#distancia{
+    padding-bottom: 60px;
+}
+#tamanho{
+    font-family: Roboto;
+    font-size: 18px;
+}
+#quantidade{
+    font-family: Roboto;
+    font-size: 18px;
+}
+.menu1{
+    font-family: Roboto;
+    font-size: 18px;
+    border-color: black;
+}
+.menu{
+    font-family: Roboto;
+    font-size: 18px;
+    border-color: black;
+    padding-right: 18px
 }
 .rodape{
-    background: #F6F6F6;
+    background: #F6F6F6;   
 }
 #rodape-info{
     display: flex;
@@ -189,11 +272,4 @@
     display:flex;
     justify-content: center;
     padding: 10px
-}
-
-.nav-container-favorito {
-    height: 100%;
-    width: 100%;
-    padding: 2em 3.5em;
-    background: white;
 }
