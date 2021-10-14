@@ -274,6 +274,7 @@
         <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
     </nav>
 
+    <!-- 
     <div>
         <ul>
             <li class="nav-item">
@@ -283,7 +284,8 @@
                 <a href="{% url 'sacola:detail' %}" class="nav-link lead mr-4 font-weight-bold">Sacola</a>
             </li>
         </ul>
-    </div>
+    </div> 
+-->
     
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/velocity.min.js"></script>
@@ -304,11 +306,8 @@
     <script>
         var $sacola = $("#sacola");
         var $favorito = $("#favoritos");
-
-        $(".button-sacola").on("click", function() {
-            $favorito.offcanvas("destroy");
-
-            var $sacola = $("#sacola").offcanvas({
+        
+        var $sacola = $("#sacola").offcanvas({
                 origin: "right",
                 duration: 400,
                 covarage: 500,
@@ -316,10 +315,21 @@
                 effect: 'slide-in-over',
             });
 
+        $("#button-sacola").on("click", function() {
+            $favorito.offcanvas("destroy");
+            
+            var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+            
             $sacola.offcanvas("toggle");
         });
 
-        $(".button-favorito").on("click", function() {
+        $("#button-favorito").on("click", function() {
             $sacola.offcanvas("destroy");
 
             var $favorito = $("#favoritos").offcanvas({
