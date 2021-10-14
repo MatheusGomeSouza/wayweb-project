@@ -12,6 +12,12 @@ from .models import *
 def index(request):
     return render(request,'guest/index.html')
 
+def produto(request):
+    return render(request, 'guest/descricao.html')
+
+def masculino(request):
+    return render(request, 'guest/masculino.html')
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)

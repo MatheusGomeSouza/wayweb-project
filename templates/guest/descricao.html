@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="static/css/index.css" media="screen" />
-    <title>WAY</title>
+    <title>Way Camisa Rosa</title>
+    <link rel="stylesheet" type="text/css" href="static/css/descricao.css" media="screen" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/jquery.offcanvas.min.css">
@@ -27,7 +27,7 @@
             <button id="button-sacola"><img src="media/sacola.png"></button>
         </div>    
     </div>
-
+    
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-
+    
     <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
         <div class="collapse navbar-collapse" style="justify-content: space-around">
             <a href="{% url 'guest/masculino' %}" class="button">Masculino</a>
@@ -55,78 +55,89 @@
             <a href="" class="button">Sales</a>
         </div>
     </nav>
+   
+    <div class="row">
+        <div class="col-1"></div>
+            <div class="col-10">
+                 <div id="localizacao">
+                    <label >Você está em: </label>
+                    <a class="espaco" href="{% url 'guest/index' %}">Início</a>
+                    <label class="espaco">></label>
+                    <label class="espaco">Masculino</label>
+                    <label class="espaco">></label>
+                    <label class="espaco">Blusa Rosa</label>
+                </div>
+            </div>
+        <div class="col-1"></div>
+    </div>
+    
+    
 
-    {%include 'components/guest/carroussel.html'%}
+    <div class="row">
+        <div class="col-2 text-center">
+            <img src="media/camisa.png" class="mx-alto d-block" alt=""/>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                
+            </div>
+        </div>
+        <div class="col-4">
+            <div id=descricao>
+            <center><label class="tituloroupa">Blusa Rosa</label></center>
+            <div class="row">
+                <div class="col-2">
+                </div> 
+                <div class="col-8">
+                    <label id="valor">R$00,00</label>
+                    <label id="parcela">0x de R$ 00,00  sem juros no cartão</label>
+                </div> 
+                <div class="col-2">
+                </div> 
+            </div>     
+            <center id="tamanho">Escolha o tamanho</center>
 
-   <div id="informacao">
-        <div>
-            <img src="media/entrega.png" class="img-informacao" alt=""/>
-            <label class="text-informacao">ENVIO PARA TODO BRASIL</label>
-        </div>
-        <div>
-            <img src="media/Sale.png" class="img-informacao" alt=""/>
-            <label class="text-informacao">MELHORES PREÇOS</label>
-        </div>
-        <div>
-            <img src="media/parcela.png" class="img-informacao" alt=""/>
-            <label class="text-informacao">PARCELE SUAS COMPRAS</label>
+            <center>
+                <div class="btn-group btn-group-toggle sem-borda" data-toggle="buttons">
+                <label class="btn btn-ligth active border border-dark">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> P
+                </label>
+                <label class="btn btn-ligth active border border-dark ml-2">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> M
+                </label>
+                <label class="btn btn-ligth active border border-dark ml-2">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> G
+                </label>
+                <label class="btn btn-ligth active border border-dark ml-2">
+                    <input type="radio" name="options" id="option4" autocomplete="off"> GG
+                </label>
+                </div>
+            </center>
+
+            <div class="row" id="comprar">
+                <div class="col-2"></div> 
+                <div class="col-8">
+                    <div>
+                        <a href="media/compra.html" class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar">COMPRAR</a>
+                    </div>
+                </div> 
+                <div class="col-2"></div>
+            </div>  
+            <div class="row" id="adicionarfav">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="btn btn-light text-center text-break btn-block border border-dark sem-borda">
+                        <img src="media/Header39x31.png" class="mr-3" alt=""><span id="txtadd">Adicionar aos favoritos</span>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>    
+            </div>
         </div>
     </div>
     
     <div class="topico">
-        <hr class="linha1"><label class="titulo">TA EM ALTA</label><hr class="linha2">
-    </div>
-    
-    <div class="roupas">
-        <div class="div-roupa">
-            <a href="" class="camiseta"><img src="media/camiseta1.png" alt=""/></a>
-            <label class="desc-camiseta">Camiseta Rosa</label>
-            <label class="valor">R$50,00</label>
-        </div>   
-        <div class="div-roupa">
-            <a href="" class="camiseta"><img src="media/camiseta2.png" alt=""/></a>
-            <label class="desc-camiseta">Camiseta Azul</label>
-            <label class="valor">R$50,00</label>
-        </div>
-        <div class="div-roupa">
-            <a href="" class="camiseta"><img src="media/camiseta3.png" alt=""/></a>
-            <label class="desc-camiseta">Camiseta Amarelo</label>
-            <label class="valor">R$50,00</label>
-        </div>
-    </div>
-
-
-    <div id="retorno">   
-        <div class="topico">
-            <hr class="linha1"><label class="titulo">RETORNO DA COLEÇÃO</label><hr class="linha2">
-        </div>
-    </div> 
-    
-    <div id="retorno1">
-        <div class="roupas">
-            <div class="div-roupa">
-                <a href="" class="camiseta1"><img src="media/camiseta1.png" alt=""/></a>
-                <label class="desc-camiseta">Camiseta Rosa</label>
-                <label class="valor">R$50,00</label>
-            </div>   
-            <div class="div-roupa">
-                <a class="camiseta1"><img src="media/camiseta2.png" alt=""/></a>
-                <label class="desc-camiseta">Camiseta Azul</label>
-                <label class="valor">R$50,00</label>
-            </div>
-            <div class="div-roupa">
-                <a class="camiseta1"><img src="media/camiseta3.png" alt=""/></a>
-                <label class="desc-camiseta">Camiseta Amarelo</label>
-                <label class="valor">R$50,00</label>
-            </div>
-        </div>
-                <div id="divVer">
-            <a href="" id="ver"><label>Ver mais</label></a>
-        </div>
-    </div>
-    
-    <div class="topico">
-        <hr class="linha1"><label class="titulo">LANÇAMENTO</label><hr class="linha2">
+        <hr class="linha1"><label class="titulo">PRODUTO SIMILARES</label><hr class="linha2">
     </div>
     
      <section class="pb-5">
@@ -260,7 +271,7 @@
     </section>
     
     {%include 'components/guest/rodape.html'%}
-
+    
     <nav class="nav-container-favorito" id="favoritos" style="display: none;">
         <header>
             <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
@@ -274,19 +285,6 @@
         <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
     </nav>
 
-    <!-- 
-    <div>
-        <ul>
-            <li class="nav-item">
-                <a href="{% url 'produto:list' %}" class="nav-link lead mr-4 font-weight-bold">Produtos</a>
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'sacola:detail' %}" class="nav-link lead mr-4 font-weight-bold">Sacola</a>
-            </li>
-        </ul>
-    </div> 
--->
-    
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/velocity.min.js"></script>
     <script src="static/js/jquery.offcanvas.min.js"></script>
@@ -301,9 +299,7 @@
         myModal.addEventListener('shown.bs.modal', function () {
           myInput.focus()
         })
-    </script>
 
-    <script>
         var $sacola = $("#sacola");
         var $favorito = $("#favoritos");
         
@@ -342,7 +338,7 @@
                 overlay: true,
                 effect: 'slide-in-over',
             });
-            
+
             $favorito.show();
             $sacola.hide();
 
@@ -351,5 +347,3 @@
     </script>
 </body>
 </html>
-
-
