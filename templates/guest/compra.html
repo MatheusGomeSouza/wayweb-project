@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Way Reseumo da Compra</title>
+    <link rel="stylesheet" type="text/css" href="static/css/compra.css" media="screen" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="header" >
+        <a href="{% url 'guest/index' %}"><img src="media/logo.png" id="img-logo" alt=""/></a>
+        <form class="form-inline col-md-3 mb-3" id="barra-busca">
+            <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+            <img src="media/lupa.png" id="img-lupa" alt="Buscar"/>
+        </form>
+        <img src="media/user.png" id="img-perfil" alt=""/>
+        <div style="justify-content: center">
+            <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
+            <button id="button-favorito"><img src="media/coracao.png"></button>
+            <button id="button-sacola"><img src="media/sacola.png"></button>
+        </div>    
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Senha">
+                    </div>
+                    <button class="btn btn-dark btn-block"id="texto">Entra</button>
+                    <div class="text-center mt-1 mb-1">
+                        <a href="" class="texto1">Esqueceu seu e-mail?</a> | <a href="" class="texto1">Esqueceu sua senha?</a>
+                    </div>
+                    <button class="btn btn-light btn-block" id="texto1">Quero me cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
+        <div class="collapse navbar-collapse" style="justify-content: space-around">
+            <a href="{% url 'guest/masculino' %}" class="button">Masculino</a>
+            <a href="" class="button">Feminino</a>
+            <a href="" class="button">Sales</a>
+        </div>
+    </nav>
+        
+    
+    <div class="row">
+        <div class="col-1"></div>
+            <div class="col-10">
+                 <div id="localizacao">
+                    <label >Sacola de compras</label>
+                </div>
+                <div id="itens">
+                    <label>1 item</label>
+                </div>
+            </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row" id="distancia">
+        <div class="col-1"></div>
+        <div class="col-7">
+            <div class="row">
+                <div class="col-"></div>
+                <div class="col-11 ">
+                    <div>
+                        <hr class="linha">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="media/camisa.png" class="" alt=""/>
+                            </div>
+                            <div class="col-4">
+                                <span class="produto">Camiseta Amarela</span>
+                                <div class="form-group mt-5">
+                                    <label for="tamanho" id="tamanho">Tamanho:</label>
+                                    <select name="tamanho" class="ml-3 menu1">
+                                        <option>P</option>
+                                        <option>M</option>
+                                        <option>G</option>
+                                        <option>GG</option>
+                                    </select>
+                                </div>    
+                                <div class="form-group mt-4">
+                                    <label for="quantidade" id="quantidade">Quantidade:</label>
+                                    <select name="quantidade" class="ml-0 menu">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>    
+                            </div>
+                            <div class="col-4 mt-5">
+                                <span class="preco">R$00,00</span>
+                            </div>
+                            <div class="col-3"></div>    
+                        </div>
+                    </div>
+                    <hr class="linha">
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+        <div class="col-3 border border-dark">
+            <div class="mt-4">
+                <center><span class="titulo ">RESUMO DA COMPRA</span></center>
+                <div class="linha1"></div>
+                <label id="frete">CALCULE O FRETE</label>
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            <input class="cep" type="text" placeholder="CEP">
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                        <div class="btn btn-dark text-center text-break btn-block sem-borda">
+                            <span id="txtOKr">OK</span>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+                <hr class="linha4">
+                <div class="row" id="quadro">
+                    <div class="col-6">
+                        <span id="total">TOTAL</span>
+                    </div>
+                    <div class="col-6 ">
+                        <center><span id="valor">R$00,00</span></center>
+                        <center><span id="parcela">em até 0x de R$00,00</span></center>
+                    </div>    
+                    
+                </div>
+            
+                <div>
+                    <a href="{% url 'guest/pagamento' %}" class="btn btn-dark text-center text-break btn-block sem-borda mb-2 btn-finaliza" id="finalizar">Finalizar compra</a>
+                </div>
+                <div>
+                    <a href="{% url 'guest/index' %}" class="btn btn-light text-center text-break btn-block border-dark sem-borda mb-3 btn-escolher" id="escolher">Escolher mais Produtos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1" ></div>
+    </div>  
+    
+    {%include 'components/guest/rodape.html'%}
+    
+    <nav class="nav-container-favorito" id="favoritos" style="display: none;">
+        <header>
+            <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
+        </header>
+    </nav>
+
+    <nav id="sacola" style="display: none;">
+        <header>
+            <a>COMPRA</a>
+        </header>
+        <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
+    </nav>
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/velocity.min.js"></script>
+    <script src="static/js/jquery.offcanvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+    <script>  
+        var myModal = document.getElementById('loginModal')
+        var myInput = document.getElementById('email')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+          myInput.focus()
+        })
+
+        var $sacola = $("#sacola");
+        var $favorito = $("#favoritos");
+        
+        var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+        $("#button-sacola").on("click", function() {
+            $favorito.offcanvas("destroy");
+            
+            var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+            $sacola.show();
+            $favorito.hide();
+
+            $sacola.offcanvas("toggle");
+        });
+
+        $("#button-favorito").on("click", function() {
+            $sacola.offcanvas("destroy");
+
+            var $favorito = $("#favoritos").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+            $favorito.show();
+            $sacola.hide();
+
+            $favorito.offcanvas("toggle");
+        });
+    </script>
+</body>
+</html>

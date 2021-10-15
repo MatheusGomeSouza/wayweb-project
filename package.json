@@ -1,0 +1,24 @@
+{
+  "name": "wayweb-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusGomeSouza/wayweb-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatheusGomeSouza/wayweb-project/issues"
+  },
+  "homepage": "https://github.com/MatheusGomeSouza/wayweb-project#readme",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "jquery-offcanvas": "^3.4.7",
+    "velocity-animate": "^1.5.2"
+  }
+}

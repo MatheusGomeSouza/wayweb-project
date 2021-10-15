@@ -1,0 +1,369 @@
+{% load crispy_forms_tags %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" media="screen" />
+    <title>WAY</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="header" >
+        <a href="{% url 'index' %}"><img src="media/logo.png" id="img-logo" alt=""/></a>
+        <form class="form-inline col-md-3 mb-3" id="barra-busca">
+            <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+            <img src="media/lupa.png" id="img-lupa" alt="Buscar"/>
+        </form>
+        {% if user.is_authenticated %}
+        <div style="justify-content: center">
+            <label id="#">{{ user }}</label>
+            <button id="button-favorito"><img src="media/coracao.png"></button>
+            <button id="button-sacola"><img src="media/sacola.png"></button>
+        </div>
+        {% else %}
+        <img src="media/user.png" id="img-perfil" alt=""/>
+        <div style="justify-content: center">
+            <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
+            <button id="button-favorito"><img src="media/coracao.png"></button>
+            <button id="button-sacola"><img src="media/sacola.png"></button>
+        </div>
+        {% endif %}    
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                       <div class="content-section">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Join</legend>
+                                    {{ form|crispy }}
+                                </fieldset>
+                                <div class="form-group">
+                                    <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                                </div>
+                            </form>
+                            <div class="border-top pt-3">
+                                <small class="text-muted">
+                                    Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                                </small>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
+        <div class="collapse navbar-collapse" style="justify-content: space-around">
+            <a href="{% url 'guest/masculino' %}" class="button">Masculino</a>
+            <a href="" class="button">Feminino</a>
+            <a href="" class="button">Sales</a>
+        </div>
+    </nav>
+
+    {%include 'components/guest/carroussel.html'%}
+
+   <div id="informacao">
+        <div>
+            <img src="media/entrega.png" class="img-informacao" alt=""/>
+            <label class="text-informacao">ENVIO PARA TODO BRASIL</label>
+        </div>
+        <div>
+            <img src="media/Sale.png" class="img-informacao" alt=""/>
+            <label class="text-informacao">MELHORES PREÇOS</label>
+        </div>
+        <div>
+            <img src="media/parcela.png" class="img-informacao" alt=""/>
+            <label class="text-informacao">PARCELE SUAS COMPRAS</label>
+        </div>
+    </div>
+    
+    <div class="topico">
+        <hr class="linha1"><label class="titulo">TA EM ALTA</label><hr class="linha2">
+    </div>
+    
+    <div class="roupas">
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="media/camiseta1.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Rosa</label>
+            <label class="valor">R$50,00</label>
+        </div>   
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="media/camiseta2.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Azul</label>
+            <label class="valor">R$50,00</label>
+        </div>
+        <div class="div-roupa">
+            <a href="" class="camiseta"><img src="media/camiseta3.png" alt=""/></a>
+            <label class="desc-camiseta">Camiseta Amarelo</label>
+            <label class="valor">R$50,00</label>
+        </div>
+    </div>
+
+
+    <div id="retorno">   
+        <div class="topico">
+            <hr class="linha1"><label class="titulo">RETORNO DA COLEÇÃO</label><hr class="linha2">
+        </div>
+    </div> 
+    
+    <div id="retorno1">
+        <div class="roupas">
+            <div class="div-roupa">
+                <a href="" class="camiseta1"><img src="media/camiseta1.png" alt=""/></a>
+                <label class="desc-camiseta">Camiseta Rosa</label>
+                <label class="valor">R$50,00</label>
+            </div>   
+            <div class="div-roupa">
+                <a class="camiseta1"><img src="media/camiseta2.png" alt=""/></a>
+                <label class="desc-camiseta">Camiseta Azul</label>
+                <label class="valor">R$50,00</label>
+            </div>
+            <div class="div-roupa">
+                <a class="camiseta1"><img src="media/camiseta3.png" alt=""/></a>
+                <label class="desc-camiseta">Camiseta Amarelo</label>
+                <label class="valor">R$50,00</label>
+            </div>
+        </div>
+                <div id="divVer">
+            <a href="" id="ver"><label>Ver mais</label></a>
+        </div>
+    </div>
+    
+    <div class="topico">
+        <hr class="linha1"><label class="titulo">LANÇAMENTO</label><hr class="linha2">
+    </div>
+    
+     <section class="pb-5">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-1">
+                    <a class="btn" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                </div>
+                <div class="col-10">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta">Camiseta Azul</label>
+                                                <p class="card-text valor">R$50,00</p>
+    
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta">Camiseta Rosa</label>
+                                                <p class="card-text valor">R$50,00</p>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta">Camiseta Amarelo</label>
+                                                <p class="card-text valor">R$50,00</p>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+    
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta">Camiseta Amarela</label>
+                                                <p class="card-text valor">R$50,00</p>
+    
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta">Camiseta Azul</label>
+                                                <p class="card-text valor">R$50,00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta"> Camiseta Rosa </label>
+                                                <p class="card-text valor">R$50,00</p>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+    
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta">Camiseta Rosa</label>
+                                                <p class="card-text valor">R$50,00</p>
+    
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta">Camiseta Amarela</label>
+                                                <p class="card-text valor">R$50,00</p>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border:none">
+                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
+                                            <div class="card-body">
+                                                <label class="desc-camiseta">Camiseta Azul</label>
+                                                <p class="card-text valor">R$50,00.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <a class="btn" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {%include 'components/guest/rodape.html'%}
+
+    <nav class="nav-container-favorito" id="favoritos" style="display: none;">
+        <header>
+            <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
+        </header>
+    </nav>
+
+    <nav id="sacola" style="display: none;">
+        <header>
+            <a>COMPRA</a>
+        </header>
+        <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
+    </nav>
+
+    {% if user.is_authenticated %}
+    <div>
+        <ul>
+            <li class="nav-item">
+                <a href="{% url 'produto:list' %}" class="nav-link lead mr-4 font-weight-bold">Produtos</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'sacola:detail' %}" class="nav-link lead mr-4 font-weight-bold">Sacola</a>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/velocity.min.js"></script>
+    <script src="static/js/jquery.offcanvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+    <script>  
+        var myModal = document.getElementById('loginModal')
+        var myInput = document.getElementById('email')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+          myInput.focus()
+        })
+    </script>
+
+    <script>
+        var $sacola = $("#sacola");
+        var $favorito = $("#favoritos");
+        
+        var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+        $("#button-sacola").on("click", function() {
+            $favorito.offcanvas("destroy");
+            
+            var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+            $sacola.show();
+            $favorito.hide();
+
+            $sacola.offcanvas("toggle");
+        });
+
+        $("#button-favorito").on("click", function() {
+            $sacola.offcanvas("destroy");
+
+            var $favorito = $("#favoritos").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+            
+            $favorito.show();
+            $sacola.hide();
+
+            $favorito.offcanvas("toggle");
+        });
+    </script>
+</body>
+</html>
+
+

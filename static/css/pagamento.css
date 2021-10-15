@@ -1,0 +1,240 @@
+#header{
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+}
+
+#img-logo{
+    margin: 40px 25px 10px;
+    justify-content: flex-start;
+}
+#img-lupa{
+    width:24px;
+    height:24px;
+}
+#barra-busca{
+    margin: 0 auto; 
+    background-color: #C6D5F4; 
+    border-radius: 5px; 
+    height: 33px; 
+    top: 40px;
+}
+
+#barra-busca1{
+    background-color: #C6D5F4;
+    height: 100%;
+    border-radius: 5px;
+    border: 0;
+    width: calc(100% - 24px);
+}
+
+#navbar-id{
+    margin:10px 0;
+    border-top: 1px solid black;
+    border-bottom:1px solid black; 
+}
+#cadastre{
+    background: white;
+    border: 0;
+    font-size: 13px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+#img-perfil{
+    width:24px;
+    height:24px;
+    margin: 40px 10px;
+    
+}
+#button-favorito{
+    background: white;
+    border: 0;
+    margin: 40px 5px;
+    
+}
+#button-sacola{
+    background: white;
+    border: 0;
+    margin: 40px 25px 40px 5px;
+}
+#texto{
+    color: white;
+    font-size: 19px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+#email{
+    font-size: 17px;
+    border-color: #4B4B4B;
+}
+#password{
+    font-size: 17px;
+    border-color: #4B4B4B;
+}
+.texto1{
+    color: black;
+    font-size: 13px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.texto1:hover{
+    color: #4B4B4B;
+}
+#texto1{
+    color: black;
+    font-size: 19px;
+    font-family: Roboto;
+    font-weight: bold;
+    background: #EAEAEA;
+}
+.button{
+    background: white;
+    border: 0;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: bold;
+    color: black;
+}
+.button:hover{
+    color: #4B4B4B;
+}
+.button:visited{
+    color: black;
+}
+.dados{
+    font-size: 23px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+#estado{
+    font-family: Roboto;
+    font-size: 20px;
+}
+.estados{
+    border-color: #E2E2E2;
+    padding-left: 22px;
+    padding-right: 11px;
+    background-color:#F6F6F6;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: Roboto;
+}
+.form{
+    border-color: #E2E2E2;
+    font-size: 1.4rem;
+    width: 100%;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+    padding-left: 18px;
+    font-family: Roboto;
+}
+.forms{
+    font-family: Roboto;
+    font-size: 20px;
+}
+#vencimento{
+    font-family: Roboto;
+    font-size: 20px;
+}
+.vencimento{
+    border-color: #E2E2E2;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color:#F6F6F6;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    padding-top: 2px;
+    padding-bottom: 2px
+}
+.parcela{
+    border-color: #E2E2E2;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color:#F6F6F6;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: Roboto;
+    width: 100%;
+}
+.descricao{
+   font-size:20px;
+   font-weight: bold;
+   font-family: Roboto;
+}
+#preco{
+   font-size:28px;
+   font-weight: bold;
+   font-family: Roboto; 
+}
+#quadro{
+    background-color: #F6F6F6
+}
+#total{
+    font-size:24px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+#parcela{
+    font-size:16px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.sem-borda{
+    border-radius: 0 !important;
+}
+#voltar{
+    font-family: Roboto;
+    font-size: 30px;
+    color: red;
+    
+}
+#voltar:hover{
+    color: #4B4B4B;
+}
+#voltar:visited{
+    color: red;
+}
+#finalizar{
+    font-family: Roboto;
+    font-size: 28px;
+}
+.rodape{
+    background: #F6F6F6;   
+}
+#rodape-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.rodape1{
+    font-size: 20px;
+    padding-top: 42px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto;
+    font-weight: bold;
+    margin: 0 30px
+}
+.rodape-titulo-coluna{
+    padding-bottom: 30px;
+}
+.rodape2{
+    font-size: 14px;
+    color: black;
+}
+.rodape3{
+    color:black;
+}
+.rodape4{
+    padding-left: 8px;
+}
+#rodape-social{
+    display:flex;
+    justify-content: center;
+    padding: 10px
+}
