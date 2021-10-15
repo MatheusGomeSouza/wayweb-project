@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+{% csrf_token %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,39 +17,51 @@
 
 <body>
     <div id="header" >
-        <a href="{% url 'guest/index' %}"><img src="media/logo.png" id="img-logo" alt=""/></a>
+        <a href="{% url 'index' %}"><img src="media/logo.png" id="img-logo" alt=""/></a>
         <form class="form-inline col-md-3 mb-3" id="barra-busca">
             <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
             <img src="media/lupa.png" id="img-lupa" alt="Buscar"/>
         </form>
+        {% if user.is_authenticated %}
+        <div style="justify-content: center">
+            <label id="#">{{ user }}</label>
+            <button id="button-favorito"><img src="media/coracao.png"></button>
+            <button id="button-sacola"><img src="media/sacola.png"></button>
+        </div>
+        {% else %}
         <img src="media/user.png" id="img-perfil" alt=""/>
         <div style="justify-content: center">
             <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
             <button id="button-favorito"><img src="media/coracao.png"></button>
             <button id="button-sacola"><img src="media/sacola.png"></button>
-        </div>    
+        </div>
+        {% endif %}    
     </div>
-
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Senha">
-                    </div>
-                    <button class="btn btn-dark btn-block"id="texto">Entra</button>
-                    <div class="text-center mt-1 mb-1">
-                        <a href="" class="texto1">Esqueceu seu e-mail?</a> | <a href="" class="texto1">Esqueceu sua senha?</a>
-                    </div>
-                    <button class="btn btn-light btn-block" id="texto1">Quero me cadastrar</button>
+                       <div class="content-section">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Join</legend>
+                                    {{ form|crispy }}
+                                </fieldset>
+                                <div class="form-group">
+                                    <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                                </div>
+                            </form>
+                            <div class="border-top pt-3">
+                                <small class="text-muted">
+                                    Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                                </small>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
-
     <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
         <div class="collapse navbar-collapse" style="justify-content: space-around">
             <a href="{% url 'guest/masculino' %}" class="button">Masculino</a>
@@ -274,7 +288,7 @@
         <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
     </nav>
 
-    <!-- 
+    {% if user.is_authenticated %}
     <div>
         <ul>
             <li class="nav-item">
@@ -284,9 +298,9 @@
                 <a href="{% url 'sacola:detail' %}" class="nav-link lead mr-4 font-weight-bold">Sacola</a>
             </li>
         </ul>
-    </div> 
--->
-    
+    </div>
+    {% endif %}
+
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/velocity.min.js"></script>
     <script src="static/js/jquery.offcanvas.min.js"></script>

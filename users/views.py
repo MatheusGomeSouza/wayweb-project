@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
-from .forms import *
+from .forms import UserRegisterForm
 from .models import *
 
 # Create your views here.
@@ -34,7 +34,7 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'register.html', {'form' : form})
+    return render(request, 'users/register.html', {'form' : form})
 
 def gerenciamento(request):
     return render(request, "produto.html")
