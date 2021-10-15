@@ -1,30 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="static/css/masculino.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/masculino.css" media="screen" />
     <title>WAY Masculino</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.offcanvas.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div id="header" >
-        <a href="{% url 'guest/index' %}"><img src="media/logo.png" id="img-logo" alt=""/></a>
+    <div id="header">
+        <a href="{% url 'index' %}"><img src="/media/logo.png" id="img-logo" alt=""/></a>
         <form class="form-inline col-md-3 mb-3" id="barra-busca">
             <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
-            <img src="media/lupa.png" id="img-lupa" alt="Buscar"/>
+            <img src="/media/lupa.png" id="img-lupa" alt="Buscar"/>
         </form>
-        <img src="media/user.png" id="img-perfil" alt=""/>
+        <img src="/media/user.png" id="img-perfil" alt=""/>
         <div style="justify-content: center">
             <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
-            <button id="button-favorito"><img src="media/coracao.png"></button>
-            <button id="button-sacola"><img src="media/sacola.png"></button>
+            <button id="button-favorito"><img src="/media/coracao.png"></button>
+            <button id="button-sacola"><img src="/media/sacola.png"></button>
         </div>    
     </div>
 
@@ -50,7 +51,7 @@
     
     <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
         <div class="collapse navbar-collapse" style="justify-content: space-around">
-            <a href="{% url 'guest/masculino' %}" class="button">Masculino</a>
+            <a href="{% url 'masculino' %}" class="button">Masculino</a>
             <a href="" class="button">Feminino</a>
             <a href="" class="button">Sales</a>
         </div>
@@ -61,7 +62,7 @@
             <div class="col-10">
                  <div id="localizacao">
                     <label >Você está em: </label>
-                    <a class="espaco" href="{% url 'guest/index' %}">Início</a>
+                    <a class="espaco" href="{% url 'index' %}">Início</a>
                     <label class="espaco">></label>
                     <label class="espaco">Masculino</label>
                 </div>
@@ -85,68 +86,68 @@
         <div class= "div-container-roupa">
             <div class="roupas1">
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta1.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta1.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Rosa</label>
                     <label class="valor">R$50,00</label>
                 </div>   
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta2.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta2.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Azul</label>
                     <label class="valor">R$50,00</label>
                 </div>
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta3.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta3.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Amarelo</label>
                     <label class="valor">R$50,00</label>
                 </div>
             </div>
             <div class="roupas1">
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta1.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta1.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Rosa</label>
                     <label class="valor">R$50,00</label>
                 </div>   
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta2.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta2.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Azul</label>
                     <label class="valor">R$50,00</label>
                 </div>
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta3.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta3.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Amarelo</label>
                     <label class="valor">R$50,00</label>
                 </div>
             </div>
             <div class="roupas1">
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta1.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta1.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Rosa</label>
                     <label class="valor">R$50,00</label>
                 </div>   
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta2.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta2.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Azul</label>
                     <label class="valor">R$50,00</label>
                 </div>
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta3.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta3.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Amarelo</label>
                     <label class="valor">R$50,00</label>
                 </div>
             </div>
             <div class="roupas1">
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta1.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta1.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Rosa</label>
                     <label class="valor">R$50,00</label>
                 </div>   
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta2.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta2.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Azul</label>
                     <label class="valor">R$50,00</label>
                 </div>
                 <div class="div-roupa">
-                    <a href="" class="camiseta"><img src="media/camiseta3.png" alt=""/></a>
+                    <a href="" class="camiseta"><img src="/media/camiseta3.png" alt=""/></a>
                     <label class="desc-camiseta">Camiseta Amarelo</label>
                     <label class="valor">R$50,00</label>
                 </div>
@@ -179,9 +180,9 @@
         <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
     </nav>
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/velocity.min.js"></script>
-    <script src="static/js/jquery.offcanvas.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/velocity.min.js"></script>
+    <script src="/static/js/jquery.offcanvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
