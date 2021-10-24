@@ -5,91 +5,76 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Way Camisa Rosa</title>
-    <link rel="stylesheet" type="text/css" href="static/css/descricao.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/descricao.css" media="screen" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.offcanvas.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div id="header" >
-        <a href="{% url 'guest/index' %}"><img src="media/logo.png" id="img-logo" alt=""/></a>
-        <form class="form-inline col-md-3 mb-3" id="barra-busca">
-            <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
-            <img src="media/lupa.png" id="img-lupa" alt="Buscar"/>
-        </form>
-        <img src="media/user.png" id="img-perfil" alt=""/>
-        <div style="justify-content: center">
-            <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
-            <button id="button-favorito"><img src="media/coracao.png"></button>
-            <button id="button-sacola"><img src="media/sacola.png"></button>
-        </div>    
-    </div>
-    
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Senha">
-                    </div>
-                    <button class="btn btn-dark btn-block"id="texto">Entra</button>
-                    <div class="text-center mt-1 mb-1">
-                        <a href="" class="texto1">Esqueceu seu e-mail?</a> | <a href="" class="texto1">Esqueceu sua senha?</a>
-                    </div>
-                    <button class="btn btn-light btn-block" id="texto1">Quero me cadastrar</button>
-                </div>
-            </div>
+    <div class="row mt-4 ml-2">
+        <div class="col-3">
+            <a href="{% url 'index' %}"><img src="/media/logo.png" id="img-logo" alt=""/></a>
         </div>
-    </div>
-    
-    <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
-        <div class="collapse navbar-collapse" style="justify-content: space-around">
-            <a href="{% url 'guest/masculino' %}" class="button">Masculino</a>
-            <a href="" class="button">Feminino</a>
-            <a href="" class="button">Sales</a>
-        </div>
-    </nav>
-   
-    <div class="row">
-        <div class="col-1"></div>
-            <div class="col-10">
-                 <div id="localizacao">
-                    <label >Você está em: </label>
-                    <a class="espaco" href="{% url 'guest/index' %}">Início</a>
-                    <label class="espaco">></label>
-                    <label class="espaco"></label>
-                    <a class="espaco" href="{% url 'guest/masculino' %}">Masculino</a>
-                    <label class="espaco">></label>
-                    <label class="espaco">Blusa Rosa</label>
-                </div>
-            </div>
-        <div class="col-1"></div>
-    </div>
-    
-    
-
-    <div class="row">
-        <div class="col-2 text-center">
-            <img src="media/camisa.png" class="mx-alto d-block" alt=""/>
-        </div>
-        <div class="col-6">
+        <div class="col-9">
             <div class="row">
-                
+                <div class="col-1"></div>
+                <div class="col-5 pt-2">
+                    <form class="form-inline" id="barra-busca">
+                        <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+                        <img src="/media/lupa.png" id="img-lupa" alt="Buscar"/>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <div class="row pt-2">
+                        <div class="col-12 d-flex justify-content-end">
+                            <img src="/media/user.png" id="img-perfil" alt=""/>
+                            <a class="cadastre ml-2" href="">ENTRE OU CADASTRE-SE</a>
+                            <button id="button-favorito"><img src="/media/coracao.png"></button>
+                            <button class="mr-2" id="button-sacola"><img src="/media/sacola.png"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 border-bottom border-top border-dark mb-2">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mt-2 mb-2">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="{% url 'masculino' %}" class="button">Masculino</a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="" class="button">Feminina</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-4">
+            <img src="/media/camisa.png" class="mx-auto d-block" alt=""/>
+            <img src="/media/camisa.png" class="mx-auto d-block mt-3" alt=""/>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <img src="/media/camisa.png" class="mx-auto d-block" style="width: 100%;"/>
             </div>
         </div>
         <div class="col-4">
             <div id=descricao>
             <center><label class="tituloroupa">Blusa Rosa</label></center>
             <div class="row">
-                <div class="col-2">
+                <div class="col-3">
                 </div> 
-                <div class="col-8">
+                <div class="col-7">
                     <label id="valor">R$00,00</label>
                     <label id="parcela">0x de R$ 00,00  sem juros no cartão</label>
                 </div> 
@@ -119,7 +104,7 @@
                 <div class="col-2"></div> 
                 <div class="col-8">
                     <div>
-                        <a href="{% url 'guest/compra' %}" class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar">COMPRAR</a>
+                        <a href="{% url 'compra' %}" class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar">COMPRAR</a>
                     </div>
                 </div> 
                 <div class="col-2"></div>
@@ -128,7 +113,7 @@
                 <div class="col-2"></div>
                 <div class="col-8">
                     <div class="btn btn-light text-center text-break btn-block border border-dark sem-borda" style="cursor:  pointer;">
-                        <img src="media/Header39x31.png" class="mr-3" alt=""><span id="txtadd">Adicionar aos favoritos</span>
+                        <img src="/media/Header39x31.png" class="mr-3" alt=""><span id="txtadd">Adicionar aos favoritos</span>
                     </div>
                 </div>
                 <div class="col-2"></div>
@@ -156,7 +141,7 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta2.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Azul</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -167,7 +152,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta1.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Rosa</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -177,7 +162,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta3.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Amarelo</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -193,7 +178,7 @@
     
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta3.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Amarela</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -204,7 +189,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta2.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Azul</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -213,7 +198,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta1.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta"> Camiseta Rosa </label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -229,7 +214,7 @@
     
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta1.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta1.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Rosa</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -240,7 +225,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta3.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta3.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Amarela</label>
                                                 <p class="card-text valor">R$50,00</p>
@@ -250,7 +235,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="media/camiseta2.png">
+                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta2.png">
                                             <div class="card-body">
                                                 <label class="desc-camiseta">Camiseta Azul</label>
                                                 <p class="card-text valor">R$50,00.</p>
@@ -273,7 +258,7 @@
     
     {%include 'components/guest/rodape.html'%}
     
-    <nav class="nav-container-favorito" id="favoritos" style="display: none;">
+      <!-- <nav class="nav-container-favorito" id="favoritos" style="display: none;">
         <header>
             <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
         </header>
@@ -284,23 +269,16 @@
             <a>COMPRA</a>
         </header>
         <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
-    </nav>
+    </nav> -->
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/velocity.min.js"></script>
-    <script src="static/js/jquery.offcanvas.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/velocity.min.js"></script>
+    <script src="/static/js/jquery.offcanvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     
-    <script>  
-        var myModal = document.getElementById('loginModal')
-        var myInput = document.getElementById('email')
-
-        myModal.addEventListener('shown.bs.modal', function () {
-          myInput.focus()
-        })
-
+   <!-- <script>
         var $sacola = $("#sacola");
         var $favorito = $("#favoritos");
         
@@ -339,12 +317,12 @@
                 overlay: true,
                 effect: 'slide-in-over',
             });
-
+            
             $favorito.show();
             $sacola.hide();
 
             $favorito.offcanvas("toggle");
         });
-    </script>
+    </script> -->
 </body>
 </html>

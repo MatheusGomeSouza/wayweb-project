@@ -43,12 +43,14 @@ INSTALLED_APPS = [
     # libs
     'rest_framework',
     'crispy_forms',
+    'localflavor',
     'widget_tweaks',
     'debug_toolbar',
     # apps
     'users',
     'produto',
     'sacola.apps.SacolaConfig',
+    'orders',
 ]
 
 INTERNAL_IPS = [
@@ -173,5 +175,7 @@ import socket  # noqa
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
 # =====================================================================
+#Sacola
 
 CART_SESSION_ID = "cart"
+CART_ITEM_MAX_QUANTITY = 20
