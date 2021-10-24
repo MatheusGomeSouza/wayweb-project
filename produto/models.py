@@ -52,14 +52,6 @@ class Product(TimeStampedModel):
 # class TipoPagamento(models.Model):
 #     tipoPag = models.CharField(max_length=255)
 
-
-# class Pedido(models.Model):
-#     pagamento = models.ForeignKey(TipoPagamento, on_delete=models.CASCADE)
-#     valorTotal = models.IntegerField()
-#     status = models.CharField(max_length=255)
-#     dataCompra = models.DateField
-
-
 # class Entrega(models.Model):
 #     previsao = models.DateField()
 #     codStatus = models.CharField(max_length=255)
