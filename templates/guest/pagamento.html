@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Way Pagamento</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/pagamento.css" media="screen" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="row mt-4 ml-2">
+        <div class="col-3">
+            <a href="{% url 'index' %}"><img src="/media/logo.png" id="img-logo" alt=""/></a>
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5 pt-2">
+                    <form class="form-inline" id="barra-busca">
+                        <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+                        <img src="/media/lupa.png" id="img-lupa" alt="Buscar"/>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <div class="row pt-2">
+                        <div class="col-12 d-flex justify-content-end">
+                            <img src="/media/user.png" id="img-perfil" alt=""/>
+                            <a class="cadastre ml-2" href="">ENTRE OU CADASTRE-SE</a>
+                            <button id="button-favorito"><img src="/media/coracao.png"></button>
+                            <button class="mr-2" id="button-sacola"><img src="/media/sacola.png"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 border-bottom border-top border-dark mb-2">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mt-2 mb-2">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="{% url 'masculino' %}" class="button">Masculino</a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="" class="button">Feminina</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row pt-5">
+        <div class="col-1"></div>
+        <div class="col-10 border border-dark">
+            <span class="dados">Dados para a entrega</span>
+            <div class="row pt-3">
+                <div class="col-8">
+                    <input class="form" type="text" placeholder="Nome Completo">
+                </div>
+                <div class="col-4">
+                    <input class="form" type="text" placeholder="Telefone">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-5">
+                    <input class="form" type="text" placeholder="CPF">
+                </div>
+                <div class="col-5">
+                    <input class="form" type="text" placeholder="CEP">
+                </div>
+                <div class="col-2">
+                    <input class="form" type="text" placeholder="Número">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-2">
+                    <label for="estados" id="estado">Estado:</label>
+                        <select name="estados" class="estados">
+                            <option></option>
+                            <option>AC</option>
+                            <option>AL</option>
+                            <option>AP</option>
+                            <option>AM</option>
+                            <option>BA</option>
+                            <option>CE</option>
+                            <option>ES</option>
+                            <option>GO</option>
+                            <option>MA</option>
+                            <option>MT</option>
+                            <option>MS</option>
+                            <option>MG</option>
+                            <option>PA</option>
+                            <option>PB</option>
+                            <option>PR</option>
+                            <option>PE</option>
+                            <option>PI</option>
+                            <option>RJ</option>
+                            <option>RN</option>
+                            <option>RS</option>
+                            <option>RO</option>
+                            <option>RR</option>
+                            <option>SC</option>
+                            <option>SP</option>
+                            <option>SE</option>
+                            <option>TO</option>
+                            <option>DF</option>
+                        </select>
+                </div>
+                <div class="col-10">
+                    <input class="form" type="text" placeholder="Cidade">
+                </div>
+            </div>
+            
+            
+            <input class="form mt-3 mb-4" type="text" placeholder="Endereço">
+        </div>
+        <div class="col-1"></div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-1"></div>
+        <div class="col-10 border border-dark">
+            <span class="dados">Métodos de pagamento</span>
+            <div class="row">
+                <div class="col-3 ml-4 pt-3">
+                    <span class="forms">Nome(como está no seu cartão)</span>
+                </div>
+                <div class="col-8 pt-3">
+                    <input class="form" type="text">
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-3 ml-4 pt-3">
+                    <span class="forms">Número do cartão</span>
+                </div>
+                <div class="col-4 pt-3">
+                    <input class="form" type="text">
+                </div>
+                <div class="col-4 ml-4 pt-3">
+                    <div class="form-group">
+                        <label for="mes" id="vencimento">Vencimento:</label>
+                        <select name="mes" class="vencimento">
+                            <option>Mês</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                        <select name="ano" class="vencimento">
+                            <option>Ano</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2026</option>
+                            <option>2027</option>
+                            <option>2028</option>
+                            <option>2029</option>
+                            <option>2030</option>
+                            <option>2031</option>s
+                        </select>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-3 ml-4 ">
+                    <span class="forms">Parcelas</span>
+                </div>
+                <div class="col-4 ">
+                    <select name="parcelas" class="parcela">
+                            <option>1x de R$00,00</option>
+                            <option>2x de R$00,00</option>
+                            <option>3x de R$00,00</option>
+                            <option>4x de R$00,00</option>
+                            <option>5x de R$00,00</option>
+                    </select>
+                </div>
+                <div class="col-1 ml-4">
+                    <span class="forms">CVV</span>
+                </div>
+                <div class="col-2 ml-2 mb-4">
+                    <input class="form" type="text">
+                </div>
+                <div class=col-1></div>
+            </div>
+        </div>
+    </div>    
+    <div class="row mt-5">
+        <div class="col-1"></div>
+        <div class="col-10 border border-dark">
+            <span class="forms">Resumo</span>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 border-bottom border-right border-left border-dark">
+            <div class="row">
+                <div class="col-2 mt-3">
+                    <img src="/media/camisa.png" class="" alt=""/>
+                </div>
+                <div class="col-3 mt-5">
+                    <span class="descricao">Camiseta Amarela</span><br>
+                    <span class="descricao">Tamanho: M</span><br>
+                    <span class="descricao">Quantidade: 1</span><br>
+                </div>
+                <div class="col-2 mt-5">
+                    <span id="preco">R$00,00</span>
+                </div>
+            </div>
+            <hr class="linha ">
+            <div class="row pb-2">
+                <div class="col-10">
+                    <span class="descricao">Subtotal</span><br>
+                    <span class="descricao">Entrega</span><br>
+                </div>
+                <div class="col-2 pr-2">
+                    <center><span class="descricao">R$00,00</span></center>
+                    <center><span class="descricao">R$00,00</span></center>
+                </div> 
+            </div>
+            <div class="row border-top border-dark pb-2 pt-1" id="quadro">
+                    <div class="col-10 pt-2">
+                        <span id="total">TOTAL</span>
+                    </div>
+                    <div class="col-2 ">
+                        <center><span class="descricao">R$00,00</span></center>
+                        <center><span id="parcela">em até 0x de R$00,00</span></center>
+                    </div>    
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mt-3 pb-5">
+                <div class="col-1">
+                    <a href="{% url 'compra' %}" id="voltar">VOLTAR</a>
+                </div>
+                <div class="col-8"></div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-dark btn-block sem-borda" id="finalizar">Finalizar Compra</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    
+    {%include 'components/guest/rodape.html'%}
+    
+     <!-- <nav class="nav-container-favorito" id="favoritos" style="display: none;">
+        <header>
+            <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
+        </header>
+    </nav>
+
+    <nav id="sacola" style="display: none;">
+        <header>
+            <a>COMPRA</a>
+        </header>
+        <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
+    </nav> -->
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/velocity.min.js"></script>
+    <script src="/static/js/jquery.offcanvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+     <!-- <script>
+        var $sacola = $("#sacola");
+        var $favorito = $("#favoritos");
+        
+        var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+        $("#button-sacola").on("click", function() {
+            $favorito.offcanvas("destroy");
+            
+            var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+            $sacola.show();
+            $favorito.hide();
+
+            $sacola.offcanvas("toggle");
+        });
+
+        $("#button-favorito").on("click", function() {
+            $sacola.offcanvas("destroy");
+
+            var $favorito = $("#favoritos").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+            
+            $favorito.show();
+            $sacola.hide();
+
+            $favorito.offcanvas("toggle");
+        });
+    </script> -->
+</body>
+</html>

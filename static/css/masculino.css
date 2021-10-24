@@ -1,12 +1,8 @@
-#header{
-    width: 100%;
-    display: flex; 
-    flex-direction: row;
+html {
+  overflow-x: hidden;
 }
-
-#img-logo{
-    margin: 40px 25px 10px;
-    justify-content: flex-start;
+body {
+  overflow-x: hidden;
 }
 #img-lupa{
     width:24px;
@@ -19,7 +15,6 @@
     height: 33px; 
     top: 40px;
 }
-
 #barra-busca1{
     background-color: #C6D5F4;
     height: 100%;
@@ -27,65 +22,30 @@
     border: 0;
     width: calc(100% - 24px);
 }
-
-#navbar-id{
-    margin:10px 0;
-    border-top: 1px solid black;
-    border-bottom:1px solid black; 
-}
-#cadastre{
-    background: white;
-    border: 0;
-    font-size: 13px;
-    font-family: Roboto;
-    font-weight: bold;
-}
 #img-perfil{
     width:24px;
     height:24px;
-    margin: 40px 10px;
-    
+}
+.cadastre{
+    font-size: 13px;
+    font-family: Roboto;
+    font-weight: bold;
+    color:black
+}
+.cadastre:hover{
+    color:black;
 }
 #button-favorito{
     background: white;
     border: 0;
-    margin: 40px 5px;
-    
+    padding-left: 10px;
+    padding-right: 10px;
 }
 #button-sacola{
     background: white;
     border: 0;
-    margin: 40px 25px 40px 5px;
-}
-#texto{
-    color: white;
-    font-size: 19px;
-    font-family: Roboto;
-    font-weight: bold;
-}
-#email{
-    font-size: 17px;
-    border-color: #4B4B4B;
-}
-#password{
-    font-size: 17px;
-    border-color: #4B4B4B;
-}
-.texto1{
-    color: black;
-    font-size: 13px;
-    font-family: Roboto;
-    font-weight: bold;
-}
-.texto1:hover{
-    color: #4B4B4B;
-}
-#texto1{
-    color: black;
-    font-size: 19px;
-    font-family: Roboto;
-    font-weight: bold;
-    background: #EAEAEA;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .button{
     background: white;
@@ -106,36 +66,14 @@
     font-family: Roboto;
     font-weight: bold;
     padding-top: 40px;
-    padding-left: 144px;
     padding-bottom: 50px;
 }
 .espaco{
     padding-left: 8px;
 }
-#div-container{
-    display: flex;
-    width: 100%;
-}
-#div-filtro{
-    width: 300px;
-}
-.roupas1{
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 40px;
-    width: 100%;
-}
 .camiseta{
     border: 0;
     background: white;
-}
-.div-container-roupa{
-    width: 100%;
-}
-.div-roupa{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
 }
 .desc-camiseta{
     font-size: 18px;
@@ -155,46 +93,20 @@
 .page-link{
     color: black;
 }
-.rodape{
-    background: #F6F6F6;
-}
-#rodape-info{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.rodape1{
+.titulo{
     font-size: 20px;
-    padding-top: 42px;
-    padding-bottom: 60px;
-    display: flex;
-    flex-direction: column;
     font-family: Roboto;
     font-weight: bold;
-    margin: 0 30px
 }
-.rodape-titulo-coluna{
-    padding-bottom: 30px;
-}
-.rodape2{
+.informacao{
     font-size: 14px;
     color: black;
+    font-family: Roboto;
+    font-weight: bold;
 }
-.rodape3{
-    color:black;
-}
-.rodape4{
-    padding-left: 8px;
+.rodape{
+    background-color: #F6F6F6;
 }
 #rodape-social{
-    display:flex;
-    justify-content: center;
-    padding: 10px
-}
-
-.nav-container-favorito {
-    height: 100%;
-    width: 100%;
-    padding: 2em 3.5em;
-    background: white;
+    padding: 10px;
 }
