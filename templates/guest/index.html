@@ -1,4 +1,6 @@
 {% load crispy_forms_tags %}
+{% load static %}
+{% load product_tags %}
 {% csrf_token %}
 <!DOCTYPE html>
 <html lang="en">
@@ -89,28 +91,20 @@
         <div class="col-1"></div>
         <div class="col-10">
             <div class="row">
-                <div class="col-4">
-                    <center><a href=""><img src="/media/camiseta1.png" alt=""/></a></center>
-                    <center><span class="desc-camiseta">Camiseta Rosa</span></center>
-                    <center><span class="valor">R$50,00</span></center>
-                </div>
-                <div class="col-4">
-                    <center><a href=""><img src="/media/camiseta2.png" alt=""/></a></center>
-                    <center><span class="desc-camiseta">Camiseta Azul</span></center>
-                    <center><span class="valor">R$50,00</span></center>
-                </div>
-                <div class="col-4">
-                    <center><a href=""><img src="/media/camiseta3.png" alt=""/></a></center>
-                    <center><span class="desc-camiseta">Camiseta Amarelo</span></center>
-                    <center><span class="valor">R$50,00</span></center>
-                </div>
+                {% for product in product_list|slice:":3" %}
+                    <div class="col-4">
+                        <center><a href="{{ product.get_absolute_url }}"><img src="/media/{{product.image}}" style="cursor: pointer;" width="215px" height="217px" alt=""/></a></center>
+                        <center><span class="desc-camiseta">{{ product.name }}</span></center>
+                        <center><span class="valor">R$ {{ product.price }}</span></center>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         <div class="col-1"></div>
     </div>
 
 
-    <div class="retorno">   
+    <!-- <div class="retorno">   
         <div class="topico">
             <hr class="linha1"><label class="titulo">RETORNO DA COLEÇÃO</label><hr class="linha2">
         </div>
@@ -120,27 +114,19 @@
         <div class="col-1"></div>
         <div class="col-10">
             <div class="row">
-                <div class="col-4">
-                    <center><a href=""><img src="/media/camiseta1.png" alt=""/></a></center>
-                    <center><span class="desc-camiseta">Camiseta Rosa</span></center>
-                    <center><span class="valor">R$50,00</span></center>
-                </div>
-                <div class="col-4">
-                    <center><a href=""><img src="/media/camiseta2.png" alt=""/></a></center>
-                    <center><span class="desc-camiseta">Camiseta Azul</span></center>
-                    <center><span class="valor">R$50,00</span></center>
-                </div>
-                <div class="col-4">
-                    <center><a href=""><img src="/media/camiseta3.png" alt=""/></a></center>
-                    <center><span class="desc-camiseta">Camiseta Amarelo</span></center>
-                    <center><span class="valor">R$50,00</span></center>
-                </div>
+                {% for product in product_list|slice:":3" %}
+                    <div class="col-4">
+                        <center><a href=""><img src="/media/{{product.image}}" width="215px" height="217px" alt=""/></a></center>
+                        <center><span class="desc-camiseta">{{ product.name }}</span></center>
+                        <center><span class="valor">R$ {{ product.price }}</span></center>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         <div class="col-1">
             <a href="" id="ver"><label class="mr-3">Ver mais</label></a>
         </div>
-    </div>
+    </div> -->
     
     <div class="topico">
         <hr class="linha1"><label class="titulo">LANÇAMENTO</label><hr class="linha2">
@@ -159,109 +145,56 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta2.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta">Camiseta Azul</label>
-                                                <p class="card-text valor">R$50,00</p>
-    
-                                            </div>
-    
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta1.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta">Camiseta Rosa</label>
-                                                <p class="card-text valor">R$50,00</p>
-    
+                                    {% for product in product_list|slice:":3" %}
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card" style="border:none">
+                                                <img class="img-fluid" alt="100%x280" src="/media/{{product.image}}" 
+                                                    onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
+                                                <div class="card-body">
+                                                    <label class="desc-camiseta">{{ product.name }}</label>
+                                                    <p class="card-text valor">R$ {{ product.price }}</p>
+        
+                                                </div>
+        
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta3.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta">Camiseta Amarelo</label>
-                                                <p class="card-text valor">R$50,00</p>
-    
-                                            </div>
-                                        </div>
-                                    </div>
-    
+                                    {% endfor %}
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="row">
-    
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta3.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta">Camiseta Amarela</label>
-                                                <p class="card-text valor">R$50,00</p>
-    
-                                            </div>
-    
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta2.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta">Camiseta Azul</label>
-                                                <p class="card-text valor">R$50,00</p>
+                                    {% for product in product_list|slice:"3:6" %}
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card" style="border:none">
+                                                <img class="img-fluid" alt="100%x280" src="/media/{{product.image}}" 
+                                                    onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
+                                                <div class="card-body">
+                                                    <label class="desc-camiseta">{{ product.name }}</label>
+                                                    <p class="card-text valor">R$ {{ product.price }}</p>
+        
+                                                </div>
+        
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta1.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta"> Camiseta Rosa </label>
-                                                <p class="card-text valor">R$50,00</p>
-    
-                                            </div>
-                                        </div>
-                                    </div>
-    
+                                    {% endfor %}  
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="row">
-    
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta1.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta">Camiseta Rosa</label>
-                                                <p class="card-text valor">R$50,00</p>
-    
-                                            </div>
-    
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta3.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta">Camiseta Amarela</label>
-                                                <p class="card-text valor">R$50,00</p>
-    
+                                    {% for product in product_list|slice:"6:9" %}
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card" style="border:none">
+                                                <img class="img-fluid" alt="100%x280" src="/media/{{product.image}}" 
+                                                    onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
+                                                <div class="card-body">
+                                                    <label class="desc-camiseta">{{ product.name }}</label>
+                                                    <p class="card-text valor">R$ {{ product.price }}</p>
+        
+                                                </div>
+        
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card" style="border:none">
-                                            <img class="img-fluid" alt="100%x280" src="/media/camiseta2.png">
-                                            <div class="card-body">
-                                                <label class="desc-camiseta">Camiseta Azul</label>
-                                                <p class="card-text valor">R$50,00.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}  
                                 </div>
                             </div>
                         </div>
@@ -291,7 +224,7 @@
         <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
     </nav> -->
 
-    {% if user.is_authenticated %}
+    <!-- {% if user.is_authenticated %}
     <div>
         <ul>
             <li class="nav-item">
@@ -302,7 +235,7 @@
             </li>
         </ul>
     </div>
-    {% endif %}
+    {% endif %} -->
 
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/velocity.min.js"></script>

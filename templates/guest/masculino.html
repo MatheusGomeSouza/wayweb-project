@@ -81,88 +81,29 @@
             <div class="row d-flex justify-content-center">
                 <div class="collapse" style="width: 60%;" id="categoryCollapse">
                     <div class="card card-body text-left">
-                        <div class="form-check">
-                            <input name="categorias[]" class="form-check-input" type="checkbox" value="idDaBlusa" id="blusa">
-                            <label class="form-check-label" for="blusa">
-                                Blusa
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input name="categorias[]" class="form-check-input" type="checkbox" value="idDaCamisa" id="camisa">
-                            <label class="form-check-label" for="camisa">
-                              Camisa
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input name="categorias[]" class="form-check-input" type="checkbox" value="idDaCamiseta" id="camiseta">
-                            <label class="form-check-label" for="camiseta">
-                              Camiseta
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input name="categorias[]" class="form-check-input" type="checkbox" value="idDaCalça" id="calça">
-                            <label class="form-check-label" for="calça">
-                              Calça
-                            </label>
-                          </div>
+                        {% for category in categories %}
+                            <div class="form-check">
+                                <input name="categories[]" class="form-check-input" type="checkbox" value="{{ category.id }}" id="{{ category.id }}">
+                                <label class="form-check-label" for="{{ category.name }}">
+                                    {{ category.name }}
+                                </label>
+                            </div>
+                        {% endfor %}
                       </div>
                 </div>
             </div>
         </div>
         <div class="col-10">
             <div class="row">
+                {% for product in product_list %}
                 <div class="col-4">
                     <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta1.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Rosa</span></center>
-                        <center><span class="valor">R$50,00</span></center>
-                    </div>
-                    <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta1.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Rosa</span></center>
-                        <center><span class="valor">R$50,00</span></center>
-                    </div>
-                    <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta1.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Rosa</span></center>
-                        <center><span class="valor">R$50,00</span></center>
+                        <center><a href="{{ product.get_absolute_url }}"><img src="/media/{{product.image}}" width="215px" height="217px" alt=""/></a></center>
+                        <center><span class="desc-camiseta">{{ product.name }}</span></center>
+                        <center><span class="valor">R$ {{ product.price }}</span></center>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta2.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Azul</span></center>
-                        <center><span class="valor">R$50,00</span></center>
-                    </div>
-                    <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta2.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Azul</span></center>
-                        <center><span class="valor">R$50,00</span></center>
-                    </div>
-                    <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta2.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Azul</span></center>
-                        <center><span class="valor">R$50,00</span></center>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta3.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Amarelo</span></center>
-                        <center><span class="valor">R$50,00</span></center>
-                    </div>
-                    <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta3.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Amarelo</span></center>
-                        <center><span class="valor">R$50,00</span></center>
-                    </div>
-                    <div class="mb-5">
-                        <center><a href="descricao.html"><img src="/media/camiseta3.png" alt=""/></a></center>
-                        <center><span class="desc-camiseta">Camiseta Amarelo</span></center>
-                        <center><span class="valor">R$50,00</span></center>
-                    </div>
-                </div>
-                
+                {% endfor %}
             </div>
         </div>
         <div class="col-1"></div>
@@ -170,19 +111,12 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" style="color:black;" href="#">Voltar</a></li>
-                    <li class="page-item"><a class="page-link" style="color:black;" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" style="color:black;" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" style="color:black;" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" style="color:black;" href="#">Próximo</a></li>
-                </ul>
-            </nav>
+            {% if product_list.has_other_pages %}
+                {% include "pagination.html" with page=product_list %}
+            {% endif %}
         </div>
         <div class="col-1"></div>
     </div>   
-    
     
     {%include 'components/guest/rodape.html'%}
 
@@ -252,5 +186,63 @@
             $favorito.offcanvas("toggle");
         });
     </script> -->
+
+     
+    <script>
+        const categories = new URLSearchParams(window.location.search).get('categories')
+        
+        const categoryCollapse = $('#categoryCollapse');
+        const categoryCollapseIcon = $('#categoryCollapseIcon');
+        
+        function openCollapse() {
+            categoryCollapseIcon.removeClass("fa-plus");
+            categoryCollapseIcon.addClass("fa-minus");
+        }
+
+        function closeCollapse() {
+            categoryCollapseIcon.removeClass("fa-minus");
+            categoryCollapseIcon.addClass("fa-plus");
+        }
+
+        if (categories) {
+            categoriesArray = categories.split(',')
+            
+            categoriesArray.forEach(element => {
+                $("#" + element).prop('checked', true);
+            });
+        }
+        
+        
+        function applyFilter() {
+            let = categoriesString = ''
+
+            $('input[name="categories[]"]:checked').each((index, element) => {
+                if (!categoriesString) {
+                    categoriesString += element.value;
+                } else {
+                    categoriesString = categoriesString + ',' + element.value;
+                }
+            });
+
+            const page = new URLSearchParams(window.location.search).get('page')
+
+            window.location.href = window.location.pathname+"?"+$.param({
+                'page':page,
+                'categories':categoriesString
+            })
+        }
+
+        $('input[name="categories[]"]').change((e) => {
+            applyFilter()
+        })
+
+        categoryCollapse.on('show.bs.collapse', () => {       
+            openCollapse()
+        })
+
+        categoryCollapse.on('hide.bs.collapse', () => {
+            closeCollapse()
+        })
+    </script>
 </body>
 </html>
