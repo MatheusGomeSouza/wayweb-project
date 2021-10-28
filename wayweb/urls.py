@@ -19,12 +19,13 @@ urlpatterns = [
     path('produto/', user_views.produto, name='descricao'),
     path('compra/', user_views.compra, name='compra'),
     path('pagamento/', user_views.pagamento, name='pagamento'),
-    path('reg', user_views.gerenciamento, name="gerenciamento"),
-    path('register', user_views.register, name='register'),
-    path("sacola", include('sacola.urls')),
-    path('product', include('produto.urls')),
+    path('reg/', user_views.gerenciamento, name="gerenciamento"),
+    path('register/', user_views.register, name='register'),
+    path("sacola/", include('sacola.urls')),
+    path('product/', include('produto.urls')),
     path('admin/', admin.site.urls),
-    path('orders/', include('orders.urls'))
+    path('orders/', include('orders.urls')),
+    path('payments/', include('payments.urls'))
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'produto',
     'sacola.apps.SacolaConfig',
     'orders',
+    'payments',
 ]
 
 INTERNAL_IPS = [
