@@ -1,38 +1,282 @@
 {% load static %}
-{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}{{ product.name }}{% endblock title %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Way Camisa Rosa</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/descricao.css" media="screen" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-{% block content %}
-
-<div class="container my-3">
-    <div class="row">
-        <div class="col-lg-3 mb-3 mb-lg-0">
-            {% if product.image %}
-            <img class="container-fluid" src="/media/{{product.image}}" alt="">
-            {% else %}
-            <img class="card-img-top" src="{% static 'images/no_image.jpg' %}" alt="">
-            {% endif %}
+<body>
+    <div class="row mt-4 ml-2">
+        <div class="col-3">
+            <a href="{% url 'index' %}"><img src="/media/logo.png" id="img-logo" alt=""/></a>
         </div>
-        <div class="col-lg-9">
-            <h1 class="font-weight-bold">{{ product.name }}</h1>
-            <h2>R$ {{ product.price }}</h2>
-            <p>{{ product.description }}</p>
-            <form action="{% url 'sacola:add' product.id %}" method="post">
-                {% csrf_token %}
-                <p class="form-inline">
-                    {{ form }}
-                </p>
-                <input class="btn btn-success" type="submit" value="Adicionar ao Carrinho">
-            </form>
-            <p>
-                Voltar para o catálogo de
-                <a class="text-decoration-none" href="{{ product.category.get_absolute_url }}">
-                    {{ product.category.name }}
-                </a>
-            </p>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5 pt-2">
+                    <form class="form-inline" id="barra-busca">
+                        <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+                        <img src="/media/lupa.png" id="img-lupa" alt="Buscar"/>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <div class="row pt-2">
+                        <div class="col-12 d-flex justify-content-end">
+                            <img src="/media/user.png" id="img-perfil" alt=""/>
+                            <a class="cadastre ml-2" href="">ENTRE OU CADASTRE-SE</a>
+                            <button id="button-favorito"><img src="/media/coracao.png"></button>
+                            <button class="mr-2" id="button-sacola"><img src="/media/sacola.png"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-{% endblock content %}
+    <div class="row mt-4 border-bottom border-top border-dark mb-2">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mt-2 mb-2">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="{% url 'masculino' %}" class="button">Masculino</a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="" class="button">Feminina</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-4">
+            <img src="/media/{{product.image}}" class="mx-auto d-block" alt="" width="215px" height="217px"/>
+            <img src="/media/{{product.image}}" class="mx-auto d-block mt-3" alt="" width="215px" height="217px"/>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <img src="/media/{{product.image}}" class="mx-auto d-block" style="width: 100%;"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div id="descricao">
+            <center><label class="tituloroupa">{{ product.name }}</label></center>
+            <div class="row">
+                <div class="col-3">
+                </div> 
+                <div class="col-7">
+                    <label id="valor">R$ {{ product.price }}</label>
+                    <label id="parcela">1x de R$ R$ {{ product.price }} sem juros no cartão</label>
+                </div> 
+                <div class="col-2">
+                </div> 
+            </div>     
+            <center id="tamanho">Escolha o tamanho</center>
+
+            <center>
+                <div class="btn-group btn-group-toggle sem-borda" data-toggle="buttons">
+                    <label class="btn btn-ligth active border border-dark">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked> P
+                    </label>
+                    <label class="btn btn-ligth active border border-dark ml-2">
+                        <input type="radio" name="options" id="option2" autocomplete="off"> M
+                    </label>
+                    <label class="btn btn-ligth active border border-dark ml-2">
+                        <input type="radio" name="options" id="option3" autocomplete="off"> G
+                    </label>
+                    <label class="btn btn-ligth active border border-dark ml-2">
+                        <input type="radio" name="options" id="option4" autocomplete="off"> GG
+                    </label>
+                </div>
+            </center>
+
+            <div class="row" id="comprar">
+                <div class="col-2"></div> 
+                <div class="col-8">
+                    <div>
+                        <form action="{% url 'sacola:add' product.id %}" class="sem-borda"  method="post">
+                            {% csrf_token %}
+                            <p class="form-inline" style="display: none;">
+                                {{ form }}
+                            </p>
+                            <input class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar" type="submit" value="Comprar">
+                        </form>
+                    </div>
+                </div> 
+                <div class="col-2"></div>
+            </div>  
+            <div class="row" id="adicionarfav">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="btn btn-light text-center text-break btn-block border border-dark sem-borda" style="cursor:  pointer;">
+                        <img src="/media/Header39x31.png" class="mr-3" alt=""><span id="txtadd">Adicionar aos favoritos</span>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>    
+            </div>
+        </div>
+    </div>
+    
+    <div class="topico">
+        <hr class="linha1"><label class="titulo">PRODUTO SIMILARES</label><hr class="linha2">
+    </div>
+    
+     <section class="pb-5">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-1">
+                    <a class="btn" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                </div>
+                <div class="col-10">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    {% for product in product_list|slice:":3" %}
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card" style="border:none">
+                                                <img class="img-fluid" alt="100%x280" src="/media/{{product.image}}" 
+                                                    onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
+                                                <div class="card-body">
+                                                    <label class="desc-camiseta">{{ product.name }}</label>
+                                                    <p class="card-text valor">R$ {{ product.price }}</p>
+        
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    {% for product in product_list|slice:"3:6" %}
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card" style="border:none">
+                                                <img class="img-fluid" alt="100%x280" src="/media/{{product.image}}" 
+                                                    onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
+                                                <div class="card-body">
+                                                    <label class="desc-camiseta">{{ product.name }}</label>
+                                                    <p class="card-text valor">R$ {{ product.price }}</p>
+        
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    {% endfor %}  
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    {% for product in product_list|slice:"6:9" %}
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card" style="border:none">
+                                                <img class="img-fluid" alt="100%x280" src="/media/{{product.image}}" 
+                                                    onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
+                                                <div class="card-body">
+                                                    <label class="desc-camiseta">{{ product.name }}</label>
+                                                    <p class="card-text valor">R$ {{ product.price }}</p>
+        
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    {% endfor %}  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <a class="btn" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {%include 'components/guest/rodape.html'%}
+    
+      <!-- <nav class="nav-container-favorito" id="favoritos" style="display: none;">
+        <header>
+            <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
+        </header>
+    </nav>
+
+    <nav id="sacola" style="display: none;">
+        <header>
+            <a>COMPRA</a>
+        </header>
+        <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
+    </nav> -->
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/velocity.min.js"></script>
+    <script src="/static/js/jquery.offcanvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+   <!-- <script>
+        var $sacola = $("#sacola");
+        var $favorito = $("#favoritos");
+        
+        var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+        $("#button-sacola").on("click", function() {
+            $favorito.offcanvas("destroy");
+            
+            var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+            $sacola.show();
+            $favorito.hide();
+
+            $sacola.offcanvas("toggle");
+        });
+
+        $("#button-favorito").on("click", function() {
+            $sacola.offcanvas("destroy");
+
+            var $favorito = $("#favoritos").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+            
+            $favorito.show();
+            $sacola.hide();
+
+            $favorito.offcanvas("toggle");
+        });
+    </script> -->
+</body>
+</html>
