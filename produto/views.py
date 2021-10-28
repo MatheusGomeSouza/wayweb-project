@@ -7,7 +7,8 @@ from .models import Category, Product
 
 class ProductDetailView(DetailView):
     queryset = Product.available.all()
-    extra_context = {'form': CartAddProductForm}
+    related_products = Product.objects.all().order_by('created').filter(category_id = 1)[:9]
+    extra_context = {'form': CartAddProductForm, 'product_list' : related_products}
 
 
 class ProductListView(ListView):

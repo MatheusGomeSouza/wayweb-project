@@ -14,49 +14,50 @@
 </head>
 
 <body>
-    <div id="header" >
-        <a href="{% url 'index' %}"><img src="/media/logo.png" id="img-logo" alt=""/></a>
-        <form class="form-inline col-md-3 mb-3" id="barra-busca">
-            <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
-            <img src="/media/lupa.png" id="img-lupa" alt="Buscar"/>
-        </form>
-        <img src="/media/user.png" id="img-perfil" alt=""/>
-        <div style="justify-content: center">
-            <button id="cadastre" data-toggle="modal" data-target="#loginModal">ENTRE OU CADASTRE-SE</button>
-            <button id="button-favorito"><img src="/media/coracao.png"></button>
-            <button id="button-sacola"><img src="/media/sacola.png"></button>
-        </div>    
-    </div>
-
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
+    <div class="row mt-4 ml-2">
+        <div class="col-3">
+            <a href="{% url 'index' %}"><img src="/media/logo.png" id="img-logo" alt=""/></a>
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5 pt-2">
+                    <form class="form-inline" id="barra-busca">
+                        <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+                        <img src="/media/lupa.png" id="img-lupa" alt="Buscar"/>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <div class="row pt-2">
+                        <div class="col-12 d-flex justify-content-end">
+                            <img src="/media/user.png" id="img-perfil" alt=""/>
+                            <a class="cadastre ml-2" href="">ENTRE OU CADASTRE-SE</a>
+                            <button id="button-favorito"><img src="/media/coracao.png"></button>
+                            <button class="mr-2" id="button-sacola"><img src="/media/sacola.png"></button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Senha">
-                    </div>
-                    <button class="btn btn-dark btn-block"id="texto">Entra</button>
-                    <div class="text-center mt-1 mb-1">
-                        <a href="" class="texto1">Esqueceu seu e-mail?</a> | <a href="" class="texto1">Esqueceu sua senha?</a>
-                    </div>
-                    <button class="btn btn-light btn-block" id="texto1">Quero me cadastrar</button>
                 </div>
             </div>
         </div>
     </div>
     
 
-    <nav class="navbar navbar-expand-md navbar-dark" id="navbar-id">
-        <div class="collapse navbar-collapse" style="justify-content: space-around">
-            <a href="{% url 'masculino' %}" class="button">Masculino</a>
-            <a href="" class="button">Feminino</a>
-            <a href="" class="button">Sales</a>
+    <div class="row mt-4 border-bottom border-top border-dark mb-2">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mt-2 mb-2">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="{% url 'masculino' %}" class="button">Masculino</a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="" class="button">Feminina</a>
+                </div>
+            </div>
         </div>
-    </nav>
-        
+        <div class="col-1"></div>
+    </div>
     
     <div class="row">
         <div class="col-1"></div>
@@ -168,7 +169,7 @@
     
     {%include 'components/guest/rodape.html'%}
     
-    <nav class="nav-container-favorito" id="favoritos" style="display: none;">
+   <!-- <nav class="nav-container-favorito" id="favoritos" style="display: none;">
         <header>
             <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
         </header>
@@ -179,7 +180,7 @@
             <a>COMPRA</a>
         </header>
         <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
-    </nav>
+    </nav> -->
 
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/velocity.min.js"></script>
@@ -188,14 +189,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     
-    <script>  
-        var myModal = document.getElementById('loginModal')
-        var myInput = document.getElementById('email')
-
-        myModal.addEventListener('shown.bs.modal', function () {
-          myInput.focus()
-        })
-
+     <!-- <script>
         var $sacola = $("#sacola");
         var $favorito = $("#favoritos");
         
@@ -234,12 +228,12 @@
                 overlay: true,
                 effect: 'slide-in-over',
             });
-
+            
             $favorito.show();
             $sacola.hide();
 
             $favorito.offcanvas("toggle");
         });
-    </script>
+    </script> -->
 </body>
 </html>
