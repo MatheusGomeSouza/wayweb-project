@@ -42,7 +42,11 @@
                     <label >Sacola de compras</label>
                 </div>
                 <div id="itens">
-                    <label>1 item</label>
+                    {% if cart %}
+                        <label>{{ cart|length }} item</label>
+                    {% else %}
+                        <label>1 item</label>
+                    {% endif %}
                 </div>
             </div>
         <div class="col-1"></div>
