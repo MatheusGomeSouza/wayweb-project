@@ -1,9 +1,15 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView
 from sacola.forms import CartAddProductForm
+from django.template.defaulttags import register
+import math
 
 from .models import Category, Product
 
+
+@register.filter
+def div(value, div):
+    return math.ceil(value / div)
 
 class ProductDetailView(DetailView):
     queryset = Product.available.all()

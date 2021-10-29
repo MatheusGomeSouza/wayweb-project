@@ -1,10 +1,21 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 from produto.models import Product
+from django.template.defaulttags import register
+import math
+
 
 from .cart import Cart
 from .forms import CartAddProductForm
 
+
+@register.filter
+def get_range(value):
+    return range(value)
+
+@register.filter
+def div(value, div):
+    return math.ceil(value / div)
 
 @require_POST
 def cart_add(request, product_id):

@@ -76,8 +76,8 @@
                 <div class="col-3">
                 </div> 
                 <div class="col-7">
-                    <label id="valor">R$ {{ product.price }}</label>
-                    <label id="parcela">1x de R$ R$ {{ product.price }} sem juros no cartão</label>
+                    <p id="valor">R$ {{ product.price }}</p>
+                    <p id="parcela">12x de R$ {{ product.price|div:12 }}  no cartão</p>
                 </div> 
                 <div class="col-2">
                 </div> 
@@ -86,16 +86,16 @@
 
             <center>
                 <div class="btn-group btn-group-toggle sem-borda" data-toggle="buttons">
-                    <label class="btn btn-ligth active border border-dark">
+                    <label class="btn btn-outline-secondary">
                         <input type="radio" name="options" id="option1" autocomplete="off" checked> P
                     </label>
-                    <label class="btn btn-ligth active border border-dark ml-2">
+                    <label class="btn btn-outline-secondary ml-2">
                         <input type="radio" name="options" id="option2" autocomplete="off"> M
                     </label>
-                    <label class="btn btn-ligth active border border-dark ml-2">
+                    <label class="btn btn-outline-secondary ml-2">
                         <input type="radio" name="options" id="option3" autocomplete="off"> G
                     </label>
-                    <label class="btn btn-ligth active border border-dark ml-2">
+                    <label class="btn btn-outline-secondary ml-2">
                         <input type="radio" name="options" id="option4" autocomplete="off"> GG
                     </label>
                 </div>
@@ -119,8 +119,8 @@
             <div class="row" id="adicionarfav">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <div class="btn btn-light text-center text-break btn-block border border-dark sem-borda" style="cursor:  pointer;">
-                        <img src="/media/Header39x31.png" class="mr-3" alt=""><span id="txtadd">Adicionar aos favoritos</span>
+                    <div class="btn btn-light text-center text-break btn-block border border-dark sem-borda" style="cursor: pointer;" id="favorite_button_container">
+                        <img src="/media/Header39x31.png" class="mr-3" data-swap="/media/Heart35x35.png" id="favorite_button"><span id="txtadd">Adicionar aos favoritos</span>
                     </div>
                 </div>
                 <div class="col-2"></div>
@@ -232,6 +232,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     
+    <script>
+        $('#favorite_button_container').on('click', () => {
+            var button = $("#favorite_button");
+            var current = button.attr("src");
+            var swap = button.attr("data-swap");     
+            button.attr('src', swap).attr("data-swap",current);   
+        })
+    </script>
    <!-- <script>
         var $sacola = $("#sacola");
         var $favorito = $("#favoritos");
