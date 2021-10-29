@@ -14,34 +14,8 @@
 </head>
 
 <body>
-    <div class="row mt-4 ml-2">
-        <div class="col-3">
-            <a href="{% url 'index' %}"><img src="/media/logo.png" id="img-logo" alt=""/></a>
-        </div>
-        <div class="col-9">
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col-5 pt-2">
-                    <form class="form-inline" id="barra-busca">
-                        <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
-                        <img src="/media/lupa.png" id="img-lupa" alt="Buscar"/>
-                    </form>
-                </div>
-                <div class="col-6">
-                    <div class="row pt-2">
-                        <div class="col-12 d-flex justify-content-end">
-                            <img src="/media/user.png" id="img-perfil" alt=""/>
-                            <a class="cadastre ml-2" href="">ENTRE OU CADASTRE-SE</a>
-                            <button id="button-favorito"><img src="/media/coracao.png"></button>
-                            <button class="mr-2" id="button-sacola"><img src="/media/sacola.png"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {%include 'components/guest/header.html'%}
     
-
     <div class="row mt-4 border-bottom border-top border-dark mb-2">
         <div class="col-1"></div>
         <div class="col-10">
