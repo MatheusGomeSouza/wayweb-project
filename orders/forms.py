@@ -30,7 +30,7 @@ class OrderCreateForm(forms.ModelForm):
             Submit(
                 "submit",
                 "Finalizar compra",
-                # css_class="btn btn-success btn-lg btn-block",
+                css_class="btn btn-success btn-lg btn-block",
             )
         )
         self.helper.layout = Layout(

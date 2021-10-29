@@ -10,10 +10,6 @@ route = routers.DefaultRouter()
 
 route.register('categoria', CategoryViewSet, basename="categoria")
 route.register('product', ProductViewSet, basename="categoria")
-# route.register('tipopag', TipoPagViewSet, basename="categoria")
-# route.register('pedido', PedidoViewSet, basename="categoria")
-# route.register('entrega', EntregaViewSet, basename="categoria")
-# route.register('itempedido', ItemPedidoViewSet, basename="categoria")
 
 urlpatterns = [
     path("", ProductListView.as_view(), name="list"),
