@@ -18,8 +18,27 @@ def index(request):
     return render(request,'guest/index.html', {'product_list': product_list})
 
 def masculino(request):
-    product_list = Product.objects.all()
+    product_list = Product.objects.filter(masculino=True)
     selectedCategories = request.GET.get('categories')
+
+
+    if selectedCategories:
+        selectedCategories = selectedCategories.split(',')
+        product_list = product_list.filter(category_id__in = selectedCategories)
+
+    paginator = Paginator(product_list, 9)   
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    categories = Category.objects.all()
+
+
+    return render(request, 'guest/masculino.html', {'product_list': page_obj, 'categories' : categories, 'selectedCategories' : selectedCategories})
+
+def feminino(request):
+    product_list = Product.objects.filter(feminino=True)
+    selectedCategories = request.GET.get('categories')
+
 
     if selectedCategories:
         selectedCategories = selectedCategories.split(',')

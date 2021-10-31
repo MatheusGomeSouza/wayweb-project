@@ -16,8 +16,11 @@ class ProductAdmin(admin.ModelAdmin):
         "category",
         "price",
         "is_available",
+        "masculino",
+        "feminino",
         "created",
         "modified",
     ]
-    list_filter = ["is_available", "created", "modified"]
-    list_editable = ["price", "is_available"]
+    list_filter = ["is_available", "created", "modified","masculino","feminino"]
+    list_editable = ["price", "is_available","masculino","feminino"]
+    search_fields = ["name"]

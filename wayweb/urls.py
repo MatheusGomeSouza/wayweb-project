@@ -16,6 +16,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('', user_views.index, name='index'),
     path('masculino/', user_views.masculino, name='masculino'),
+    path('feminino/', user_views.feminino, name='feminino'),
     path('produto/', user_views.produto, name='descricao'),
     path('compra/', user_views.compra, name='compra'),
     path('pagamento/', user_views.pagamento, name='pagamento'),

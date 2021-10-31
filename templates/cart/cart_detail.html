@@ -44,8 +44,6 @@
                 <div id="itens">
                     {% if cart %}
                         <label>{{ cart|length }} item</label>
-                    {% else %}
-                        <label>1 item</label>
                     {% endif %}
                 </div>
             </div>
@@ -120,7 +118,7 @@
                         {% endfor %}
                     {% else %}
                     <hr class="linha">
-                        Carinho vazio
+                        O carrinho está vazio
                     <hr class="linha">
                     {% endif %}
                 </div>

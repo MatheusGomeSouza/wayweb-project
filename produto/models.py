@@ -35,6 +35,10 @@ class Product(TimeStampedModel):
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     is_available = models.BooleanField(default=True)
+    masculino = models.BooleanField(default=True)
+    feminino = models.BooleanField(default=True)
+    # MY_CHOICES = [('masculino', 'masculino'), ('feminino', 'feminino')]
+    # myfield = models.CharField(max_length=255, choices=MY_CHOICES)
 
     objects = models.Manager()
     available = AvailableManager()
@@ -48,18 +52,3 @@ class Product(TimeStampedModel):
     def get_absolute_url(self):
         return reverse("produto:detail", kwargs={"slug": self.slug})
 
-
-# class TipoPagamento(models.Model):
-#     tipoPag = models.CharField(max_length=255)
-
-# class Entrega(models.Model):
-#     previsao = models.DateField()
-#     codStatus = models.CharField(max_length=255)
-#     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-
-
-# class ItemPedido(models.Model):
-#     produto = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-#     preco = models.IntegerField()
-#     quantidade = models.IntegerField()
