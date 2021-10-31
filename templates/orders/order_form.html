@@ -1,11 +1,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-{% block title %}Checkout{% endblock title %}
-
-{% block content %}
-
-<div class="container my-3">
+<!-- div class="container my-3">
     <h1 class="font-weight-bold">Checkout</h1>
     {% if cart %}
     <div class="row">
@@ -32,9 +28,290 @@
     {% else %}
     <p>Seu carrinho está vazio.</p>
     {% endif %}
-</div>
+</div> -->
 
-{% endblock content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<script src="https://unpkg.com/imask@6.0.7/dist/imask.js"></script>
-<script src="/static/js/order-forms.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Way Pagamento</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/pagamento.css" media="screen" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    {%include 'components/guest/header.html'%}
+
+    <div class="row mt-4 border-bottom border-top border-dark mb-2">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mt-2 mb-2">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="{% url 'masculino' %}" class="button">Masculino</a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="" class="button">Feminina</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <form action="." method="post" id="compra">
+        {% csrf_token %}
+    <div class="row pt-5">
+        <div class="col-1"></div>
+        <div class="col-10 border border-dark">
+            <span class="dados">Dados para a entrega</span>
+            <div class="row pt-3">
+                <div class="col-8">
+                    <input class="form" name="name" id="name" maxlength="250" type="text" placeholder="Nome Completo" value="{{ form.name.value|default_if_none:'' }}">
+                </div>
+                <div class="col-4">
+                    <input class="form" name="email" id="email" type="text" placeholder="Email" value="{{ form.email.value|default_if_none:'' }}"> 
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-5">
+                    <input class="form" name="cpf" id="cpf" maxlength="14" id="cpf" type="text" placeholder="CPF" value="{{ form.cpf.value|default_if_none:'' }}">
+                    {{ form.errors.cpf }}
+                </div>
+                <div class="col-5">
+                    <input class="form" name="postal_code" id="postal_code" maxlength="9" onchange="getAddress()" type="text" placeholder="CEP" value="{{ form.postal_code.value|default_if_none:'' }}">
+                    {{ form.errors.postal_code }}
+                </div>
+                <div class="col-2">
+                    <input class="form" name="number" id="number" maxlength="250" type="text" placeholder="Número" value="{{ form.number.value|default_if_none:'' }}">
+                    {{ form.errors.number }}
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-3">
+                    <label for="state" id="estado">Estado:</label>
+                        <select name="state" id="state" class="estados">
+                            <option></option>
+                            <option value="AC" {% if "AC" == form.state.value %} selected {% endif %}>Acre</option>
+                            <option value="AL" {% if "AL" == form.state.value %} selected {% endif %}>Alagoas</option>
+                            <option value="AP" {% if "AP" == form.state.value %} selected {% endif %}>Amapá</option>
+                            <option value="AM" {% if "AM" == form.state.value %} selected {% endif %}>Amazonas</option>
+                            <option value="BA" {% if "BA" == form.state.value %} selected {% endif %}>Bahia</option>
+                            <option value="CE" {% if "CE" == form.state.value %} selected {% endif %}>Ceará</option>
+                            <option value="DF" {% if "DF" == form.state.value %} selected {% endif %}>Distrito Federal</option>
+                            <option value="ES" {% if "ES" == form.state.value %} selected {% endif %}>Espírito Santos</option>
+                            <option value="GO" {% if "GO" == form.state.value %} selected {% endif %}>Goiás</option>
+                            <option value="MA" {% if "MA" == form.state.value %} selected {% endif %}>Maranhão</option>
+                            <option value="MT" {% if "MT" == form.state.value %} selected {% endif %}>Mato Grosso</option>
+                            <option value="MS" {% if "MS" == form.state.value %} selected {% endif %}>Mato Grosso do Sul</option>
+                            <option value="MG" {% if "MG" == form.state.value %} selected {% endif %}>Minas Gerais</option>
+                            <option value="PA" {% if "PA" == form.state.value %} selected {% endif %}>Pará</option>
+                            <option value="PB" {% if "PB" == form.state.value %} selected {% endif %}>Paraíba</option>
+                            <option value="PR" {% if "PR" == form.state.value %} selected {% endif %}>Paraná</option>
+                            <option value="PE" {% if "PE" == form.state.value %} selected {% endif %}>Pernambuco</option>
+                            <option value="PI" {% if "PI" == form.state.value %} selected {% endif %}>Piauí</option>
+                            <option value="RJ" {% if "RJ" == form.state.value %} selected {% endif %}>Rio de Janeiro</option>
+                            <option value="RN" {% if "RN" == form.state.value %} selected {% endif %}>Rio Grande do Norte</option>
+                            <option value="RS" {% if "RS" == form.state.value %} selected {% endif %}>Rio Grande do Sul</option>
+                            <option value="RO" {% if "RO" == form.state.value %} selected {% endif %}>Rondônia</option>
+                            <option value="RR" {% if "RR" == form.state.value %} selected {% endif %}>Roraima</option>
+                            <option value="SC" {% if "SC" == form.state.value %} selected {% endif %}>Santa Catarina</option>
+                            <option value="SP" {% if "SP" == form.state.value %} selected {% endif %}>São Paulo</option>
+                            <option value="SE" {% if "SE" == form.state.value %} selected {% endif %}>Sergipe</option>
+                            <option value="TO" {% if "TO" == form.state.value %} selected {% endif %}>Tocantins</option>
+                        </select>
+                        {{ form.errors.state }}
+                </div>
+                <div class="col-4">
+                    <input class="form" name="city" maxlength="250" id="city" type="text" placeholder="Cidade" value="{{ form.city.value|default_if_none:'' }}">
+                    {{ form.errors.city }}
+                </div>
+                <div class="col-5">
+                    <input class="form" name="district" id="district" maxlength="250" type="text" placeholder="Bairro" value="{{ form.district.value|default_if_none:'' }}">
+                    {{ form.errors.district }}
+                </div>
+            </div>
+            
+            <div class="row mt-3 mb-4">
+                <div class="col-6">
+                    <input class="form" name="address" maxlength="250" id="address" type="text" placeholder="Logradouro" value="{{ form.address.value|default_if_none:'' }}">
+                    {{ form.errors.address }}
+                </div>
+                <div class="col-6">
+                    <input class="form" name="complement" id="complement" maxlength="250" type="text" placeholder="Complemento" value="{{ form.complement.value|default_if_none:'' }}">
+                    {{ form.errors.complement }}
+                </div>
+            </div>
+
+        </div>
+        <div class="col-1"></div>
+    </div>
+</form>
+    
+    <div class="row mt-5">
+        <div class="col-1"></div>
+        <div class="col-10 border border-dark">
+            <span class="dados">Métodos de pagamento</span>
+            <div class="row">
+                <div class="col-3 ml-4 pt-3">
+                    <span class="forms">Nome(como está no seu cartão)</span>
+                </div>
+                <div class="col-8 pt-3">
+                    <input class="form" type="text">
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-3 ml-4 pt-3">
+                    <span class="forms">Número do cartão</span>
+                </div>
+                <div class="col-4 pt-3">
+                    <input class="form" type="text">
+                </div>
+                <div class="col-4 ml-4 pt-3">
+                    <div class="form-group">
+                        <label for="mes" id="vencimento">Vencimento:</label>
+                        <select name="mes" class="vencimento">
+                            <option>Mês</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                        <select name="ano" class="vencimento">
+                            <option>Ano</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2026</option>
+                            <option>2027</option>
+                            <option>2028</option>
+                            <option>2029</option>
+                            <option>2030</option>
+                            <option>2031</option>s
+                        </select>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-3 ml-4 ">
+                    <span class="forms">Parcelas</span>
+                </div>
+                <div class="col-4 ">
+                    <select name="parcelas" class="parcela">
+                            <option>1x de R$00,00</option>
+                            <option>2x de R$00,00</option>
+                            <option>3x de R$00,00</option>
+                            <option>4x de R$00,00</option>
+                            <option>5x de R$00,00</option>
+                    </select>
+                </div>
+                <div class="col-1 ml-4">
+                    <span class="forms">CVV</span>
+                </div>
+                <div class="col-2 ml-2 mb-4">
+                    <input class="form" type="text">
+                </div>
+                <div class=col-1></div>
+            </div>
+        </div>
+    </div>    
+    <div class="row mt-5">
+        <div class="col-1"></div>
+        <div class="col-10 border border-dark">
+            <span class="forms">Resumo</span>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 border-bottom border-right border-left border-dark">
+            {% for item in cart %}
+            {% with product=item.product %}
+            <div class="row">
+                <div class="col-2 mt-3">
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="/media/{{product.image}}" width="168px" heigth="168px" class="" alt=""/>
+                    </a>
+                </div>
+                <div class="col-3 mt-5">
+                    <span class="descricao">{{ product.name }}</span><br>
+                    <span class="descricao">Tamanho: M</span><br>
+                    <span class="descricao">Quantidade: {{ item.quantity }}</span><br>
+                </div>
+                <div class="col-2 mt-5">
+                    <span id="preco">R$ {{ item.total_price }}</span>
+                </div>
+            </div>
+            <hr class="linha">
+            {% endwith %}
+            {% endfor %}
+            <div class="row pb-2">
+                <div class="col-10">
+                    <span class="descricao">Subtotal</span><br>
+                    <span class="descricao">Entrega</span><br>
+                </div>
+                <div class="col-2 pr-2">
+                    <center><span class="descricao">R$ {{ cart.get_total_price }}</span></center>
+                    <center><span class="descricao">R$00,00</span></center>
+                </div> 
+            </div>
+            <div class="row border-top border-dark pb-2 pt-1" id="quadro">
+                    <div class="col-10 pt-2">
+                        <span id="total">TOTAL</span>
+                    </div>
+                    <div class="col-2 ">
+                        <center><span class="descricao">R$ {{ cart.get_total_price }}</span></center>
+                        <center><span id="parcela">em até 12x de R$ {{ cart.get_total_price|div:12 }}</span></center>
+                    </div>    
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mt-3 pb-5">
+                <div class="col-1">
+                    <a href="{% url 'compra' %}" id="voltar">VOLTAR</a>
+                </div>
+                <div class="col-8"></div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-dark btn-block sem-borda" id="finalizar" onclick="$('#compra').submit()">
+                        Finalizar Compra
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    
+    {%include 'components/guest/rodape.html'%}
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/velocity.min.js"></script>
+    <script src="/static/js/jquery.offcanvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imask@6.0.7/dist/imask.js"></script>
+    <script src="/static/js/order-forms.js"></script>
+</body>
+</html>
