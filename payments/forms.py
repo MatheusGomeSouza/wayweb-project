@@ -44,6 +44,18 @@ class PaymentForm(forms.ModelForm):
                 "identification": {"type": "CPF", "number": cd["doc_number"]},
             },
         }
+        # preference_data = {
+        #     "items": [
+        #         {
+        #             "title": self.order.item(),
+        #             "quantity": 1,
+        #             "unit_price": float(self.order.get_total_price())
+        #         }
+        #     ]
+        # }
+
+        # preference_response = sdk.preference().create(preference_data)
+        # preference = preference_response["response"]
         payment = mp.payment().create(payment_data)
 
         if payment["status"] == 201:

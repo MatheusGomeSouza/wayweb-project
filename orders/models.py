@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from localflavor.br.models import BRCPFField, BRPostalCodeField, BRStateField
@@ -7,7 +8,8 @@ from model_utils.models import TimeStampedModel
 from produto.models import Product
 
 
-class Order(TimeStampedModel):
+class Order(TimeStampedModel): 
+    user_id = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE, default="")
     cpf = BRCPFField("CPF")
     name = models.CharField("Nome Completo", max_length=250)
     email = models.EmailField()
@@ -26,6 +28,15 @@ class Order(TimeStampedModel):
     def __str__(self):
         return f"Pedido {self.id}"
 
+    def get_total_price(self):
+        total_cost = sum(item.get_total_price() for item in self.items.all())
+        return total_cost
+
+    def get_description(self):
+        return ", ".join(
+            [f"{item.quantity}x {item.product.name}" for item in self.items.all()]
+        )
+
 
 class Item(models.Model):
     order = models.ForeignKey(Order, related_name="items", on_delete=models.CASCADE)
@@ -42,3 +53,6 @@ class Item(models.Model):
 
     def __str__(self):
         return str(self.id)
+    
+    def get_total_price(self):
+        return self.price * self.quantity

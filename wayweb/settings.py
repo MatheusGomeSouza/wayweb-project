@@ -15,6 +15,8 @@ import socket
 from pathlib import Path
 import os
 
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -126,6 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -180,3 +183,11 @@ INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
 
 CART_SESSION_ID = "cart"
 CART_ITEM_MAX_QUANTITY = 20
+
+# =====================================================================
+#Mercado Pago
+
+env = environ.Env()
+env.read_env(str(BASE_DIR / '.env'))
+MERCADO_PAGO_PUBLIC_KEY = env("MERCADO_PAGO_PUBLIC_KEY")
+MERCADO_PAGO_ACCESS_TOKEN = env("MERCADO_PAGO_ACCESS_TOKEN")

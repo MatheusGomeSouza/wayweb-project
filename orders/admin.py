@@ -11,7 +11,7 @@ class ItemInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "name", "email", "cpf", "paid", "created", "modified"]
+    list_display = ["__str__", "user_id","name", "email", "cpf", "paid", "created", "modified"]
     list_filter = ["paid", "created", "modified"]
     search_fields = ["name", "email", "cpf"]
     inlines = [ItemInline]

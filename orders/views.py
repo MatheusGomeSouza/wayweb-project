@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import CreateView
 
@@ -15,6 +15,7 @@ class OrderCreateView(CreateView):
 
     def form_valid(self, form):
         cart = Cart(self.request)
+        form.user_id_id = self.request.session["_auth_user_id"]
         if cart:
             order = form.save()
             for item in cart:
@@ -25,7 +26,8 @@ class OrderCreateView(CreateView):
                     quantity=item["quantity"],
                 )
             cart.clear()
-            return render(self.request, "orders/order_created.html", {"order": order})
+            self.request.session["order_id"] = order.id
+            return redirect(reverse("payments:process"))
         return HttpResponseRedirect(reverse("pages:home"))
 
     def get_context_data(self, **kwargs):
