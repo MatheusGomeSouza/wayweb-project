@@ -51,7 +51,7 @@ def feminino(request):
     categories = Category.objects.all()
 
 
-    return render(request, 'guest/masculino.html', {'product_list': page_obj, 'categories' : categories, 'selectedCategories' : selectedCategories})
+    return render(request, 'guest/feminino.html', {'product_list': page_obj, 'categories' : categories, 'selectedCategories' : selectedCategories})
 
 def produto(request):
     return render(request, 'guest/descricao.html')

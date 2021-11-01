@@ -1,9 +1,9 @@
 function getAddress() {
-    var postalCode = document.getElementById("postal_code")
-    var address = document.getElementById("address")
-    var state = document.getElementById("state")
-    var city = document.getElementById("city")
-    var district = document.getElementById("district")
+    var postalCode = document.getElementById("id_postal_code")
+    var address = document.getElementById("id_address")
+    var state = document.getElementById("id_state")
+    var city = document.getElementById("id_city")
+    var district = document.getElementById("id_district")
 
     fetch(`https://viacep.com.br/ws/${postalCode.value}/json/`)
         .then(response => response.json())

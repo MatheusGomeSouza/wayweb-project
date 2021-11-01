@@ -15,7 +15,6 @@ class OrderCreateView(CreateView):
 
     def form_valid(self, form):
         cart = Cart(self.request)
-        form.user_id_id = self.request.session["_auth_user_id"]
         if cart:
             order = form.save()
             for item in cart:

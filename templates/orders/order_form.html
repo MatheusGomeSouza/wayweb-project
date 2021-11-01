@@ -73,29 +73,29 @@
             <span class="dados">Dados para a entrega</span>
             <div class="row pt-3">
                 <div class="col-8">
-                    <input class="form" name="name" id="name" maxlength="250" type="text" placeholder="Nome Completo" value="{{ form.name.value|default_if_none:'' }}">
+                    <input class="form" name="name" id="id_name" maxlength="250" type="text" placeholder="Nome Completo" value="{{ form.name.value|default_if_none:'' }}">
                 </div>
                 <div class="col-4">
-                    <input class="form" name="email" id="email" type="text" placeholder="Email" value="{{ form.email.value|default_if_none:'' }}"> 
+                    <input class="form" name="email" id="id_email" type="text" placeholder="Email" value="{{ form.email.value|default_if_none:'' }}"> 
                 </div>
             </div>
             <div class="row pt-3">
                 <div class="col-5">
-                    <input class="form" name="cpf" id="cpf" maxlength="14" id="cpf" type="text" placeholder="CPF" value="{{ form.cpf.value|default_if_none:'' }}">
+                    <input class="form" name="cpf" id="id_cpf" maxlength="14" id="cpf" type="text" placeholder="CPF" value="{{ form.cpf.value|default_if_none:'' }}">
                     {{ form.errors.cpf }}
                 </div>
                 <div class="col-5">
-                    <input class="form" name="postal_code" id="postal_code" maxlength="9" onchange="getAddress()" type="text" placeholder="CEP" value="{{ form.postal_code.value|default_if_none:'' }}">
+                    <input class="form" name="postal_code" id="id_postal_code" maxlength="9" onchange="getAddress()" type="text" placeholder="CEP">
                     {{ form.errors.postal_code }}
                 </div>
                 <div class="col-2">
-                    <input class="form" name="number" id="number" maxlength="250" type="text" placeholder="Número" value="{{ form.number.value|default_if_none:'' }}">
+                    <input class="form" name="number" id="id_number" maxlength="250" type="text" placeholder="Número" value="{{ form.number.value|default_if_none:'' }}">
                     {{ form.errors.number }}
                 </div>
             </div>
             <div class="row pt-3">
                 <div class="col-3">
-                    <label for="state" id="estado">Estado:</label>
+                    <label for="state" id="id_estado">Estado:</label>
                         <select name="state" id="state" class="estados">
                             <option></option>
                             <option value="AC" {% if "AC" == form.state.value %} selected {% endif %}>Acre</option>
@@ -129,22 +129,22 @@
                         {{ form.errors.state }}
                 </div>
                 <div class="col-4">
-                    <input class="form" name="city" maxlength="250" id="city" type="text" placeholder="Cidade" value="{{ form.city.value|default_if_none:'' }}">
+                    <input class="form" name="city" maxlength="250" id="id_city" type="text" placeholder="Cidade" value="{{ form.city.value|default_if_none:'' }}">
                     {{ form.errors.city }}
                 </div>
                 <div class="col-5">
-                    <input class="form" name="district" id="district" maxlength="250" type="text" placeholder="Bairro" value="{{ form.district.value|default_if_none:'' }}">
+                    <input class="form" name="district" id="id_district" maxlength="250" type="text" placeholder="Bairro" value="{{ form.district.value|default_if_none:'' }}">
                     {{ form.errors.district }}
                 </div>
             </div>
             
             <div class="row mt-3 mb-4">
                 <div class="col-6">
-                    <input class="form" name="address" maxlength="250" id="address" type="text" placeholder="Logradouro" value="{{ form.address.value|default_if_none:'' }}">
+                    <input class="form" name="address" maxlength="250" id="id_address" type="text" placeholder="Logradouro" value="{{ form.address.value|default_if_none:'' }}">
                     {{ form.errors.address }}
                 </div>
                 <div class="col-6">
-                    <input class="form" name="complement" id="complement" maxlength="250" type="text" placeholder="Complemento" value="{{ form.complement.value|default_if_none:'' }}">
+                    <input class="form" name="complement" id="id_complement" maxlength="250" type="text" placeholder="Complemento" value="{{ form.complement.value|default_if_none:'' }}">
                     {{ form.errors.complement }}
                 </div>
             </div>
@@ -154,7 +154,7 @@
     </div>
 </form>
     
-    <div class="row mt-5">
+   <!-- <div class="row mt-5">
         <div class="col-1"></div>
         <div class="col-10 border border-dark">
             <span class="dados">Métodos de pagamento</span>
@@ -232,7 +232,7 @@
                 <div class=col-1></div>
             </div>
         </div>
-    </div>    
+    </div>    -->
     <div class="row mt-5">
         <div class="col-1"></div>
         <div class="col-10 border border-dark">
