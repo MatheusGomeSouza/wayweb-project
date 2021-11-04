@@ -19,7 +19,7 @@ class OrderCreateForm(forms.ModelForm):
             "district",
             "state",
             "city",
-            "user_id"
+            "user",
         ]
 
     def __init__(self, *args, **kwargs):
@@ -40,7 +40,7 @@ class OrderCreateForm(forms.ModelForm):
                 "cpf",
                 "name",
                 "email",
-                "user_id_id",
+                "user",
                 Div(
                     Field("postal_code", onchange="getAddress()", wrapper_class="col"),
                     Field("state", wrapper_class="col"),
@@ -55,7 +55,6 @@ class OrderCreateForm(forms.ModelForm):
                 Div(
                     Field("number", wrapper_class="col"),
                     Field("complement", wrapper_class="col"),
-                    Field("user_id", value="{{user.id}}"),
                     css_class="row",
                 ),
                 css_class="border-bottom mb-3",

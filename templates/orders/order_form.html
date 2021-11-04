@@ -65,7 +65,7 @@
         <div class="col-1"></div>
     </div>
 
-    <form action="." method="post" id="compra">
+    <form action="." method="POST" id="compra">
         {% csrf_token %}
     <div class="row pt-5">
         <div class="col-1"></div>
@@ -95,52 +95,46 @@
             </div>
             <div class="row pt-3">
                 <div class="col-3">
-                    <label for="state" id="id_estado">Estado:</label>
-                        <select name="state" id="state" class="estados">
-                            <option></option>
-                            <option value="AC" {% if "AC" == form.state.value %} selected {% endif %}>Acre</option>
-                            <option value="AL" {% if "AL" == form.state.value %} selected {% endif %}>Alagoas</option>
-                            <option value="AP" {% if "AP" == form.state.value %} selected {% endif %}>Amapá</option>
-                            <option value="AM" {% if "AM" == form.state.value %} selected {% endif %}>Amazonas</option>
-                            <option value="BA" {% if "BA" == form.state.value %} selected {% endif %}>Bahia</option>
-                            <option value="CE" {% if "CE" == form.state.value %} selected {% endif %}>Ceará</option>
-                            <option value="DF" {% if "DF" == form.state.value %} selected {% endif %}>Distrito Federal</option>
-                            <option value="ES" {% if "ES" == form.state.value %} selected {% endif %}>Espírito Santos</option>
-                            <option value="GO" {% if "GO" == form.state.value %} selected {% endif %}>Goiás</option>
-                            <option value="MA" {% if "MA" == form.state.value %} selected {% endif %}>Maranhão</option>
-                            <option value="MT" {% if "MT" == form.state.value %} selected {% endif %}>Mato Grosso</option>
-                            <option value="MS" {% if "MS" == form.state.value %} selected {% endif %}>Mato Grosso do Sul</option>
-                            <option value="MG" {% if "MG" == form.state.value %} selected {% endif %}>Minas Gerais</option>
-                            <option value="PA" {% if "PA" == form.state.value %} selected {% endif %}>Pará</option>
-                            <option value="PB" {% if "PB" == form.state.value %} selected {% endif %}>Paraíba</option>
-                            <option value="PR" {% if "PR" == form.state.value %} selected {% endif %}>Paraná</option>
-                            <option value="PE" {% if "PE" == form.state.value %} selected {% endif %}>Pernambuco</option>
-                            <option value="PI" {% if "PI" == form.state.value %} selected {% endif %}>Piauí</option>
-                            <option value="RJ" {% if "RJ" == form.state.value %} selected {% endif %}>Rio de Janeiro</option>
-                            <option value="RN" {% if "RN" == form.state.value %} selected {% endif %}>Rio Grande do Norte</option>
-                            <option value="RS" {% if "RS" == form.state.value %} selected {% endif %}>Rio Grande do Sul</option>
-                            <option value="RO" {% if "RO" == form.state.value %} selected {% endif %}>Rondônia</option>
-                            <option value="RR" {% if "RR" == form.state.value %} selected {% endif %}>Roraima</option>
-                            <option value="SC" {% if "SC" == form.state.value %} selected {% endif %}>Santa Catarina</option>
-                            <option value="SP" {% if "SP" == form.state.value %} selected {% endif %}>São Paulo</option>
-                            <option value="SE" {% if "SE" == form.state.value %} selected {% endif %}>Sergipe</option>
-                            <option value="TO" {% if "TO" == form.state.value %} selected {% endif %}>Tocantins</option>
-                        </select>
+                    <select name="state" class="form" required="" id="id_state">
+                        <option value="" selected="">---------</option> 
+                        <option value="AC">Acre</option> <option value="AL">Alagoas</option> 
+                        <option value="AP">Amapá</option> <option value="AM">Amazonas</option> 
+                        <option value="BA">Bahia</option> <option value="CE">Ceará</option> 
+                        <option value="DF">Distrito Federal</option> <option value="ES">Espírito Santo</option> 
+                        <option value="GO">Goiás</option> <option value="MA">Maranhão</option> 
+                        <option value="MT">Mato Grosso</option> 
+                        <option value="MS">Mato Grosso do Sul</option> 
+                        <option value="MG">Minas Gerais</option> 
+                        <option value="PA">Pará</option> 
+                        <option value="PB">Paraíba</option> 
+                        <option value="PR">Paraná</option> 
+                        <option value="PE">Pernambuco</option> 
+                        <option value="PI">Piauí</option> 
+                        <option value="RJ">Rio de Janeiro</option> 
+                        <option value="RN">Rio Grande do Norte</option> 
+                        <option value="RS">Rio Grande do Sul</option> 
+                        <option value="RO">Rondônia</option> 
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
                         {{ form.errors.state }}
                 </div>
                 <div class="col-4">
-                    <input class="form" name="city" maxlength="250" id="id_city" type="text" placeholder="Cidade" value="{{ form.city.value|default_if_none:'' }}">
+                    <input class="form" name="city" maxlength="250" required id="id_city" type="text" placeholder="Cidade" value="{{ form.city.value|default_if_none:'' }}">
                     {{ form.errors.city }}
                 </div>
                 <div class="col-5">
-                    <input class="form" name="district" id="id_district" maxlength="250" type="text" placeholder="Bairro" value="{{ form.district.value|default_if_none:'' }}">
+                    <input class="form" name="district" required id="id_district" maxlength="250" type="text" placeholder="Bairro" value="{{ form.district.value|default_if_none:'' }}">
                     {{ form.errors.district }}
                 </div>
             </div>
             
             <div class="row mt-3 mb-4">
                 <div class="col-6">
-                    <input class="form" name="address" maxlength="250" id="id_address" type="text" placeholder="Logradouro" value="{{ form.address.value|default_if_none:'' }}">
+                    <input class="form" name="address" maxlength="250" required id="id_address" type="text" placeholder="Logradouro" value="{{ form.address.value|default_if_none:'' }}">
                     {{ form.errors.address }}
                 </div>
                 <div class="col-6">
@@ -148,11 +142,18 @@
                     {{ form.errors.complement }}
                 </div>
             </div>
-
+            <div class="row mt-3 mb-4">
+                <div class="col-6">
+                    <input class="form" name="user" id="user_id" value="{{ user.id }}">
+                    {{ form.errors.user }}
+                </div>
+            </div>
+            
         </div>
         <div class="col-1"></div>
     </div>
 </form>
+
     
    <!-- <div class="row mt-5">
         <div class="col-1"></div>
@@ -298,7 +299,7 @@
                         Finalizar Compra
                     </button>
                 </div>
-                
+
             </div>
         </div>
         <div class="col-1"></div>

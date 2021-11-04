@@ -9,7 +9,7 @@ from produto.models import Product
 
 
 class Order(TimeStampedModel): 
-    user_id = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE, default="")
+    user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE, default="")
     cpf = BRCPFField("CPF")
     name = models.CharField("Nome Completo", max_length=250)
     email = models.EmailField()
