@@ -14,20 +14,32 @@
 </head>
 
 <body>
-
 {%include 'components/guest/header.html'%}
 
 <div style='min-height:100%; height: 610px'>   
     <div class="row h-100">
         <div class="col-4"></div>
         <div class="col-4 h-100 d-flex justify-content-center align-items-center">
-            <div>
-                <input class="form sem-borda" type="text" placeholder="Usuário">
-                <input class="form sem-borda mt-2" type="text" placeholder="E-mail">
-                <input class="form sem-borda mt-2" type="text" placeholder="Senha">
-                <input class="form sem-borda mt-2" type="text" placeholder="Confirmar senha">
-                <button class="btn btn-dark btn-block sem-borda mt-3" id="entrar">Confirmar</button>
-            </div>    
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        <input name="username" class="form sem-borda" type="text" placeholder="Usuário">
+                    </div>
+                    <div class="col-12">
+                        <input name="email" class="form sem-borda mt-2" type="text" placeholder="E-mail">
+                    </div>
+                    <div class="col-12">
+                        <input name="password" class="form sem-borda mt-2" type="text" placeholder="Senha">
+                    </div>
+                    <div class="col-12">
+                        <input name="password2" class="form sem-borda mt-2" type="text" placeholder="Confirmar senha">
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-dark btn-block sem-borda mt-3" id="entrar">Confirmar</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="col-4"></div>
     </div>
@@ -73,62 +85,5 @@
 <script src="static/js/jquery.offcanvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-<script>  
-    var myModal = document.getElementById('loginModal')
-    var myInput = document.getElementById('email')
-
-    myModal.addEventListener('shown.bs.modal', function () {
-      myInput.focus()
-    })
-</script>
-
-<script>
-    var $sacola = $("#sacola");
-    var $favorito = $("#favoritos");
-    
-    var $sacola = $("#sacola").offcanvas({
-            origin: "right",
-            duration: 400,
-            covarage: 500,
-            overlay: true,
-            effect: 'slide-in-over',
-        });
-
-    $("#button-sacola").on("click", function() {
-        $favorito.offcanvas("destroy");
-        
-        var $sacola = $("#sacola").offcanvas({
-            origin: "right",
-            duration: 400,
-            covarage: 500,
-            overlay: true,
-            effect: 'slide-in-over',
-        });
-
-        $sacola.show();
-        $favorito.hide();
-
-        $sacola.offcanvas("toggle");
-    });
-
-    $("#button-favorito").on("click", function() {
-        $sacola.offcanvas("destroy");
-
-        var $favorito = $("#favoritos").offcanvas({
-            origin: "right",
-            duration: 400,
-            covarage: 500,
-            overlay: true,
-            effect: 'slide-in-over',
-        });
-        
-        $favorito.show();
-        $sacola.hide();
-
-        $favorito.offcanvas("toggle");
-    });
-</script>
 </body>
 </html>

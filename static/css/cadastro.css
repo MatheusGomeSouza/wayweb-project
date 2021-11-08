@@ -10,13 +10,32 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-.button{
-    background: white;
+#img-lupa{
+    width:24px;
+    height:24px;
+}
+#barra-busca{
+    margin: 0 auto; 
+    background-color: #C6D5F4; 
+    border-radius: 5px; 
+    height: 33px; 
+    top: 40px;
+}
+#barra-busca1{
+    background-color: #C6D5F4;
+    height: 100%;
+    border-radius: 5px;
     border: 0;
-    font-size: 20px;
+    width: calc(100% - 24px);
+}
+.cadastre{
+    font-size: 13px;
     font-family: Roboto;
     font-weight: bold;
-    color: black;
+    color:black;
+}
+.cadastre:hover{
+    color:black;
 }
 .form{
     border-color: black;

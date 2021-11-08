@@ -96,7 +96,7 @@
             <div class="row pt-3">
                 <div class="col-3">
                     <select name="state" class="form" required="" id="id_state">
-                        <option value="" selected="">---------</option> 
+                        <option value="" selected="" hidden>Estado</option> 
                         <option value="AC">Acre</option> <option value="AL">Alagoas</option> 
                         <option value="AP">Amapá</option> <option value="AM">Amazonas</option> 
                         <option value="BA">Bahia</option> <option value="CE">Ceará</option> 
@@ -142,7 +142,7 @@
                     {{ form.errors.complement }}
                 </div>
             </div>
-            <div class="row mt-3 mb-4">
+            <div class="row mt-3 mb-4" style="display: none;">
                 <div class="col-6">
                     <input class="form" name="user" id="user_id" value="{{ user.id }}">
                     {{ form.errors.user }}
@@ -155,7 +155,7 @@
 </form>
 
     
-   <!-- <div class="row mt-5">
+   <div class="row mt-5">
         <div class="col-1"></div>
         <div class="col-10 border border-dark">
             <span class="dados">Métodos de pagamento</span>
@@ -233,7 +233,7 @@
                 <div class=col-1></div>
             </div>
         </div>
-    </div>    -->
+    </div> 
     <div class="row mt-5">
         <div class="col-1"></div>
         <div class="col-10 border border-dark">
