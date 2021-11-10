@@ -80,12 +80,15 @@ function setInstallments(status, response) {
 }
 
 doSubmit = false
-document.getElementById('paymentForm').addEventListener('submit', getCardToken)
+
+$('#compra').submit(getCardToken)
+
 function getCardToken(event) {
     event.preventDefault()
+
     if (!doSubmit) {
         document.getElementById('docNumber').value = maskCPF.unmaskedValue
-        let $form = document.getElementById('paymentForm')
+        let $form = $('#compra')
         window.Mercadopago.createToken($form, setCardTokenAndPay)
         return false
     }
@@ -93,7 +96,7 @@ function getCardToken(event) {
 
 function setCardTokenAndPay(status, response) {
     if (status == 200 || status == 201) {
-        let form = document.getElementById('paymentForm')
+        let form = document.getElementById('compra')
         let card = document.createElement('input')
         card.setAttribute('name', 'token')
         card.setAttribute('type', 'hidden')

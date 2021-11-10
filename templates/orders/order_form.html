@@ -1,35 +1,3 @@
-{% load crispy_forms_tags %}
-{% load static %}
-
-<!-- div class="container my-3">
-    <h1 class="font-weight-bold">Checkout</h1>
-    {% if cart %}
-    <div class="row">
-        <div class="col-lg-6">
-            {% crispy form %}
-        </div>
-        <div class="col-lg-6">
-            <div class="card border-0 bg-light p-4">
-                <h4>Resumo do Pedido</h4>
-                <ul class="list-group list-group-flush">
-                    {% for item in cart %}
-                    <li class="list-group-item bg-light">
-                        {{ item.quantity }}x {{ item.product.name }}
-                        <span class="float-right">R$ {{ item.total_price }}</span>
-                    </li>
-                    {% endfor %}
-                    <li class="font-weight-bold list-group-item bg-light">Total
-                        <span class="float-right">R$ {{ cart.get_total_price }}</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    {% else %}
-    <p>Seu carrinho está vazio.</p>
-    {% endif %}
-</div> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,7 +32,8 @@
         </div>
         <div class="col-1"></div>
     </div>
-
+    
+    {{ form.errors }}
     <form action="." method="POST" id="compra">
         {% csrf_token %}
     <div class="row pt-5">
@@ -152,9 +121,7 @@
         </div>
         <div class="col-1"></div>
     </div>
-</form>
 
-    
    <div class="row mt-5">
         <div class="col-1"></div>
         <div class="col-10 border border-dark">
@@ -163,49 +130,64 @@
                 <div class="col-3 ml-4 pt-3">
                     <span class="forms">Nome(como está no seu cartão)</span>
                 </div>
-                <div class="col-8 pt-3">
-                    <input class="form" type="text">
+                <div class="col-4 pt-3">
+                    <input id="cardholderName" data-checkout="cardholderName" type="text" class="form">
                 </div>
-                <div class="col-1"></div>
+                <div class="col-1 ml-4 pt-3">
+                    <span class="forms">CPF</span>
+                </div>
+                <div class="col-3 pt-3">
+                    <input id="docNumber" name="doc_number" data-checkout="docNumber" type="text"class="form">
+                </div>
             </div>
             <div class="row">
                 <div class="col-3 ml-4 pt-3">
                     <span class="forms">Número do cartão</span>
                 </div>
                 <div class="col-4 pt-3">
-                    <input class="form" type="text">
+                    <input class="form" type="text" id="cardNumber" data-checkout="cardNumber" onselectstart="return false"
+                    oncopy="return false" oncut="return false" ondrag="return false" ondrop="return false"
+                    autocomplete=off>
                 </div>
                 <div class="col-4 ml-4 pt-3">
                     <div class="form-group">
-                        <label for="mes" id="vencimento">Vencimento:</label>
-                        <select name="mes" class="vencimento">
-                            <option>Mês</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
+                        <label for="cardExpirationMonth" id="vencimento" class="mr-4">Vencimento:</label>
+                        <select type="text" placeholder="MM" name="cardExpirationMonth" id="cardExpirationMonth"
+                        data-checkout="cardExpirationMonth" onselectstart="return false"
+                        onpaste="return false" oncopy="return false" oncut="return false"
+                        ondrag="return false" ondrop="return false" autocomplete=off
+                        class="vencimento ml-2" maxlength="2">
+                            <option hidden>Mês</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
                         </select>
-                        <select name="ano" class="vencimento">
-                            <option>Ano</option>
-                            <option>2021</option>
-                            <option>2022</option>
-                            <option>2023</option>
-                            <option>2024</option>
-                            <option>2025</option>
-                            <option>2026</option>
-                            <option>2027</option>
-                            <option>2028</option>
-                            <option>2029</option>
-                            <option>2030</option>
-                            <option>2031</option>s
+                        <select type="text" placeholder="YY" id="cardExpirationYear"
+                        data-checkout="cardExpirationYear" onselectstart="return false"
+                        onpaste="return false" oncopy="return false" oncut="return false"
+                        ondrag="return false" ondrop="return false" autocomplete=off
+                        class="vencimento" maxlength="2">
+                            <option hidden>Ano</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
                         </select>
                     </div>
                 </div>
@@ -215,25 +197,28 @@
                 <div class="col-3 ml-4 ">
                     <span class="forms">Parcelas</span>
                 </div>
-                <div class="col-4 ">
-                    <select name="parcelas" class="parcela">
-                            <option>1x de R$00,00</option>
-                            <option>2x de R$00,00</option>
-                            <option>3x de R$00,00</option>
-                            <option>4x de R$00,00</option>
-                            <option>5x de R$00,00</option>
-                    </select>
+                <div class="col-4">
+                    <select id="installments" name="installments" class="parcela"></select>
                 </div>
                 <div class="col-1 ml-4">
-                    <span class="forms">CVV</span>
+                    <span class="forms" >CVV</span>
                 </div>
                 <div class="col-2 ml-2 mb-4">
-                    <input class="form" type="text">
+                    <input class="form" id="securityCode" data-checkout="securityCode" type="text" 
+                        onselectstart="return false" onpaste="return false" oncopy="return false" maxlength="4"
+                        oncut="return false" ondrag="return false" ondrop="return false" autocomplete=off type="text">
                 </div>
                 <div class=col-1></div>
             </div>
         </div>
-    </div> 
+    </div>
+    <input type="hidden" id="docType" name="docType" data-checkout="docType" type="text"
+                        class="form-control" value="CPF" />
+    <input type="hidden" name="payment_method_id" id="paymentMethodId"/>
+    <input type="hidden" name="transaction_amount" id="transactionAmount"
+                        value="{{ cart.get_total_price|stringformat:'.2f' }}"/> 
+    <input type="hidden" id="issuer" name="issuer" data-checkout="issuer" class="form-control" />
+</form>  
     <div class="row mt-5">
         <div class="col-1"></div>
         <div class="col-10 border border-dark">
@@ -314,5 +299,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/imask@6.0.7/dist/imask.js"></script>
     <script src="/static/js/order-forms.js"></script>
+    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+    <script>
+        window.Mercadopago.setPublishableKey("{{ publishable_key }}");
+    </script>
+    <script src="/static/js/process-payment.js"></script>
 </body>
 </html>

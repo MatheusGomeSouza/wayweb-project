@@ -18,10 +18,11 @@ function getAddress() {
         })
 }
 
-var maskCPF = IMask(document.getElementById('cpf'), {
+var maskCPF = IMask(document.getElementById('id_cpf'), {
     mask: '000.000.000-00'
 })
 
-var maskPostalCode = IMask(document.getElementById('postal_code'), {
+
+var maskPostalCode = IMask(document.getElementById('id_postal_code'), {
     mask: '00000-000'
 })

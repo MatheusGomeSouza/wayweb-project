@@ -6,6 +6,13 @@ from .models import Order
 
 
 class OrderCreateForm(forms.ModelForm):
+    transaction_amount = forms.Field()
+    installments = forms.IntegerField()
+    payment_method_id  = forms.Field()
+    email  = forms.Field()
+    doc_number = forms.Field()
+    token = forms.Field()
+
     class Meta:
         model = Order
         fields = [
