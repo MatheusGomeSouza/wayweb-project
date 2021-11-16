@@ -91,15 +91,6 @@
                 </div> 
                 <div class="col-2"></div>
             </div>  
-            <!-- <div class="row" id="adicionarfav">
-                <div class="col-2"></div>
-                <div class="col-8">
-                    <div class="btn btn-light text-center text-break btn-block border border-dark sem-borda" style="cursor: pointer;" id="favorite_button_container">
-                        <img src="/media/Header39x31.png" class="mr-3" data-swap="/media/Heart35x35.png" id="favorite_button"><span id="txtadd">Adicionar aos favoritos</span>
-                    </div>
-                </div>
-                <div class="col-2"></div>
-            </div>-->
             </div>
         </div>
     </div>
@@ -186,19 +177,6 @@
     </section>
     
     {%include 'components/guest/rodape.html'%}
-    
-      <!-- <nav class="nav-container-favorito" id="favoritos" style="display: none;">
-        <header>
-            <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
-        </header>
-    </nav>
-
-    <nav id="sacola" style="display: none;">
-        <header>
-            <a>COMPRA</a>
-        </header>
-        <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
-    </nav> -->
 
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/velocity.min.js"></script>
@@ -215,51 +193,5 @@
             button.attr('src', swap).attr("data-swap",current);   
         })
     </script>
-   <!-- <script>
-        var $sacola = $("#sacola");
-        var $favorito = $("#favoritos");
-        
-        var $sacola = $("#sacola").offcanvas({
-                origin: "right",
-                duration: 400,
-                covarage: 500,
-                overlay: true,
-                effect: 'slide-in-over',
-            });
-
-        $("#button-sacola").on("click", function() {
-            $favorito.offcanvas("destroy");
-            
-            var $sacola = $("#sacola").offcanvas({
-                origin: "right",
-                duration: 400,
-                covarage: 500,
-                overlay: true,
-                effect: 'slide-in-over',
-            });
-
-            $sacola.show();
-            $favorito.hide();
-
-            $sacola.offcanvas("toggle");
-        });
-
-        $("#button-favorito").on("click", function() {
-            $sacola.offcanvas("destroy");
-
-            var $favorito = $("#favoritos").offcanvas({
-                origin: "right",
-                duration: 400,
-                covarage: 500,
-                overlay: true,
-                effect: 'slide-in-over',
-            });
-            
-            $favorito.show();
-            $sacola.hide();
-
-            $favorito.offcanvas("toggle");
-        });
-    </script> -->
 </body>
 </html>

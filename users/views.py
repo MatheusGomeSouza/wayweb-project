@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -6,6 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.core.paginator import Paginator
 
 from produto.models import Category, Product
+from orders.models import Order
 from .forms import UserRegisterForm
 from .models import *
 
@@ -76,3 +78,7 @@ def register(request):
 
 def gerenciamento(request):
     return render(request, "produto.html")
+
+def myOrders(request):
+    myOrders = Order.objects.filter(user = request.user.id)
+    return render(request, 'produto.html', {'myOrders': myOrders})
