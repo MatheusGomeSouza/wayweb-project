@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/pedido.css" media="screen" />
+    <title>WAY Masculino</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+{%include 'components/guest/header.html'%}
+
+<div class="row mt-4 border-bottom border-top border-dark mb-2">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="row mt-2 mb-2">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <a href="{% url 'masculino' %}" class="button">Masculino</a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <a href="{% url 'feminino' %}" class="button">Feminina</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row mt-5 mb-5">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <span id="pedido">Meus pedidos</span>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+{% for myOrder in myOrders %}
+<div class="row" style="background-color: #ccc;">
+    <div class="col-1"></div>
+    <div class="col-10 border-dark border-top border-bottom">
+        <div class="row">
+            <div class="col-3">
+                <div class=" mt-2 mb-2">
+                    <center><span class="codigo ">Código de compra</span></center>
+                    <center><span class="codigo-num">{{ myOrder.id }}</span></center>
+                </div>
+                <div class="border-dark border-top"></div>
+                <div class="mt-2 mb-2">
+                    <center><span class="codigo pt-5">Código de rastreio</span></center>
+                    <center><span class="codigo-num">ABCD123456789</span></center>
+                </div>
+            </div>
+            <div class="col-6 mt-4">
+                <center><span id="status">Status</span></center>
+                <center><span id="concluido">
+                    {% if myOrder.paid %}
+                        Concluido
+                    {% else %}
+                        Pendente
+                    {% endif %}
+                </span></center>
+            </div>
+            <div class="col-3 mt-5">
+                <a style="color: black;" data-toggle="collapse" href="#order_{{ myOrder.id }}" role="button" aria-expanded="false" aria-controls="order_{{ myOrder.id }}" onclick="toggleImage({{ myOrder.id }})">
+                    <span id="detalhe">Ver mais detalhes</span>
+                    <img src="/media/Vector.png" data-swap="/media/pedido.png" id="order_{{ myOrder.id }}_image" class="mb-2" alt=""/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+{% for item in myOrder.items.all %}
+<div class="collapse" id="order_{{ myOrder.id }}" style="background-color: #ccc;">
+    {% if forloop.counter == 1 %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 border-bottom border-dark">
+            <div class="mt-3 mb-2">
+                <span id="endereco">Endereço</span>
+            </div>
+                <span class="endereco">{{ myOrder.address }}</span><br>
+                <span class="endereco">CEP: {{ myOrder.postal_code }}</span><br>
+                <span class="endereco">Numero: {{ myOrder.number }}</span><br>
+                <span class="endereco">Estado: {{ myOrder.state }}</span><br>
+            <div class="mb-3"></div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    {% endif %}
+        
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+        <div class="row border-dark border-bottom">
+            <div class="col-2">
+                <center>
+                    <a href="{{ item.product.get_absolute_url }}">
+                        <img src="/media/{{ item.product.image }}" class="mt-2 mb-2" alt="" style="cursor: pointer;" width="215px" height="217px"/>
+                    </a>
+                </center>
+            </div>
+            <div class="col-10">
+                <div class="mt-2 mb-2">
+                    <span class="titulo-roupa">{{ item.product.name }}</span><br>
+                </div>
+                <div class="mt-3">
+                    <span class="desc-roupa">Tamanho: M</span><br>
+                    <span class="desc-roupa">Quantidade: {{ item.quantity }}</span><br>
+                    <span class="desc-roupa">R$ {{ item.price }}</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+{% endfor %}
+    
+<div class="row mb-5" style="background-color: #ccc;">
+    <div class="col-1"></div>
+    <div class="col-10 border-dark border-bottom">
+    <div class="row">
+        <div class="col-2">
+            <span id="total">TOTAL:</span>
+        </div>
+        <div class="col-8"></div>
+        <div class="col-2 mt-1">
+            <center><span id="valor">R$ {{ myOrder.get_total_price }}</span></center>
+        </div>
+    </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+{% endfor %}
+ 
+{%include 'components/guest/rodape.html'%}
+
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/velocity.min.js"></script>
+<script src="/static/js/jquery.offcanvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script>
+    function toggleImage(id) {
+        var image = $('#order_' + id + '_image');
+        var current = image.attr("src");
+        var swap = image.attr("data-swap");
+        image.attr('src', swap).attr('data-swap', current);
+    }
+</script>
+
+</body>
+</html>

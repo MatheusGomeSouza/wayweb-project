@@ -17,6 +17,7 @@
                         <div class="col-12 d-flex justify-content-end">
                             <img src="/media/user.png" id="img-perfil" alt=""/>
                             <a class="cadastre ml-2" href="">{{ user }}</a>
+                            <a href="{% url 'my_orders' %}" class="ml-2" id="button-sacola"><img src="/media/pedido.png"></a>
                             <a href="{% url 'sacola:detail' %}" class="mr-2" id="button-sacola"><img src="/media/sacola.png"></a>
                         </div>
                     </div>

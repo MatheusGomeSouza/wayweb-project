@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.core.paginator import Paginator
 
 from produto.models import Category, Product
-from orders.models import Order
+from orders.models import Item, Order
 from .forms import UserRegisterForm
 from .models import *
 
@@ -80,5 +80,5 @@ def gerenciamento(request):
     return render(request, "produto.html")
 
 def myOrders(request):
-    myOrders = Order.objects.filter(user = request.user.id)
-    return render(request, 'produto.html', {'myOrders': myOrders})
+    myOrders = Order.objects.filter(user = request.user.id).prefetch_related('items')
+    return render(request, 'guest/meus_pedidos.html', {'myOrders': myOrders})
