@@ -44,6 +44,7 @@ class OrderCreateView(CreateView):
                     price=item["price"],
                     quantity=item["quantity"],
                 )
+                
             cart.clear()
 
             mp = mercadopago.SDK(settings.MERCADO_PAGO_ACCESS_TOKEN)
@@ -87,7 +88,7 @@ class OrderCreateView(CreateView):
             if payment["response"]["status"] == "in_process":
                 redirect_url = "payments:pending"
 
-            return redirect(redirect_url)
+            return redirect('my_orders')
         return HttpResponseRedirect(reverse("pages:home"))
 
     def get_context_data(self, **kwargs):

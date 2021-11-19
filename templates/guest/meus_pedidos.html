@@ -26,7 +26,7 @@
             </div>
             <div class="col-2"></div>
             <div class="col-4">
-                <a href="{% url 'feminino' %}" class="button">Feminina</a>
+                <a href="{% url 'feminino' %}" class="button">Feminino</a>
             </div>
         </div>
     </div>
@@ -60,11 +60,13 @@
             <div class="col-6 mt-4">
                 <center><span id="status">Status</span></center>
                 <center><span id="concluido">
-                    {% if myOrder.paid %}
+                    <!-- {% if myOrder.paid %}
                         Concluido
                     {% else %}
                         Pendente
-                    {% endif %}
+                    {% endif %} -->
+
+                    Em andamento
                 </span></center>
             </div>
             <div class="col-3 mt-5">
