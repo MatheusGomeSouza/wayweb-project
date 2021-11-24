@@ -1,4 +1,7 @@
 import mercadopago
+import urllib
+import urllib.request
+import xmltodict
 
 from pprint import pprint
 from django.http import HttpResponseRedirect
@@ -17,6 +20,28 @@ from .models import Item, Order
 class OrderCreateView(CreateView):
     model = Order
     form_class = OrderCreateForm
+
+    def calcularFrete(self, detino, numero_de_produtos):
+        params = urllib.parse.urlencode({
+        'sCepOrigem': '08551300',
+        'sCepDestino': detino,
+        'nVlPeso': numero_de_produtos * 0.2,
+        'nVlComprimento': 15,
+        'nVlAltura': 15,
+        'nVlLargura': 15,
+        'nCdServico': '04014'})
+
+        url = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?" + params + "&nCdEmpresa=&sDsSenha=&sCdAvisoRecebimento=n&sCdMaoPropria=n&nVlValorDeclarado=0&nVlDiametro=0&StrRetorno=xml&nIndicaCalculo=3&nCdFormato=1&?"
+        
+        response = urllib.request.urlopen(url)
+
+        data = response.read()
+
+        response.close()
+
+        data = xmltodict.parse(data)
+
+        return data['Servicos']['cServico']['Valor']
 
     def form_valid(self, form):
         cart = Cart(self.request)
@@ -45,6 +70,11 @@ class OrderCreateView(CreateView):
                     quantity=item["quantity"],
                 )
                 
+            itemsCount = order.items.all().count()
+            frete = self.calcularFrete('08551300', itemsCount)
+            order.freight = float(frete.replace(',', '.'))
+            order.save()
+
             cart.clear()
 
             mp = mercadopago.SDK(settings.MERCADO_PAGO_ACCESS_TOKEN)
@@ -78,15 +108,6 @@ class OrderCreateView(CreateView):
                         mercado_pago_status = payment["response"]["status"],
                         mercado_pago_status_detail = payment["response"]["status_detail"],
                     )
-
-            pprint(payment["response"])
-
-            redirect_url = "payments:failure"
-
-            if payment["response"]["status"] == "approved":
-                redirect_url = "payments:success"
-            if payment["response"]["status"] == "in_process":
-                redirect_url = "payments:pending"
 
             return redirect('my_orders')
         return HttpResponseRedirect(reverse("pages:home"))

@@ -10,6 +10,7 @@ from produto.models import Product
 
 class Order(TimeStampedModel): 
     user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE, default="")
+    freight = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     cpf = BRCPFField("CPF")
     name = models.CharField("Nome Completo", max_length=250)
     email = models.EmailField()
