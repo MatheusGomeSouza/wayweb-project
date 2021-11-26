@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/masculino.css" media="screen" />
+    <title>WAY Masculino</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.offcanvas.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    {%include 'components/guest/header.html'%}
+    
+    <div class="row mt-4 border-bottom border-top border-dark mb-2">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mt-2 mb-2">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="{% url 'masculino' %}" class="button">Masculino</a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <a href="{% url 'feminino' %}" class="button">Feminino</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-1"></div>
+            <div class="col-10">
+                 <div id="localizacao">
+                    <label >Você está em: </label>
+                    <a class="espaco" href="{% url 'index' %}">Início</a>
+                    <label class="espaco">></label>
+                     <label class="espaco">Masculino</label>
+                </div>
+            </div>
+        <div class="col-1"></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-2 text-center">
+            <a data-toggle="collapse" href="#categoryCollapse" role="button" aria-expanded="false" aria-controls="categoryCollapse">
+                <i class="fa fa-plus" id="categoryCollapseIcon" title="Edit"></i> Categorias
+            </a>
+    
+            <div class="row d-flex justify-content-center">
+                <div class="collapse" style="width: 60%;" id="categoryCollapse">
+                    <div class="card card-body text-left">
+                        {% for category in categories %}
+                            <div class="form-check">
+                                <input name="categories[]" class="form-check-input" type="checkbox" value="{{ category.id }}" id="{{ category.id }}">
+                                <label class="form-check-label" for="{{ category.name }}">
+                                    {{ category.name }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="row">
+                {% for product in product_list %}
+                <div class="col-4">
+                    <div class="mb-5">
+                        <center><a href="{{ product.get_absolute_url }}"><img src="/media/{{product.image}}" width="215px" height="217px" alt=""/></a></center>
+                        <center><span class="desc-camiseta">{{ product.name }}</span></center>
+                        <center><span class="valor">R$ {{ product.price }}</span></center>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>  
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            {% if product_list.has_other_pages %}
+                {% include "pagination.html" with page=product_list %}
+            {% endif %}
+        </div>
+        <div class="col-1"></div>
+    </div>   
+    
+    {%include 'components/guest/rodape.html'%}
+
+    <!-- <nav class="nav-container-favorito" id="favoritos" style="display: none;">
+        <header>
+            <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
+        </header>
+    </nav>
+
+    <nav id="sacola" style="display: none;">
+        <header>
+            <a>COMPRA</a>
+        </header>
+        <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
+    </nav> -->
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/velocity.min.js"></script>
+    <script src="/static/js/jquery.offcanvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+    <!-- <script>
+        var $sacola = $("#sacola");
+        var $favorito = $("#favoritos");
+        
+        var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+        $("#button-sacola").on("click", function() {
+            $favorito.offcanvas("destroy");
+            
+            var $sacola = $("#sacola").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+
+            $sacola.show();
+            $favorito.hide();
+
+            $sacola.offcanvas("toggle");
+        });
+
+        $("#button-favorito").on("click", function() {
+            $sacola.offcanvas("destroy");
+
+            var $favorito = $("#favoritos").offcanvas({
+                origin: "right",
+                duration: 400,
+                covarage: 500,
+                overlay: true,
+                effect: 'slide-in-over',
+            });
+            
+            $favorito.show();
+            $sacola.hide();
+
+            $favorito.offcanvas("toggle");
+        });
+    </script> -->
+
+     
+    <script>
+        const categories = new URLSearchParams(window.location.search).get('categories')
+        
+        const categoryCollapse = $('#categoryCollapse');
+        const categoryCollapseIcon = $('#categoryCollapseIcon');
+        
+        function openCollapse() {
+            categoryCollapseIcon.removeClass("fa-plus");
+            categoryCollapseIcon.addClass("fa-minus");
+        }
+
+        function closeCollapse() {
+            categoryCollapseIcon.removeClass("fa-minus");
+            categoryCollapseIcon.addClass("fa-plus");
+        }
+
+        if (categories) {
+            categoriesArray = categories.split(',')
+            
+            categoriesArray.forEach(element => {
+                $("#" + element).prop('checked', true);
+            });
+        }
+        
+        
+        function applyFilter() {
+            let = categoriesString = ''
+
+            $('input[name="categories[]"]:checked').each((index, element) => {
+                if (!categoriesString) {
+                    categoriesString += element.value;
+                } else {
+                    categoriesString = categoriesString + ',' + element.value;
+                }
+            });
+
+            const page = new URLSearchParams(window.location.search).get('page')
+
+            window.location.href = window.location.pathname+"?"+$.param({
+                'page':page,
+                'categories':categoriesString
+            })
+        }
+
+        $('input[name="categories[]"]').change((e) => {
+            applyFilter()
+        })
+
+        categoryCollapse.on('show.bs.collapse', () => {       
+            openCollapse()
+        })
+
+        categoryCollapse.on('hide.bs.collapse', () => {
+            closeCollapse()
+        })
+    </script>
+</body>
+</html>

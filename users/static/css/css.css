@@ -1,0 +1,36 @@
+.masthead {
+    height: 50vh;
+    min-height: 500px;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+
+.masthead2 {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+.logo {
+    width: 30px;
+}
+
+.imagem {
+    width: 50px;
+    height: 50px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.input[type="text"] {
+  width: 200px;
+}

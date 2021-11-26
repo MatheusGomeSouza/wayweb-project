@@ -1,0 +1,39 @@
+<div class="row mt-4 ml-2">
+    <div class="col-3">
+        <a href="{% url 'index' %}"><img src="/media/logo.png" id="img-logo" alt=""/></a>
+    </div>
+    <div class="col-9">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-5 pt-2">
+                <form class="form-inline" id="barra-busca">
+                    <input class="form-control" id="barra-busca1" type="text" placeholder="Procurar produto" aria-label="Search">
+                    <img src="/media/lupa.png" id="img-lupa" alt="Buscar"/>
+                </form>
+            </div>
+            {% if user.is_authenticated %}
+                <div class="col-6">
+                    <div class="row pt-2">
+                        <div class="col-12 d-flex justify-content-end">
+                            <a href="{% url 'logout' %}" class="cadastre mr-2" href=""><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+                            <img src="/media/user.png" id="img-perfil" alt=""/>
+                            <a class="cadastre ml-2" href="">{{ user }}</a>
+                            <a href="{% url 'my_orders' %}" class="ml-2" id="button-sacola"><img src="/media/pedido.png"></a>
+                            <a href="{% url 'sacola:detail' %}" class="mr-2" id="button-sacola"><img src="/media/sacola.png"></a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-6">
+                    <div class="row pt-2">
+                        <div class="col-12 d-flex justify-content-end">
+                            <img src="/media/user.png" id="img-perfil" alt=""/>
+                            <a class="cadastre ml-2" href="{% url 'login' %}">ENTRE OU CADASTRE-SE</a>
+                            <a href="{% url 'sacola:detail' %}" class="mr-2" id="button-sacola"><img src="/media/sacola.png"></a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
