@@ -129,20 +129,23 @@
                 <center><span class="titulo ">RESUMO DA COMPRA</span></center>
                 <div class="linha1"></div>
                 <label id="frete">CALCULE O FRETE</label>
+                <form action="{% url 'sacola:add_freigth' %}" method="post">
+                {% csrf_token %}
                 <div class="row">
                     <div class="col-6">
                         <div>
-                            <input class="cep" type="text" placeholder="CEP">
+                            <input name="cep" id="cep" class="cep" type="text" placeholder="CEP" value="{{ cart.get_cep }}">
                         </div>
                     </div>
-                    
+                        
                     <div class="col-4">
-                        <div class="btn btn-dark text-center text-break btn-block sem-borda">
+                        <button class="btn btn-dark text-center text-break btn-block sem-borda">
                             <span id="txtOKr">OK</span>
-                        </div>
                     </div>
+               
                     <div class="col-2"></div>
                 </div>
+                </form>
                 <hr class="linha4">
                 <div class="row" id="quadro">
                     <div class="col-6">
@@ -151,11 +154,17 @@
                     <div class="col-6 ">
                         <center><span id="valor">R$ {{ cart.get_total_price }}</span></center>
                     </div>    
+                    <div class="col-6">
+                        <span id="total">Entrega</span>
+                    </div>
+                    <div class="col-6 ">
+                        <center><span id="valor">R$ {{ cart.get_freigth }}</span></center>
+                    </div>    
                     
                 </div>
             
                 <div>
-                    <a href="{% url 'orders:create' %}" class="btn btn-dark text-center text-break btn-block sem-borda mb-2 btn-finaliza" id="finalizar">Finalizar compra</a>
+                    <a href="{% url 'orders:create' %}" id="createOrder" class="btn btn-dark text-center text-break btn-block sem-borda mb-2 btn-finaliza" id="finalizar">Finalizar compra</a>
                 </div>
                 <div>
                     <a href="{% url 'index' %}" class="btn btn-light text-center text-break btn-block border-dark sem-borda mb-3 btn-escolher" id="escolher">Escolher mais Produtos</a>
@@ -167,71 +176,24 @@
     
     {%include 'components/guest/rodape.html'%}
     
-   <!-- <nav class="nav-container-favorito" id="favoritos" style="display: none;">
-        <header>
-            <a>LISTA DE FAVORITOS ESTÁ VAZIA</a>
-        </header>
-    </nav>
-
-    <nav id="sacola" style="display: none;">
-        <header>
-            <a>COMPRA</a>
-        </header>
-        <a href="http://127.0.0.1:8000/pagamento">IR PARA PAGAMENTO</a>
-    </nav> -->
-
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/velocity.min.js"></script>
     <script src="/static/js/jquery.offcanvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-    
-     <!-- <script>
-        var $sacola = $("#sacola");
-        var $favorito = $("#favoritos");
-        
-        var $sacola = $("#sacola").offcanvas({
-                origin: "right",
-                duration: 400,
-                covarage: 500,
-                overlay: true,
-                effect: 'slide-in-over',
-            });
 
-        $("#button-sacola").on("click", function() {
-            $favorito.offcanvas("destroy");
-            
-            var $sacola = $("#sacola").offcanvas({
-                origin: "right",
-                duration: 400,
-                covarage: 500,
-                overlay: true,
-                effect: 'slide-in-over',
-            });
+    <script>
+        $('#createOrder').on('click', (e) => {
+            e.preventDefault;
 
-            $sacola.show();
-            $favorito.hide();
+            cep = $('#cep');
 
-            $sacola.offcanvas("toggle");
-        });
-
-        $("#button-favorito").on("click", function() {
-            $sacola.offcanvas("destroy");
-
-            var $favorito = $("#favoritos").offcanvas({
-                origin: "right",
-                duration: 400,
-                covarage: 500,
-                overlay: true,
-                effect: 'slide-in-over',
-            });
-            
-            $favorito.show();
-            $sacola.hide();
-
-            $favorito.offcanvas("toggle");
-        });
-    </script> -->
+            if(cep.val()) {
+                window.location = $(this).attr('href');
+            } else {
+                alert('Calcule seu frete antes de ir na página de compra.');
+            }
+        })
+    </script>
 </body>
 </html>

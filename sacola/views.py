@@ -6,7 +6,7 @@ import math
 
 
 from .cart import Cart
-from .forms import CartAddProductForm
+from .forms import CartAddProductForm, CartAddFreigth
 
 
 @register.filter
@@ -48,3 +48,16 @@ def cart_remove(request, product_id):
 def cart_detail(request):
     cart = Cart(request)
     return render(request, "cart/cart_detail.html", {"cart": cart})
+
+@require_POST
+def cart_add_freight(request):
+    if request.session.get('freight') is None:
+            request.session['freight'] = {}
+    
+    form = CartAddFreigth(request.POST)
+    
+    if form.is_valid():
+        cart = Cart(request)
+        cart.add_freight(form.data.get('cep'))
+
+    return redirect("sacola:detail")

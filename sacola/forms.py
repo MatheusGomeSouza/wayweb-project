@@ -36,3 +36,6 @@ class CartAddProductForm(forms.Form):
     override = forms.BooleanField(
         required=False, initial=False, widget=forms.HiddenInput
     )
+
+class CartAddFreigth(forms.Form):
+    cep = forms.TextInput()

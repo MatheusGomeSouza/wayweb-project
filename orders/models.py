@@ -6,6 +6,8 @@ from localflavor.br.models import BRCPFField, BRPostalCodeField, BRStateField
 from model_utils.models import TimeStampedModel
 
 from produto.models import Product
+from decimal import Decimal
+import decimal
 
 
 class Order(TimeStampedModel): 
@@ -31,7 +33,7 @@ class Order(TimeStampedModel):
 
     def get_total_price(self):
         total_cost = sum(item.get_total_price() for item in self.items.all())
-        return total_cost
+        return total_cost + decimal.Decimal(self.freight)
 
     def get_description(self):
         return ", ".join(

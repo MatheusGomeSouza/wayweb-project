@@ -22,28 +22,6 @@ class OrderCreateView(CreateView):
     model = Order
     form_class = OrderCreateForm
 
-    def calcularFrete(self, detino, numero_de_produtos):
-        params = urllib.parse.urlencode({
-        'sCepOrigem': '08551300',
-        'sCepDestino': detino,
-        'nVlPeso': numero_de_produtos * 0.2,
-        'nVlComprimento': 15,
-        'nVlAltura': 15,
-        'nVlLargura': 15,
-        'nCdServico': '04014'})
-
-        url = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?" + params + "&nCdEmpresa=&sDsSenha=&sCdAvisoRecebimento=n&sCdMaoPropria=n&nVlValorDeclarado=0&nVlDiametro=0&StrRetorno=xml&nIndicaCalculo=3&nCdFormato=1&?"
-        
-        response = urllib.request.urlopen(url)
-
-        data = response.read()
-
-        response.close()
-
-        data = xmltodict.parse(data)
-
-        return data['Servicos']['cServico']['Valor']
-
     def form_valid(self, form):
         cart = Cart(self.request)
         if cart:
@@ -70,12 +48,12 @@ class OrderCreateView(CreateView):
                     price=item["price"],
                     quantity=item["quantity"],
                 )
-                est = Estoque.objects.get(product_id=item["product"], size='', size_number=46)
-                est.quantity -= item["quantity"]
-                est.save()
-            itemsCount = order.items.all().count()
-            frete = self.calcularFrete('08551300', itemsCount)
-            order.freight = float(frete.replace(',', '.'))
+                #est = Estoque.objects.get(product_id=item["product"], size='', size_number=46)
+                #est.quantity -= item["quantity"]
+                #est.save()
+                
+            frete = cart.get_freigth()
+            order.freight = frete
             order.save()
 
             cart.clear()

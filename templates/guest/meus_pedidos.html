@@ -51,11 +51,13 @@
                     <center><span class="codigo ">Código de compra</span></center>
                     <center><span class="codigo-num">{{ myOrder.id }}</span></center>
                 </div>
+                {%  if false %}
                 <div class="border-dark border-top"></div>
                 <div class="mt-2 mb-2">
                     <center><span class="codigo pt-5">Código de rastreio</span></center>
                     <center><span class="codigo-num">Indisponível</span></center>
                 </div>
+                {% endif %}
             </div>
             <div class="col-6 mt-4">
                 <center><span id="status">Status</span></center>
