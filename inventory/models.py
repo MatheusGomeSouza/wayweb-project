@@ -10,13 +10,19 @@ from produto.models import Product
 class Estoque(TimeStampedModel):
     product = models.ForeignKey(Product, related_name="produto", on_delete=models.CASCADE, default="")
     size_choice = (
-        ('P','P'),
-        ('M','M'),
-        ('G','G'),
-        ('GG','GG'),
+        ('1','P'),
+        ('2','M'),
+        ('3','G'),
+        ('4','GG'),
         )
     size = models.CharField("Tamanho", max_length=2,blank=True, choices=size_choice, default="")
-    size_number = models.CharField("Tamanho por número", max_length=2, default="0")
+    size_number_choice = (
+        ('1','46'),
+        ('2','48'),
+        ('3','50'),
+        ('4','52'),
+        )
+    size_number = models.CharField("Tamanho", max_length=2,blank=True, choices=size_number_choice, default="")
     quantity = models.IntegerField()
 
     class Meta:

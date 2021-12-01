@@ -12,7 +12,7 @@ import decimal
 
 class Order(TimeStampedModel): 
     user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE, default="")
-    freight = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    freight = models.DecimalField("Frete", max_digits=10, decimal_places=2, default=0.00)
     cpf = BRCPFField("CPF")
     name = models.CharField("Nome Completo", max_length=250)
     email = models.EmailField()
@@ -24,6 +24,7 @@ class Order(TimeStampedModel):
     state = BRStateField("Estado")
     city = models.CharField("Cidade", max_length=250)
     paid = models.BooleanField(default=False)
+    trackingCode = models.CharField("CodigoRastreio", max_length=250, blank=True, default="")
 
     class Meta:
         ordering = ("-created",)
@@ -53,6 +54,8 @@ class Item(models.Model):
             MaxValueValidator(settings.CART_ITEM_MAX_QUANTITY),
         ]
     )
+    size = models.CharField("Tamanho", max_length=2, default="")
+    size_number = models.CharField("Tamanho por número", max_length=2, default="")
 
     def __str__(self):
         return str(self.id)

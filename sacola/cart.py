@@ -24,7 +24,7 @@ class Cart:
         'nCdServico': '04014'})
 
         url = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?" + params + "&nCdEmpresa=&sDsSenha=&sCdAvisoRecebimento=n&sCdMaoPropria=n&nVlValorDeclarado=0&nVlDiametro=0&StrRetorno=xml&nIndicaCalculo=3&nCdFormato=1&?"
-        
+
         response = urllib.request.urlopen(url)
 
         data = response.read()
@@ -80,7 +80,7 @@ class Cart:
         self.cart[product_id]["quantity"] = min(20, self.cart[product_id]["quantity"])
 
         self.save()
-    
+
     def add_freight(self, cep):
         self.session['freight']['cep'] = cep
         self.session['freight']['freight'] =  self.calcularFrete(cep.replace('-', ''),len(self.cart)).replace(',', '.')
