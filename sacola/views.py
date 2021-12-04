@@ -31,7 +31,6 @@ def cart_add(request, product_id):
             size=cd["size"],
             size_number=cd["size_number"],
             override_quantity=cd["override"]
-            
         )
 
     return redirect("sacola:detail")

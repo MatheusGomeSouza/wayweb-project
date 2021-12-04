@@ -42,29 +42,29 @@
             <span class="dados">Dados para a entrega</span>
             <div class="row pt-3">
                 <div class="col-8">
-                    <input class="form" name="name" id="id_name" maxlength="250" type="text" placeholder="Nome Completo" value="{{ form.name.value|default_if_none:'' }}">
+                    <input class="form" name="name" id="id_name" maxlength="250" type="text" placeholder="Nome Completo" value="{{ form.name.value|default_if_none:'' }}" required>
                 </div>
                 <div class="col-4">
-                    <input class="form" name="email" id="id_email" type="text" placeholder="Email" value="{{ form.email.value|default_if_none:'' }}"> 
+                    <input class="form" name="email" id="id_email" type="text" placeholder="Email" value="{{ form.email.value|default_if_none:'' }}" required> 
                 </div>
             </div>
             <div class="row pt-3">
                 <div class="col-5">
-                    <input class="form" name="cpf" id="id_cpf" maxlength="14" id="cpf" type="text" placeholder="CPF" value="{{ form.cpf.value|default_if_none:'' }}">
+                    <input class="form" name="cpf" id="id_cpf" maxlength="14" id="cpf" type="text" placeholder="CPF" value="{{ form.cpf.value|default_if_none:'' }}" required>
                     {{ form.errors.cpf }}
                 </div>
                 <div class="col-5">
-                    <input class="form" name="postal_code" id="id_postal_code" maxlength="9" onchange="getAddress()" type="text" placeholder="CEP">
+                    <input class="form" name="postal_code" id="id_postal_code" maxlength="9" onchange="getAddress()" type="text" placeholder="CEP" required>
                     {{ form.errors.postal_code }}
                 </div>
                 <div class="col-2">
-                    <input class="form" name="number" id="id_number" maxlength="250" type="text" placeholder="Número" value="{{ form.number.value|default_if_none:'' }}">
+                    <input class="form" name="number" id="id_number" maxlength="250" type="text" placeholder="Número" value="{{ form.number.value|default_if_none:'' }}" required>
                     {{ form.errors.number }}
                 </div>
             </div>
             <div class="row pt-3">
                 <div class="col-3">
-                    <select name="state" class="form" required="" id="id_state">
+                    <select name="state" class="form" id="id_state" required>
                         <option value="" selected="" hidden>Estado</option> 
                         <option value="AC">Acre</option> <option value="AL">Alagoas</option> 
                         <option value="AP">Amapá</option> <option value="AM">Amazonas</option> 
@@ -92,18 +92,18 @@
                         {{ form.errors.state }}
                 </div>
                 <div class="col-4">
-                    <input class="form" name="city" maxlength="250" required id="id_city" type="text" placeholder="Cidade" value="{{ form.city.value|default_if_none:'' }}">
+                    <input class="form" name="city" maxlength="250" id="id_city" type="text" placeholder="Cidade" value="{{ form.city.value|default_if_none:'' }}" required>
                     {{ form.errors.city }}
                 </div>
                 <div class="col-5">
-                    <input class="form" name="district" required id="id_district" maxlength="250" type="text" placeholder="Bairro" value="{{ form.district.value|default_if_none:'' }}">
+                    <input class="form" name="district" id="id_district" maxlength="250" type="text" placeholder="Bairro" value="{{ form.district.value|default_if_none:'' }}" required>
                     {{ form.errors.district }}
                 </div>
             </div>
             
             <div class="row mt-3 mb-4">
                 <div class="col-6">
-                    <input class="form" name="address" maxlength="250" required id="id_address" type="text" placeholder="Logradouro" value="{{ form.address.value|default_if_none:'' }}">
+                    <input class="form" name="address" maxlength="250" id="id_address" type="text" placeholder="Logradouro" value="{{ form.address.value|default_if_none:'' }}" required>
                     {{ form.errors.address }}
                 </div>
                 <div class="col-6">
@@ -131,13 +131,13 @@
                     <span class="forms">Nome(como está no seu cartão)</span>
                 </div>
                 <div class="col-4 pt-3">
-                    <input id="cardholderName" data-checkout="cardholderName" type="text" class="form">
+                    <input id="cardholderName" data-checkout="cardholderName" type="text" class="form" required>
                 </div>
                 <div class="col-1 ml-4 pt-3">
                     <span class="forms">CPF</span>
                 </div>
                 <div class="col-3 pt-3">
-                    <input id="docNumber" name="doc_number" data-checkout="docNumber" type="text"class="form">
+                    <input id="docNumber" name="doc_number" data-checkout="docNumber" type="text"class="form" required>
                 </div>
             </div>
             <div class="row">
@@ -147,7 +147,7 @@
                 <div class="col-4 pt-3">
                     <input class="form" type="text" id="cardNumber" data-checkout="cardNumber" onselectstart="return false"
                     oncopy="return false" oncut="return false" ondrag="return false" ondrop="return false"
-                    autocomplete=off>
+                    autocomplete=off required>
                 </div>
                 <div class="col-4 ml-4 pt-3">
                     <div class="form-group">
@@ -156,7 +156,7 @@
                         data-checkout="cardExpirationMonth" onselectstart="return false"
                         onpaste="return false" oncopy="return false" oncut="return false"
                         ondrag="return false" ondrop="return false" autocomplete=off
-                        class="vencimento ml-2" maxlength="2">
+                        class="vencimento ml-2" maxlength="2" required>
                             <option hidden>Mês</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -175,7 +175,7 @@
                         data-checkout="cardExpirationYear" onselectstart="return false"
                         onpaste="return false" oncopy="return false" oncut="return false"
                         ondrag="return false" ondrop="return false" autocomplete=off
-                        class="vencimento" maxlength="2">
+                        class="vencimento" maxlength="2" required>
                             <option hidden>Ano</option>
                             <option value="21">21</option>
                             <option value="22">22</option>
@@ -198,7 +198,7 @@
                     <span class="forms">Parcelas</span>
                 </div>
                 <div class="col-4">
-                    <select id="installments" name="installments" class="parcela"></select>
+                    <select id="installments" name="installments" class="parcela" required></select>
                 </div>
                 <div class="col-1 ml-4">
                     <span class="forms" >CVV</span>
@@ -206,7 +206,7 @@
                 <div class="col-2 ml-2 mb-4">
                     <input class="form" id="securityCode" data-checkout="securityCode" type="text" 
                         onselectstart="return false" onpaste="return false" oncopy="return false" maxlength="4"
-                        oncut="return false" ondrag="return false" ondrop="return false" autocomplete=off type="text">
+                        oncut="return false" ondrag="return false" ondrop="return false" autocomplete=off type="text" required>
                 </div>
                 <div class=col-1></div>
             </div>

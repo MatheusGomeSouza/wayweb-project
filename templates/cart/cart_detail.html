@@ -71,12 +71,20 @@
                                     <span class="produto">{{ product.name }}</span>
                                     <div class="form-group mt-5">
                                         <label for="tamanho" id="tamanho">Tamanho:</label>
-                                        <select name="tamanho" class="ml-3 menu1">
-                                            <option>P</option>
-                                            <option>M</option>
-                                            <option>G</option>
-                                            <option>GG</option>
-                                        </select>
+                                        <span class="font-weight-bold">
+                                            {% if item.size == 1 %}
+                                                P
+                                            {% endif %}
+                                            {% if item.size == 2 %}
+                                                M
+                                            {% endif %}
+                                            {% if item.size == 3 %}
+                                                G
+                                            {% endif %}
+                                            {% if item.size == 4 %}
+                                                GG
+                                            {% endif %}
+                                        </p>
                                     </div>    
                                     <div class="form-group mt-4">                                     
                                         <form action="{% url 'sacola:add' product.id %}" method="post" id="quantity_form_{{ product.id }}">
@@ -137,12 +145,12 @@
                             <input name="cep" id="cep" class="cep" type="text" placeholder="CEP" value="{{ cart.get_cep }}">
                         </div>
                     </div>
-                        
+
                     <div class="col-4">
                         <button class="btn btn-dark text-center text-break btn-block sem-borda">
                             <span id="txtOKr">OK</span>
                     </div>
-               
+
                     <div class="col-2"></div>
                 </div>
                 </form>
@@ -159,12 +167,12 @@
                     </div>
                     <div class="col-6 ">
                         <center><span id="valor">R$ {{ cart.get_freigth }}</span></center>
-                    </div>    
+                    </div>
                     
                 </div>
             
                 <div>
-                    <a href="{% url 'orders:create' %}" id="createOrder" class="btn btn-dark text-center text-break btn-block sem-borda mb-2 btn-finaliza" id="finalizar">Finalizar compra</a>
+                    <a href="javascript:void(0)" url="{% url 'orders:create' %}" id="createOrder" class="btn btn-dark text-center text-break btn-block sem-borda mb-2 btn-finaliza" id="finalizar">Finalizar compra</a>
                 </div>
                 <div>
                     <a href="{% url 'index' %}" class="btn btn-light text-center text-break btn-block border-dark sem-borda mb-3 btn-escolher" id="escolher">Escolher mais Produtos</a>
@@ -175,7 +183,7 @@
     </div>  
     
     {%include 'components/guest/rodape.html'%}
-    
+
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/velocity.min.js"></script>
     <script src="/static/js/jquery.offcanvas.min.js"></script>
@@ -189,7 +197,7 @@
             cep = $('#cep');
 
             if(cep.val()) {
-                window.location = $(this).attr('href');
+                window.location = $('#createOrder').attr('url');
             } else {
                 alert('Calcule seu frete antes de ir na página de compra.');
             }

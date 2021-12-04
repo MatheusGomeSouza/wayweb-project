@@ -25,14 +25,6 @@ class CartAddProductForm(forms.Form):
     size_number = forms.TypedChoiceField(
         label="Numero", choices=PRODUCT_SIZE_NUMBER_CHOICES, coerce=int
     )
-    # size = forms.TypedChoiceField(
-    #     widget=forms.CheckboxSelectMultiple,
-    #     choices=PRODUCT_SIZE_CHOICES
-    # )
-    # size_number = forms.TypedChoiceField(
-    #     widget=forms.CheckboxSelectMultiple,
-    #     choices=PRODUCT_SIZE_NUMBER_CHOICES
-    # )
     override = forms.BooleanField(
         required=False, initial=False, widget=forms.HiddenInput
     )

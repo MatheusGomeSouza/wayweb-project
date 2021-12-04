@@ -157,15 +157,6 @@ body {
   background: #1C1D21;
 }
 
-
-.intro {
-  height: 100vh;
-  width: 100%;
-  display: table;
-  background: #26292f url('../img/bg.jpg') no-repeat center center;
-  background-size: cover;
-}
-
 #favorito {
   vertical-align: middle;
   text-align: center;

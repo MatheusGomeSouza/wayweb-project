@@ -26,7 +26,7 @@ function setPaymentMethod(status, response) {
 
         getIssuers(paymentMethod.id)
     } else {
-        alert(`payment method info error: ${response}`)
+        alert(`Erro no pagamento, verifique se todas as informações estão corretas`)
     }
 }
 
@@ -53,7 +53,7 @@ function setIssuers(status, response) {
             issuerSelect.value
         )
     } else {
-        alert(`issuers method info error: ${response}`)
+        alert(`Erro no pagamento, verifique se todas as informações estão corretas`)
     }
 }
 
@@ -75,7 +75,7 @@ function setInstallments(status, response) {
             document.getElementById('installments').appendChild(opt)
         })
     } else {
-        alert(`installments method info error: ${response}`)
+        alert(`Erro no pagamento, verifique se todas as informações estão corretas`)
     }
 }
 
@@ -105,6 +105,6 @@ function setCardTokenAndPay(status, response) {
         doSubmit = true
         form.submit()
     } else {
-        alert("Verify filled data!\n" + JSON.stringify(response, null, 4))
+        alert("Erro no pagamento, verifique se todas as informações estão corretas.")
     }
 }
