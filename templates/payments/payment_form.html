@@ -9,20 +9,6 @@
     <h1 class="font-weight-bold">Pagamento com cartão de crédito</h1>
     <div class="row">
         <div class="col-lg-6">
-            {% if form.errors %}
-            {% for field in form %}
-            {% for error in field.errors %}
-            <div class="alert alert-danger">
-                <strong>{{ error|escape }}</strong>
-            </div>
-            {% endfor %}
-            {% endfor %}
-            {% for error in form.non_field_errors %}
-            <div class="alert alert-danger">
-                <strong>{{ error|escape }}</strong>
-            </div>
-            {% endfor %}
-            {% endif %}
             <form action="." method="post" id="paymentForm">
                 <fieldset class="border-bottom mb-3">
                     <div class="form-group">

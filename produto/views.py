@@ -13,7 +13,7 @@ def div(value, div):
 
 class ProductDetailView(DetailView):
     queryset = Product.available.all()
-    related_products = Product.objects.all().order_by('created').filter(category_id = 1)[:9]
+    related_products = Product.objects.all().order_by('created')[:9]
     extra_context = {'form': CartAddProductForm, 'product_list' : related_products}
 
 
