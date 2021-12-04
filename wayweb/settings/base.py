@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'orders',
     'payments',
     'inventory',
-    'django-heroku',
 ]
 
 INTERNAL_IPS = [
