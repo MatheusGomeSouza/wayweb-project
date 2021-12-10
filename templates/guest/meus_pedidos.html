@@ -117,7 +117,15 @@
                     <span class="titulo-roupa">{{ item.product.name }}</span><br>
                 </div>
                 <div class="mt-3">
-                    <span class="desc-roupa">Tamanho: M</span><br>
+                    {% if item.size == '1' %}
+                    <span class="desc-roupa">Tamanho: P </span><br>
+                    {% elif item.size == '2' %}
+                    <span class="desc-roupa">Tamanho: M </span><br>
+                    {% elif item.size == '3' %}
+                    <span class="desc-roupa">Tamanho: G </span><br>
+                    {% elif item.size == '4' %}
+                    <span class="desc-roupa">Tamanho: GG </span><br>
+                    {% endif %}
                     <span class="desc-roupa">Quantidade: {{ item.quantity }}</span><br>
                     <span class="desc-roupa">R$ {{ item.price }}</span>
                 </div>

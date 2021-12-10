@@ -26,7 +26,11 @@
                         <div class="col-12 d-flex justify-content-end">
                             <img src="/media/user.png" id="img-perfil" alt=""/>
                             <a class="cadastre ml-2" href="{% url 'login' %}">ENTRE OU CADASTRE-SE</a>
+                            {% if user.is_authenticated %}
                             <a href="{% url 'sacola:detail' %}" class="mr-2" id="button-sacola"><img src="/media/sacola.png"></a>
+                            {% else %}
+                            <a href="{% url 'login' %}" class="mr-2" id="button-sacola"><img src="/media/sacola.png"></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

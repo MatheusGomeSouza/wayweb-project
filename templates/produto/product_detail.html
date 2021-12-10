@@ -79,13 +79,27 @@
                 <div class="col-2"></div> 
                 <div class="col-8">
                     <div>
+                        {% if user.is_authenticated %}
                         <form action="{% url 'sacola:add' product.id %}" class="sem-borda"  method="post">
+                            {% csrf_token %}
+                            <p class="form-inline">
+                                {% render_field form.size %}
+                                <div style="display: none;">
+                                    {% render_field form.quantity %}
+                                    {% render_field form.override %}
+                                </div>
+                            </p>
+                            <input class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar" type="submit" value="Comprar">
+                        </form>
+                        {% else %}
+                        <form action="{% url 'login' %}" class="sem-borda">
                             {% csrf_token %}
                             <p class="form-inline">
                                 {{ form }}
                             </p>
                             <input class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar" type="submit" value="Comprar">
                         </form>
+                        {% endif %}
                     </div>
                 </div> 
                 <div class="col-2"></div>

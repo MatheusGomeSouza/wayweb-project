@@ -1,13 +1,8 @@
 from django import forms
 from django.conf import settings
+from django.forms.widgets import RadioSelect
 
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
-PRODUCT_SIZE_NUMBER_CHOICES = (
-    (1, "40"),
-    (2, "42"),
-    (3, "44"),
-    (4, "46"),
-)
 PRODUCT_SIZE_CHOICES = (
     (1, "P"),
     (2, "M"),
@@ -21,9 +16,6 @@ class CartAddProductForm(forms.Form):
     )
     size = forms.TypedChoiceField(
         label="Tamanho", choices=PRODUCT_SIZE_CHOICES, coerce=int
-    )
-    size_number = forms.TypedChoiceField(
-        label="Numero", choices=PRODUCT_SIZE_NUMBER_CHOICES, coerce=int
     )
     override = forms.BooleanField(
         required=False, initial=False, widget=forms.HiddenInput

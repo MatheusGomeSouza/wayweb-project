@@ -49,9 +49,9 @@ class OrderCreateView(CreateView):
                     quantity=item["quantity"],
                     size=item["size"],
                 )
-                #est = Estoque.objects.get(product_id=item["product"], size=item["size"], size_number=item["size_number"])
-                #est.quantity -= item["quantity"]
-                #est.save()
+                est = Estoque.objects.get(product_id=item["product"], size=item["size"])
+                est.quantity -= item["quantity"]
+                est.save()
 
             frete = cart.get_freigth()
             order.freight = frete

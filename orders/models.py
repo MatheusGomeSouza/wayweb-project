@@ -55,7 +55,6 @@ class Item(models.Model):
         ]
     )
     size = models.CharField("Tamanho", max_length=2, default="")
-    size_number = models.CharField("Tamanho por número", max_length=2, default="")
 
     def __str__(self):
         return str(self.id)

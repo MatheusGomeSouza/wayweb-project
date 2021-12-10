@@ -96,9 +96,8 @@
                                                         <option value="{{ i }}" {% if i == item.quantity %} selected {% endif %}>{{ i }}</option>
                                                     {% endif %}
                                                 {% endfor %}   
-
+                                                {{ item.update_quantity_form.override }}
                                             </select>
-                                            {{ item.update_quantity_form.override }}
                                         </form>
                                     </div>    
                                 </div>

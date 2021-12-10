@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'orders',
     'payments',
     'inventory',
+    'wayweb',
 ]
 
 INTERNAL_IPS = [
