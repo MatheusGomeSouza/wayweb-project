@@ -67,7 +67,7 @@
             <div class="row">
                 {% for product in product_list|slice:":3" %}
                     <div class="col-4">
-                        <center><a href="{{ product.get_absolute_url }}"><img src="static/media/{{product.image}}" style="cursor: pointer;" width="215px" height="217px" alt=""/></a></center>
+                        <center><a href="{{ product.get_absolute_url }}"><img src="/media/{{product.image}}" style="cursor: pointer;" width="215px" height="217px" alt=""/></a></center>
                         <center><span class="desc-camiseta">{{ product.name }}</span></center>
                         <center><span class="valor">R$ {{ product.price }}</span></center>
                     </div>
