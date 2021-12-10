@@ -64,7 +64,7 @@
                             <div class="row">
                                 <div class="col-3">
                                     <a href="{{ product.get_absolute_url }}">
-                                        <img src="/media/{{product.image}}" class="h-100 w-100" alt=""/>
+                                        <img src="/static/media/{{product.image}}" class="h-100 w-100" alt=""/>
                                     </a>
                                 </div>
                                 <div class="col-4">
@@ -116,7 +116,7 @@
                                         <form action="{% url 'sacola:remove' product.id %}" class="ml-auto" method="post" id="formTest">
                                             {% csrf_token %}
                                             <button class="bg-transparent border-0 shadow-none">
-                                                <image class="ml-auto" src="/media/icone-X.png"/>
+                                                <image class="ml-auto" src="/static/media/icone-X.png"/>
                                             </button>
                                         </form>
                                     </div>

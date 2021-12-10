@@ -74,7 +74,7 @@
             <div class="col-3 mt-5">
                 <a style="color: black;" data-toggle="collapse" href="#order_{{ myOrder.id }}" role="button" aria-expanded="false" aria-controls="order_{{ myOrder.id }}" onclick="toggleImage({{ myOrder.id }})">
                     <span id="detalhe">Ver mais detalhes</span>
-                    <img src="/media/Vector.png" data-swap="/media/up_arrow.png" id="order_{{ myOrder.id }}_image" class="mb-2" alt=""/>
+                    <img src="/static/media/Vector.png" data-swap="/static/media/up_arrow.png" id="order_{{ myOrder.id }}_image" class="mb-2" alt=""/>
                 </a>
             </div>
         </div>
@@ -108,7 +108,7 @@
             <div class="col-2">
                 <center>
                     <a href="{{ item.product.get_absolute_url }}">
-                        <img src="/media/{{ item.product.image }}" class="mt-2 mb-2" alt="" style="cursor: pointer;" width="215px" height="217px"/>
+                        <img src="/static/media/{{ item.product.image }}" class="mt-2 mb-2" alt="" style="cursor: pointer;" width="215px" height="217px"/>
                     </a>
                 </center>
             </div>

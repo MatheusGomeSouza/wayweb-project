@@ -41,7 +41,7 @@
         </div>
         <div class="col-4">
             <div class="row">
-                <img src="/media/{{product.image}}" class="mx-auto d-block" style="width: 100%;"/>
+                <img src="/static/media/{{product.image}}" class="mx-auto d-block" style="width: 100%;"/>
             </div>
         </div>
         <div class="col-4">
@@ -123,7 +123,7 @@
                                     {% for product in product_list|slice:":3" %}
                                         <div class="col-md-4 mb-3">
                                             <div class="card" style="border:none">
-                                                <img alt="100%x280" src="/media/{{product.image}}" width="215px" height="217px" 
+                                                <img alt="100%x280" src="/static/media/{{product.image}}" width="215px" height="217px" 
                                                     onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
                                                 <div class="card-body">
                                                     <label class="desc-camiseta">{{ product.name }}</label>
@@ -141,7 +141,7 @@
                                     {% for product in product_list|slice:"3:6" %}
                                         <div class="col-md-4 mb-3">
                                             <div class="card" style="border:none">
-                                                <img alt="100%x280" src="/media/{{product.image}}" width="215px" height="217px"
+                                                <img alt="100%x280" src="/static/media/{{product.image}}" width="215px" height="217px"
                                                     onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
                                                 <div class="card-body">
                                                     <label class="desc-camiseta">{{ product.name }}</label>
@@ -159,7 +159,7 @@
                                     {% for product in product_list|slice:"6:9" %}
                                         <div class="col-md-4 mb-3">
                                             <div class="card" style="border:none">
-                                                <img alt="100%x280" src="/media/{{product.image}}" width="215px" height="217px"
+                                                <img alt="100%x280" src="/static/media/{{product.image}}" width="215px" height="217px"
                                                     onclick="location.href='{{ product.get_absolute_url }}';" style="cursor: pointer;">
                                                 <div class="card-body">
                                                     <label class="desc-camiseta">{{ product.name }}</label>
