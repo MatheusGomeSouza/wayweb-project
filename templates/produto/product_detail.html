@@ -57,48 +57,43 @@
                 </div> 
             </div>     
             <center id="tamanho">Escolha o tamanho</center>
-
-            <!--
-            <center> 
-                <div class="btn-group btn-group-toggle sem-borda" data-toggle="buttons">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name == "size"%}
-                            <p><strong>{{field.name}}: </strong></p>
-                            {% for choice_id, choice_label in field.field.choices %}
-                                    <label class="btn btn-outline-secondary ml-2">
-                                        <input type="radio" name="size" id="option3" autocomplete="off"> {{choice_label}}
-                                    </label>
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </center>
-        -->
+            
+    
             <div class="row" id="comprar">
                 <div class="col-2"></div> 
                 <div class="col-8">
                     <div>
                         {% if user.is_authenticated %}
-                        <form action="{% url 'sacola:add' product.id %}" class="sem-borda"  method="post">
-                            {% csrf_token %}
-                            <p class="form-inline">
-                                {% render_field form.size %}
-                                <div style="display: none;">
-                                    {% render_field form.quantity %}
-                                    {% render_field form.override %}
+                        <center>
+                            <form action="{% url 'sacola:add' product.id %}" class="sem-borda"  method="post">                            
+                                <div class="btn-group btn-group-toggle sem-borda mb-3" data-toggle="buttons">
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                        {% if field.name == "size"%}
+                                            {% for choice_id, choice_label in field.field.choices %}
+                                                    <label class="btn btn-outline-secondary ml-2">
+                                                        <input type="radio" value="{{ choice_id }}" name="size" id="size" autocomplete="off"> {{choice_label}}
+                                                    </label>
+                                            {% endfor %}
+                                        {% else %}
+                                            <div style="display: none;">
+                                                {{ field }}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
-                            </p>
-                            <input class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar" type="submit" value="Comprar">
-                        </form>
+
+                                <input class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar" type="submit">
+                            </form>
+                        </center>
                         {% else %}
-                        <form action="{% url 'login' %}" class="sem-borda">
-                            {% csrf_token %}
-                            <p class="form-inline">
-                                {{ form }}
-                            </p>
-                            <input class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar" type="submit" value="Comprar">
-                        </form>
+                            <form action="{% url 'login' %}" class="sem-borda">
+                                {% csrf_token %}
+                                <p class="form-inline">
+                                    {{ form }}
+                                </p>
+                                <input class="btn btn-dark text-center text-break btn-block sem-borda" id="txtcomprar" type="submit">
+                            </form>
                         {% endif %}
                     </div>
                 </div> 

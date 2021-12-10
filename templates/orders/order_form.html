@@ -239,7 +239,15 @@
                 </div>
                 <div class="col-3 mt-5">
                     <span class="descricao">{{ product.name }}</span><br>
-                    <span class="descricao">Tamanho: M</span><br>
+                    {% if item.size == 1 %}
+                    <span class="descricao">Tamanho: P </span><br>
+                    {% elif item.size == 2 %}
+                    <span class="descricao">Tamanho: M </span><br>
+                    {% elif item.size == 3 %}
+                    <span class="descricao">Tamanho: G </span><br>
+                    {% elif item.size == 4 %}
+                    <span class="descricao">Tamanho: GG </span><br>
+                    {% endif %}
                     <span class="descricao">Quantidade: {{ item.quantity }}</span><br>
                 </div>
                 <div class="col-2 mt-5">
