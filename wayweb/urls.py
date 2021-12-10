@@ -1,4 +1,3 @@
-import debug_toolbar
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
@@ -29,8 +28,3 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
     path('payments/', include('payments.urls'))
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-# DEBUG TOOLBAR
-if settings.DEBUG:
-    urlpatterns += [path("__debug__/", include(debug_toolbar.urls)),]

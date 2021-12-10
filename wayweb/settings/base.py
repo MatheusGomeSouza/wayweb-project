@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'localflavor',
     'widget_tweaks',
-    'debug_toolbar',
     # apps
     'users',
     'produto',
@@ -71,9 +70,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # DEBUG
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-
 ]
 
 ROOT_URLCONF = 'wayweb.urls'
@@ -165,18 +161,6 @@ LOGIN_REDIRECT_URL = 'index'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_COOKIE_SECURE = False
-
-
-# django-debug
-# =====================================================================
-
-def show_toolbar(request):
-    return True
-
-
-DEBUG_TOOLBAR_CONFIG = {
-    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
-}
 
 import socket  # noqa
 
