@@ -20,6 +20,7 @@ pipeline {
         stage('CodeCoverage') {
             steps {
                 withSonarQubeEnv('SonarQube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
