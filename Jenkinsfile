@@ -20,7 +20,6 @@ pipeline {
         stage('CodeCoverage') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "./gradlew sonarqube"
                 }
             }
         }
