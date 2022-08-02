@@ -5,7 +5,7 @@ node {
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarQube Scanner';
     withSonarQubeEnv(installationName: 'SonarQube') {
-      sh "${scannerHome}/bin/sonar-scanner"
+      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=gerenciadorprojeto-back -Dsonar.host.url=http://127.0.0.1:9000 -Dsonar.login=9e25125cd2c7897ba6ced991e52cc606f90cbe32"
     }
   }
 }
