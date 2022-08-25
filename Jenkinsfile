@@ -1,7 +1,7 @@
 node {
   stage('SCM') {
     checkout scm
-    load '$JENKINS_HOME/Variables.txt'
+    load 'Variables.txt'
     echo '${PROJECT_KEY}'
     echo '${HOST_URL}'
 }
