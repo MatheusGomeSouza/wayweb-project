@@ -1,6 +1,13 @@
 node {
-  stage('SCM') {
-    checkout scm
+  stages{
+    stage('SCM') {
+      steps{
+        checkout scm
+        load 'Variables.txt'
+        echo '${PROJECT_KEY}'
+        echo '${HOST_URL}'
+      }
+    }
   }
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarQube Scanner';
