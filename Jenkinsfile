@@ -17,7 +17,7 @@ node {
     def scannerHome = tool 'SonarQube Scanner';
     withSonarQubeEnv(installationName: 'SonarQube') {
       sh "pwd"
-      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=$PROJECT_KEY -Dsonar.host.url=$HOST_URL -Dsonar.login=$LOGIN"
+      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey={$PROJECT_KEY} -Dsonar.host.url={$HOST_URL} -Dsonar.login={$LOGIN} -Dsonar.exclusions={$EXCLUSIONS}"
     }
   }
 }
