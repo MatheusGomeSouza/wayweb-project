@@ -1,14 +1,10 @@
 node {
-  stages{
-    stage('SCM') {
-      steps{
-        checkout scm
-        load 'Variables.txt'
-        echo '${PROJECT_KEY}'
-        echo '${HOST_URL}'
-      }
-    }
-  }
+  stage('SCM') {
+    checkout scm
+    load 'Variables.txt'
+    echo '${PROJECT_KEY}'
+    echo '${HOST_URL}'
+}
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarQube Scanner';
     withSonarQubeEnv(installationName: 'SonarQube') {
