@@ -1,0 +1,2 @@
+PROJECT_KEY="way-web"
+HOST_URL="http://192.168.56.1:9000"
